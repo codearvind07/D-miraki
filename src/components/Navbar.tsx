@@ -40,7 +40,7 @@ const routeList: RouteProps[] = [
   {
     href: "/blogs",
     label: "Blogs",
-  }
+  },
 ];
 
 export const Navbar = () => {
@@ -68,7 +68,7 @@ export const Navbar = () => {
           <NavigationMenuItem className="font-bold flex">
             <a
               rel="noreferrer noopener"
-              onClick={() => navigate("/")}
+              href="/"
               className="ml-2 font-bold text-xl flex cursor-pointer font-recoleta"
             >
               d'miraki
@@ -91,11 +91,14 @@ export const Navbar = () => {
 
               <SheetContent side={"left"}>
                 <SheetHeader>
-                  <SheetTitle className="font-bold text-xl font-recoleta">d'miraki</SheetTitle>
+                  <SheetTitle className="font-bold text-xl font-recoleta">
+                    d'miraki
+                  </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
                   {routeList.map(({ href, label }: RouteProps) => (
                     <button
+                     
                       key={label}
                       onClick={() => handleNavigation(href)}
                       className={buttonVariants({ variant: "ghost" })}
@@ -103,16 +106,20 @@ export const Navbar = () => {
                       {label}
                     </button>
                   ))}
-                  <a
-                    rel="noreferrer noopener"
-    onClick={() => window.location.href = "https://calendar.app.google/vnpUmUaN2yghqTJT6"} 
+                  <p
+                   style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      window.open(
+                        "https://calendar.app.google/vnpUmUaN2yghqTJT6"
+                      )
+                    }
                     className={`w-[110px] border ${buttonVariants({
                       variant: "ghost",
                     })}`}
                   >
                     <ArrowTopRightIcon className="mr-2 w-5 h-5" />
                     Get in Touch
-                  </a>
+                  </p>
                 </nav>
               </SheetContent>
             </Sheet>
@@ -134,15 +141,18 @@ export const Navbar = () => {
           </nav>
 
           <div className="hidden md:flex gap-2">
-            <a
-              rel="noreferrer noopener"
-    onClick={() => window.location.href = "https://calendar.app.google/vnpUmUaN2yghqTJT6"} 
-
-              className={`border ${buttonVariants({ variant: "ghost" })}`}
+            <p
+             
+              onClick={() =>
+                      window.open(
+                        "https://calendar.app.google/vnpUmUaN2yghqTJT6"
+                      )
+                    }
+              className={`border ${buttonVariants({ variant: "ghost" })} cursor-pointer`}
             >
               <ArrowTopRightIcon className="mr-2 w-5 h-5" />
               Get in Touch
-            </a>
+            </p>
 
             <ModeToggle />
           </div>
