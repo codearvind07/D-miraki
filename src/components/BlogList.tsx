@@ -25,6 +25,7 @@ const BlogList: React.FC<Props> = () => {
     }
     fetchData()
   }, [])
+   if (loading) return <p className="text-center">Loading blogs...</p>
   return (
      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
       {blogs.map((blog) => (
