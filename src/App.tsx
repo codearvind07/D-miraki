@@ -28,6 +28,7 @@ import { TermsAndConditions } from "./pages/terms-and-conditions";
 import { Disclaimer } from "./pages/disclaimer";
 import { PrivacyPolicy } from "./pages/privacy-policy";
 import NotFoundPage from "./pages/NotFoundPage";
+import BlogListAdmin from "./components/BlogListAdmin";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -77,6 +78,8 @@ function App() {
                 <Route path="/brand-and-reach/content-creation" element={<ContentCreation />} />
                 <Route path="/code-and-build/web-design-and-development" element={<WebDesignAndDevelopment />} />
                 <Route path="/brand-and-reach/profitable-performance-marketing" element={<ProfitablePerformanceMarketing />} />
+                <Route path="/admin" element={<BlogListAdmin />} />
+
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
               <Contact />
