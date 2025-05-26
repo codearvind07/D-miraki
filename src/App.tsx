@@ -29,6 +29,8 @@ import { Disclaimer } from "./pages/disclaimer";
 import { PrivacyPolicy } from "./pages/privacy-policy";
 import NotFoundPage from "./pages/NotFoundPage";
 import BlogListAdmin from "./components/BlogListAdmin";
+import LoginForm from "./pages/LoginForm";
+import BlogDetail from "./pages/BlogDetail";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -79,6 +81,10 @@ function App() {
                 <Route path="/code-and-build/web-design-and-development" element={<WebDesignAndDevelopment />} />
                 <Route path="/brand-and-reach/profitable-performance-marketing" element={<ProfitablePerformanceMarketing />} />
                 <Route path="/admin" element={<BlogListAdmin />} />
+                <Route path="/admin-login" element={<LoginForm />} />
+ <Route path="/blogs/:id" element={<BlogDetail />} />
+
+                
 
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>

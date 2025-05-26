@@ -1,115 +1,82 @@
-import { COLLECTION_ID, DATABASE_ID, databases, storage } from '@/appwrite'
+import React, { useState,  ChangeEvent } from 'react'
+
 import { Blog } from '@/types/Blog'
-import { ID } from 'appwrite'
-import React, { useState, useEffect, ChangeEvent } from 'react'
+import { createBlog, uploadImageFile } from '@/api/api'
 
 interface Props {
   onSubmit: (blog: Blog) => void
   editingBlog?: Blog | null
+ 
 }
 
-const BlogForm: React.FC<Props> = ({ editingBlog }) => {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
+const BlogForm: React.FC<Props> = ({ editingBlog, onSubmit }) => {
+  const [title, setTitle] = useState<string>('')
+  const [content, setContent] = useState<string>('')
+  const [excerpt, setExcerpt] = useState<string>('')
+  const [category, setCategory] = useState<string>('')
   const [tags, setTags] = useState<string[]>([])
-  const [technologies, settechnologies] = useState<string[]>([])
-  const [image, setImage] = useState<string | undefined>(undefined)
-  const [relatedImages, setRelatedImages] = useState<string[]>([])
+  const [coverImagePreview, setCoverImagePreview] = useState<string | undefined>(undefined)
+  const [coverImageFile, setCoverImageFile] = useState<File | null>(null)
   const [uploading, setUploading] = useState(false)
-  const [imageFile, setImageFile] = useState<File | null>(null)
-  const [relatedImageFiles, setRelatedImageFiles] = useState<File[]>([])
 
-  useEffect(() => {
-    if (editingBlog) {
-      setTitle(editingBlog.title)
-      setContent(editingBlog.content)
-      setTags(editingBlog.tags || [])
-      settechnologies(editingBlog.technology || [])
-      setImage(editingBlog.image)
-      setRelatedImages(editingBlog.relatedImages || [])
-    } else {
-      resetForm()
-    }
-  }, [editingBlog])
+ 
 
   const resetForm = () => {
     setTitle('')
     setContent('')
+    setExcerpt('')
+    setCategory('')
     setTags([])
-    settechnologies([])
-    setImage(undefined)
-    setRelatedImages([])
-    setImageFile(null)
-    setRelatedImageFiles([])
+    setCoverImagePreview(undefined)
+    setCoverImageFile(null)
   }
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
       const reader = new FileReader()
-      reader.onloadend = () => setImage(reader.result as string)
+      reader.onloadend = () => setCoverImagePreview(reader.result as string)
       reader.readAsDataURL(file)
-      setImageFile(file)
+      setCoverImageFile(file)
     }
   }
-
-  const handleRelatedImagesChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || [])
-    setRelatedImageFiles(files)
-    files.forEach((file) => {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        setRelatedImages((prev) => [...prev, reader.result as string])
-      }
-      reader.readAsDataURL(file)
-    })
-  }
-
-  const removeRelatedImage = (index: number) => {
-    setRelatedImages((prev) => prev.filter((_, i) => i !== index))
-    setRelatedImageFiles((prev) => prev.filter((_, i) => i !== index))
-  }
-
-  const uploadPrimaryImage = async (): Promise<string | undefined> => {
-    if (!imageFile) return undefined
-    const response = await storage.createFile('6831ad5800300cba257e', ID.unique(), imageFile)
-    return response.$id
-  }
-
-  const uploadRelatedImages = async (): Promise<string[]> => {
-    const uploadedIds: string[] = []
-    for (let i = 0; i < relatedImageFiles.length; i++) {
-      const file = relatedImageFiles[i]
-      const response = await storage.createFile('6831ad5800300cba257e', ID.unique(), file)
-      uploadedIds.push(response.$id)
-    }
-    return uploadedIds
-  }
-
+const token:string =  localStorage.getItem("adminToken") || ''
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setUploading(true)
 
     try {
-      const uploadedPrimaryImage = await uploadPrimaryImage()
-      const uploadedRelatedImages = await uploadRelatedImages()
+      let uploadedImageUrl:string = ''
 
-      await databases.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(), {
+     if (coverImageFile) {
+  const formData = new FormData();
+  formData.append('file', coverImageFile); // coverImageFile must be of type File
+
+  uploadedImageUrl = await uploadImageFile(formData, token);
+}
+      const blogData:any = {
         title,
         content,
-        tags,
-        technologies,
-        image: uploadedPrimaryImage,
-        relatedImages: uploadedRelatedImages,
-      })
+        excerpt,
+        category,
+        tags: tags.join(','),
+        coverImage: uploadedImageUrl || '',
+        status: 'published',
+        isPublished: true,
+      }
+
+      const newBlog = await createBlog(blogData, token)
 
       resetForm()
+      onSubmit(newBlog)
     } catch (err) {
       console.error('Error creating blog:', err)
     } finally {
       setUploading(false)
     }
   }
+
+  
 
   return (
     <form
@@ -120,7 +87,6 @@ const BlogForm: React.FC<Props> = ({ editingBlog }) => {
         {editingBlog ? 'Edit Blog' : 'Create New Blog'}
       </h2>
 
-      {/* Title */}
       <div>
         <label className="block mb-1 font-medium">Title</label>
         <input
@@ -132,9 +98,30 @@ const BlogForm: React.FC<Props> = ({ editingBlog }) => {
         />
       </div>
 
-      {/* Content */}
       <div>
-        <label className="block mb-1 font-medium">Description / Content</label>
+        <label className="block mb-1 font-medium">Excerpt</label>
+        <input
+          type="text"
+          value={excerpt}
+          onChange={(e) => setExcerpt(e.target.value)}
+          required
+          className="w-full p-2 rounded border dark:bg-gray-800"
+        />
+      </div>
+
+      <div>
+        <label className="block mb-1 font-medium">Category</label>
+        <input
+          type="text"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+          className="w-full p-2 rounded border dark:bg-gray-800"
+        />
+      </div>
+
+      <div>
+        <label className="block mb-1 font-medium">Content</label>
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
@@ -144,87 +131,35 @@ const BlogForm: React.FC<Props> = ({ editingBlog }) => {
         />
       </div>
 
-      {/* Tags */}
       <div>
         <label className="block mb-1 font-medium">Tags (comma-separated)</label>
         <input
           type="text"
           value={tags.join(', ')}
           onChange={(e) =>
-            setTags(
-              e.target.value.split(',').map((tag) => tag.trim()).filter(Boolean)
-            )
+            setTags(e.target.value.split(',').map((tag) => tag.trim()).filter(Boolean))
           }
           className="w-full p-2 rounded border dark:bg-gray-800"
         />
       </div>
 
-      {/* Technologies */}
       <div>
-        <label className="block mb-1 font-medium">
-          Technologies (comma-separated)
-        </label>
-        <input
-          type="text"
-          value={technologies.join(', ')}
-          onChange={(e) =>
-            settechnologies(
-              e.target.value.split(',').map((tech) => tech.trim()).filter(Boolean)
-            )
-          }
-          className="w-full p-2 rounded border dark:bg-gray-800"
-        />
-      </div>
-
-      {/* Primary Image */}
-      <div>
-        <label className="block mb-1 font-medium">Primary Image</label>
+        <label className="block mb-1 font-medium">Cover Image</label>
         <input
           type="file"
           accept="image/*"
           onChange={handleImageChange}
           className="file-input w-full"
         />
-        {image && (
+        {coverImagePreview && (
           <img
-            src={image}
-            alt="Primary"
+            src={coverImagePreview}
+            alt="Cover"
             className="mt-2 w-32 h-32 object-cover rounded"
           />
         )}
       </div>
 
-      {/* Related Images */}
-      <div>
-        <label className="block mb-1 font-medium">Related Images</label>
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={handleRelatedImagesChange}
-          className="file-input w-full"
-        />
-        <div className="flex flex-wrap gap-2 mt-2">
-          {relatedImages.map((img, index) => (
-            <div key={index} className="relative">
-              <img
-                src={img}
-                alt={`Related ${index}`}
-                className="w-20 h-20 object-cover rounded"
-              />
-              <button
-                type="button"
-                onClick={() => removeRelatedImage(index)}
-                className="absolute top-0 right-0 text-xs bg-red-500 text-white px-1 rounded"
-              >
-                ✕
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Buttons */}
       <div className="flex justify-end gap-4">
         <button
           type="button"
