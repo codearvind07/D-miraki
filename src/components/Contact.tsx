@@ -66,7 +66,7 @@ export const Contact = () => {
                 <span>
                   <PhoneCallIcon width={20} />
                 </span>
-                <span>+91 93545 51409</span>
+                <span>+91 92113 41245</span>
               </li>
             </a>
             <a href="mailto:info@dmiraki.com">
