@@ -25,7 +25,11 @@ import Link from "next/link";
     <section className="container mx-auto px-4 py-20">
       {/* Blog Header */}
       <div className="text-center mb-16 max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold  leading-tight
+        inline bg-gradient-to-r bg-clip-text text-transparent
+              from-[rgb(255,99,71)] via-[rgb(255,165,0)] to-[rgb(0,191,255)]
+              animate-text font-recoleta
+        ">
           Insights & Innovations in Web Development
         </h1>
         <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">

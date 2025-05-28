@@ -83,7 +83,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={cn("min-h-screen w-full font-sans antialiased", inter.variable)}
+        className={cn("min-h-screen w-full font-sans antialiased overflow-x-hidden", inter.variable)}
       >
         <ThemeProvider>
           <ClientQueryProvider>{children}</ClientQueryProvider>

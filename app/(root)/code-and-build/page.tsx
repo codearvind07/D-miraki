@@ -29,11 +29,61 @@ const developmentServices: ServicesProps[] = [
     {
         title: "UI & UX Design",
         description:
-            "UI/UX So Smooth, It Feels Like Magic. Where Clicks Feel Like Butter Pretty is pointless if it's clunky. We design brain-friendly interfaces—easy, addictive, and “Why didn't I think of that?” simple. User rage? Never heard of her.",
+            "UI/UX So Smooth, It Feels Like Magic. Where Clicks Feel Like Butter. Pretty is pointless if it's clunky. We design brain-friendly interfaces—easy, addictive, and “Why didn't I think of that?” simple. User rage? Never heard of her.",
         image: image6 as any,
         readmore: "code-and-build/ui-and-ux-design"
     },
+    {
+        title: "Mobile App Development",
+        description:
+            "iOS, Android, or both? We build apps that don’t crash and do convert. From startup MVPs to enterprise-grade tools, our mobile experiences stay in users' pockets—and minds.",
+        image: image4 as any,
+        readmore: "code-and-build/mobile-app-development"
+    },
+    {
+        title: "Digital Marketing & SEO",
+        description:
+            "Google loves us—and your site will too. From smart SEO that ranks to paid ads that scale, we turn traffic into leads and leads into loyal fans. It’s data-driven magic.",
+        image: image4 as any,
+        readmore: "code-and-build/digital-marketing-and-seo"
+    },
+    {
+        title: "Backend Development",
+        description:
+            "No fluff, just powerful logic. We build rock-solid backends that scale, automate, and never blink. From APIs to architecture, your app’s brain is in expert hands.",
+        image: image3 as any,
+        readmore: "code-and-build/backend-development"
+    },
+    {
+        title: "DevOps & Cloud Infrastructure",
+        description:
+            "Deploy faster, crash never. With CI/CD pipelines, cloud optimization, and container orchestration, we ensure your software performs under pressure—just like us.",
+        image: image4 as any,
+        readmore: "code-and-build/devops-and-cloud-infrastructure"
+    },
+    {
+        title: "E-commerce Solutions",
+        description:
+            "Shopify, WooCommerce, or custom builds—your store, your rules. We turn browsers into buyers with secure, scalable, and sexy shopping experiences.",
+        image: image4 as any,
+        readmore: "code-and-build/ecommerce-solutions"
+    },
+    {
+        title: "Custom Software Development",
+        description:
+            "Your vision, coded to perfection. From internal tools to full-fledged SaaS products, we build exactly what you need—nothing more, nothing less.",
+        image: image4 as any,
+        readmore: "code-and-build/custom-software-development"
+    },
+    {
+        title: "IT Consulting & Strategy",
+        description:
+            "Not sure what to build? We help you figure it out. Our IT strategy sessions turn chaos into clarity and ideas into execution-ready roadmaps.",
+        image: image4 as any,
+        readmore: "code-and-build/it-consulting-and-strategy"
+    }
 ];
+
 
 function CodeAndBuild() {
     const { theme } = useTheme();
