@@ -1,6 +1,5 @@
 
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+"use client"
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
@@ -8,18 +7,26 @@ import { Navbar } from '@/components/landing/navbar';
 import { FooterSection } from '@/components/landing/footer-section';
 import { Contact } from '@/components/landing/Contact';
 import { FAQ } from '@/components/landing/FAQ';
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+import { useEffect, useState } from 'react';
+import Loader from '@/components/Loader';
 
-export const metadata: Metadata = {
-  title: 'DMiraki | Elevate Your Brand with Digital Excellence',
-  description: 'DMiraki is your trusted digital partner for SEO, branding, web design, marketing strategies, and IT solutions. Transform your vision into impact.',
-};
+
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+    const [isLoading, setIsLoading] = useState(true);
+    const [fadeIn, setFadeIn] = useState(false);
+  
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        setTimeout(() => setFadeIn(true), 100); // Slight delay for smooth transition
+      }, 2000); // Loader duration
+      return () => clearTimeout(timer);
+    }, []);
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -29,22 +36,20 @@ export default function RootLayout({
           sizes="any" 
         />
       </head>
-      <body className={cn('min-h-screen w-full font-sans antialiased', inter.variable)}>
-        <ThemeProvider
-         
-        >
-         
-
+      <body className={cn('min-h-screen w-full font-sans antialiased')}>
+         {isLoading ? (
+                <Loader />
+              ) : (
+                <ThemeProvider>
+                  <Navbar />
+                  {children}
+                  <Contact />
+                  <FAQ />
+                  <FooterSection />
         
-              <Navbar />
-          {children}
-           <Contact />
-              <FAQ />
-           <FooterSection />
-        
-          <Toaster />
-           
-        </ThemeProvider>
+                  <Toaster />
+                </ThemeProvider>
+              )}
       </body>
     </html>
   );

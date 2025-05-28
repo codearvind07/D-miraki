@@ -22,21 +22,14 @@ export default function Home() {
   }, []);
   return (
     <>
-    {isLoading ? (
-        <Loader />
-      ) : (
-      <div className={`transition-opacity duration-1000 ease-in-out ${fadeIn ? "opacity-100" : "opacity-0"}`}>
-    
-      <HeroSection />
+     <HeroSection />
        <AboutSection />
         <HowItWorks />
       <Features />
        <Services />
       <CTASection />
       <Testimonials />
-     
-    </div>
-    )}
+   
     </>
   );
 }

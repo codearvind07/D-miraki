@@ -19,7 +19,7 @@ import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Menu } from "lucide-react";
 
 import { useRouter } from "next/navigation";
-import { buttonVariants } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { ModeToggle } from "../mode-toggle";
 // import { LogoIcon } from "./Icons";
 
@@ -64,7 +64,7 @@ export const Navbar = () => {
     }
     setIsOpen(false); // Close the sheet if open
   };
-
+const token: string = typeof window !== 'undefined' ? localStorage.getItem('adminToken') || '' : ''
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur dark:border-b-slate-700">
       <NavigationMenu className=" mx-6 mt-5 w-full">
@@ -122,7 +122,15 @@ export const Navbar = () => {
                     <ArrowTopRightIcon className="mr-2 w-5 h-5" />
                     Get in Touch
                   </p>
+                  {token && (
+                  <Button
+                    onClick={() =>
+                      navigate.push("/dashboard")
+                    }
+                  >Dashboard</Button>
+                )}
                 </nav>
+               
               </SheetContent>
             </Sheet>
           </span>
@@ -153,6 +161,14 @@ export const Navbar = () => {
               <ArrowTopRightIcon className="mr-2 w-5 h-5" />
               Get in Touch
             </p>
+
+             {token && (
+                  <Button
+                    onClick={() =>
+                      navigate.push("/dashboard")
+                    }
+                  >Dashboard</Button>
+                )}
 
             <ModeToggle />
           </div>
