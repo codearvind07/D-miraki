@@ -5,7 +5,7 @@ html {
 }
 ::-webkit-scrollbar {
   width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  background: transparent; 
 }
 ::selection {
   color: black;
