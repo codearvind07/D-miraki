@@ -4,7 +4,7 @@ import { CoursesList } from "@/components/courses/courses-list";
 import { CoursesHeader } from "@/components/courses/courses-header";
 
 export const metadata = {
-  title: "Courses | NextAdmin",
+  title: "Courses | Dmiraki Admin",
   description: "Manage your digital courses",
 };
 

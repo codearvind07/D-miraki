@@ -4,7 +4,7 @@ import { ProjectsList } from "@/components/projects/projects-list";
 import { ProjectsHeader } from "@/components/projects/projects-header";
 
 export const metadata = {
-  title: "Projects | NextAdmin",
+  title: "Projects | Dmiraki Admin",
   description: "Manage your portfolio projects",
 };
 

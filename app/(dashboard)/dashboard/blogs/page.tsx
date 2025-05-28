@@ -4,7 +4,7 @@ import { BlogsList } from "@/components/blogs/blogs-list";
 import { BlogsHeader } from "@/components/blogs/blogs-header";
 
 export const metadata = {
-  title: "Blogs | NextAdmin",
+  title: "Blogs | Dmiraki Admin",
   description: "Manage your blog posts",
 };
 

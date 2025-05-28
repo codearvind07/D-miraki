@@ -3,8 +3,8 @@ import Link from "next/link";
 import { RegisterForm } from "@/components/auth/register-form";
 
 export const metadata: Metadata = {
-  title: "Register | NextAdmin",
-  description: "Create a NextAdmin account",
+  title: "Register | Dmiraki Admin",
+  description: "Create a Dmiraki account",
 };
 
 export default function RegisterPage() {

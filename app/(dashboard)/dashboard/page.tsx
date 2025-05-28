@@ -5,7 +5,7 @@ import { DashboardChart } from "@/components/dashboard/dashboard-chart";
 import { RecentActivity } from "@/components/dashboard/recent-activity";
 
 export const metadata = {
-  title: "Dashboard | NextAdmin",
+  title: "Dashboard | Dmiraki Admin",
   description: "Admin Dashboard Overview",
 };
 

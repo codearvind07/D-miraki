@@ -4,7 +4,7 @@ import { UsersList } from "@/components/users/users-list";
 import { UsersHeader } from "@/components/users/users-header";
 
 export const metadata = {
-  title: "Users | NextAdmin",
+  title: "Users | Dmiraki Admin",
   description: "Manage your users",
 };
 
