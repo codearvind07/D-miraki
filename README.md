@@ -1,3 +1,0 @@
-hello# dmiraki
-# dmiraki
-# dmiraki

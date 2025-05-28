@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --color-1: 221 83% 53%;
+    --color-2: 142 71% 45%;
+    --color-3: 43 96% 56%;
+    --color-4: 262 83% 58%;
+    --color-5: 326 100% 60%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --color-1: 217 91% 60%;
+    --color-2: 142 76% 36%;
+    --color-3: 31 92% 58%;
+    --color-4: 271 91% 65%;
+    --color-5: 336 80% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/Recoleta-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/Recoleta-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/Recoleta-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-color-1 via-color-3 to-color-5 bg-clip-text text-transparent;
+  animation: text 5s ease infinite;
+}
+
+.hero-section {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(var(--color-1), 0.1) 0%,
+    rgba(var(--background), 0.1) 25%,
+    transparent 50%
+  );
+}
+
+/* Custom animations */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+.rainbow-border {
+  --speed: 2s;
+  --border-width: 2px;
+  position: relative;
+  background: hsl(var(--background));
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.rainbow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(
+    from 0deg,
+    hsl(var(--color-1)),
+    hsl(var(--color-2)),
+    hsl(var(--color-3)),
+    hsl(var(--color-4)),
+    hsl(var(--color-5)),
+    hsl(var(--color-1))
+  );
+  background-size: 200% 200%;
+  animation: rainbow var(--speed, 2s) linear infinite;
+  z-index: -1;
+}
+
+.rainbow-border::after {
+  content: "";
+  position: absolute;
+  inset: var(--border-width);
+  background: hsl(var(--background));
+  border-radius: calc(var(--radius) - var(--border-width));
+  z-index: -1;
+}
