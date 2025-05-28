@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-// const baseUrl = "https://dmiraki-backend.onrender.com/api";
-const baseUrl = "http://localhost:5000/api";
+const baseUrl = "https://dmiraki-backend.onrender.com/api";
+// const baseUrl = "http://localhost:5000/api";
 
 
 export const login = async (data: { email: string; password: string }) => {
