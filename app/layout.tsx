@@ -9,7 +9,7 @@ import "./index.css";
 import "./App.css";
 import Script from "next/script";
 import { ToastContainer } from "react-toastify";
-
+import { Analytics } from '@vercel/analytics/next';
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
@@ -89,6 +89,7 @@ export default function RootLayout({
           <ClientQueryProvider>{children}</ClientQueryProvider>
           <Toaster />
           <ToastContainer />
+           <Analytics />
         </ThemeProvider>
 
         {/* Hotjar */}
