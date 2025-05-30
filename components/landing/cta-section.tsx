@@ -27,7 +27,7 @@ export const CTASection = () => {
 
         <div className="space-y-4 lg:col-start-2">
           <Button className="w-full md:mr-4 md:w-auto" 
-            onClick={() => {navigate.push("/contact"); window.scrollTo(0, 0);}}>
+            onClick={() => {navigate.push("/contact-us"); window.scrollTo(0, 0);}}>
             Request a quote
           </Button>
           <Button
