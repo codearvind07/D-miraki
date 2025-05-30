@@ -20,9 +20,8 @@ import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Eye, MessageSquare, ArrowUpDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { formatDate, truncate } from "@/lib/utils";
-import { useState } from "react";
+import { useMemo, useEffect, useState } from "react";
 
-// Define a type for better clarity and safety
 type Contact = {
   _id: string;
   firstName: string;
@@ -42,19 +41,26 @@ type TransformedContact = {
   date: string;
 };
 
-export function ContactsList({ initialContacts }: { initialContacts?: Contact[] }) {
-  const transformedContacts: TransformedContact[] = Array.isArray(initialContacts)
-    ? initialContacts.map((contact) => ({
-        id: contact._id,
-        name: `${contact.firstName} ${contact.lastName}`,
-        email: contact.email,
-        subject: contact.subject,
-        status: contact.status,
-        date: contact.createdAt,
-      }))
-    : [];
+export function ContactsList({ initialContacts, isLoading }: { initialContacts?: Contact[], isLoading: boolean }) {
+  const transformedContacts = useMemo((): TransformedContact[] => {
+    if (!Array.isArray(initialContacts)) return [];
+    return initialContacts.map((contact) => ({
+      id: contact._id,
+      name: `${contact.firstName} ${contact.lastName}`,
+      email: contact.email,
+      subject: contact.subject,
+      status: contact.status,
+      date: contact.createdAt,
+    }));
+  }, [initialContacts]);
 
-  const [contacts, setContacts] = useState(transformedContacts);
+  const [contacts, setContacts] = useState<TransformedContact[]>([]);
+
+  // Sync state with transformed contacts on load or update
+  useEffect(() => {
+    setContacts(transformedContacts);
+  }, [transformedContacts]);
+
   const [sortConfig, setSortConfig] = useState<{
     key: keyof TransformedContact;
     direction: "ascending" | "descending";
@@ -63,12 +69,8 @@ export function ContactsList({ initialContacts }: { initialContacts?: Contact[] 
   const sortedContacts = [...contacts];
   if (sortConfig !== null) {
     sortedContacts.sort((a, b) => {
-      if (a[sortConfig.key] < b[sortConfig.key]) {
-        return sortConfig.direction === "ascending" ? -1 : 1;
-      }
-      if (a[sortConfig.key] > b[sortConfig.key]) {
-        return sortConfig.direction === "ascending" ? 1 : -1;
-      }
+      if (a[sortConfig.key] < b[sortConfig.key]) return sortConfig.direction === "ascending" ? -1 : 1;
+      if (a[sortConfig.key] > b[sortConfig.key]) return sortConfig.direction === "ascending" ? 1 : -1;
       return 0;
     });
   }
@@ -83,14 +85,10 @@ export function ContactsList({ initialContacts }: { initialContacts?: Contact[] 
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "new":
-        return "default";
-      case "in-progress":
-        return "secondary";
-      case "resolved":
-        return "outline";
-      default:
-        return "default";
+      case "new": return "default";
+      case "in-progress": return "secondary";
+      case "resolved": return "outline";
+      default: return "default";
     }
   };
 
@@ -101,20 +99,17 @@ export function ContactsList({ initialContacts }: { initialContacts?: Contact[] 
           <TableRow>
             <TableHead className="w-[250px]">
               <Button variant="ghost" onClick={() => requestSort("name")}>
-                Name
-                <ArrowUpDown className="ml-2 h-4 w-4" />
+                Name <ArrowUpDown className="ml-2 h-4 w-4" />
               </Button>
             </TableHead>
             <TableHead className="hidden md:table-cell">
               <Button variant="ghost" onClick={() => requestSort("subject")}>
-                Subject
-                <ArrowUpDown className="ml-2 h-4 w-4" />
+                Subject <ArrowUpDown className="ml-2 h-4 w-4" />
               </Button>
             </TableHead>
             <TableHead className="hidden lg:table-cell">
               <Button variant="ghost" onClick={() => requestSort("date")}>
-                Date
-                <ArrowUpDown className="ml-2 h-4 w-4" />
+                Date <ArrowUpDown className="ml-2 h-4 w-4" />
               </Button>
             </TableHead>
             <TableHead>Status</TableHead>
@@ -169,7 +164,7 @@ export function ContactsList({ initialContacts }: { initialContacts?: Contact[] 
           ) : (
             <TableRow>
               <TableCell colSpan={5} className="h-24 text-center">
-                No contacts found.
+                {isLoading ? "Loading..." : "No contacts found."}
               </TableCell>
             </TableRow>
           )}

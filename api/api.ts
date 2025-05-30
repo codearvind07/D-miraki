@@ -97,3 +97,42 @@ export const useContactList = (token: string | null) => {
     enabled: !!token, // Only runs query if token is not null or empty
   });
 };
+
+export const createProject = async (projectData:{
+   title: string;
+  description: string;
+  shortDescription: string;
+  category: string;
+  coverImage: any;
+
+},
+token:string
+)=> {
+  const res:any = await axios.post(`${baseUrl}/projects/createProjects`, projectData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  
+
+  return res.data;
+};
+
+
+export const getProjectsList = async (token: string) => {
+  const res = await axios.get(`${baseUrl}/projects/getProjectsList`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return res.data;
+};
+
+export const useProjectList = (token: string | null) => {
+  return useQuery({
+    queryKey: ['projects'],
+    queryFn: () => getProjectsList(token as string),
+    enabled: !!token, // Only runs query if token is not null or empty
+  });
+};

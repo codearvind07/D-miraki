@@ -37,7 +37,7 @@ export const Contact = () => {
       })
     },
     onError: (err: any) => {
-      alert(err.response?.data?.message || 'Something went wrong!');
+      toast.error(err.response?.data?.message || 'Something went wrong!');
     },
   });
 

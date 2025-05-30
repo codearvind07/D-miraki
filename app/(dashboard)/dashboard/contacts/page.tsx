@@ -18,7 +18,7 @@ export default function ContactsPage() {
     }
   }, []);
 
-  const { data } = useContactList(token || "");
+  const { data ,isLoading} = useContactList(token || "");
  
 
   return (
@@ -28,7 +28,7 @@ export default function ContactsPage() {
         text="Manage and respond to contact form submissions."
       />
       <ContactsHeader />
-      <ContactsList initialContacts={data?.contacts} />
+      <ContactsList initialContacts={data?.contacts} isLoading={isLoading} />
     </DashboardShell>
   );
 }
