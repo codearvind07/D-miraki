@@ -33,7 +33,7 @@ export const CTASection = () => {
           <Button
             variant="secondary"
             className="w-full md:w-auto"
-            onClick={() => {navigate.push("/services"); window.scrollTo(0, 0);}}
+            onClick={() => {navigate.push("/code-and-build"); window.scrollTo(0, 0);}}
           >
             View all services
           </Button>
