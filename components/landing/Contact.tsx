@@ -6,15 +6,20 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useMutation } from "react-query";
 import { submitContact } from "@/api/api";
+import { usePathname } from "next/navigation";
 
 export const Contact = () => {
+  const pathname = usePathname();
+
+  const isContactPage = pathname === "/contact-us";
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
     subject: "",
-    message:""
+    message: ""
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -22,19 +27,18 @@ export const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-
-   const { mutate, isLoading, isSuccess, error } = useMutation({
+  const { mutate, isLoading, isSuccess, error } = useMutation({
     mutationFn: submitContact,
     onSuccess: (data) => {
       toast.success(data.message);
       setFormData({
-         firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message:""
-      })
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      });
     },
     onError: (err: any) => {
       toast.error(err.response?.data?.message || 'Something went wrong!');
@@ -62,12 +66,12 @@ export const Contact = () => {
             Have big ideas but unsure where to begin? Let's talk and find the perfect solution for your business.
           </p>
           <ul>
-            <a href="tel:+919354551409">
+            <a href={`tel:${isContactPage ? '+919538948885' : '+919211341245'}`}>
               <li className="flex my-2 flex-row gap-4">
                 <span>
                   <PhoneCallIcon width={20} />
                 </span>
-                <span>+91 92113 41245</span>
+                <span>{isContactPage ? '+91 95389 48885' : '+91 92113 41245'}</span>
               </li>
             </a>
             <a href="mailto:info@dmiraki.com">
@@ -82,7 +86,11 @@ export const Contact = () => {
               <span>
                 <MapPin width={20} />
               </span>
-              <span>Noida, India</span>
+              <span>
+                {isContactPage
+                  ? 'B405, Celebrity Square apartment, Sarjapura Attibele Road, Bangalore -562017'
+                  : 'Noida, India'}
+              </span>
             </li>
           </ul>
         </div>
@@ -131,26 +139,26 @@ export const Contact = () => {
             />
           </div>
 
-           <Input
-              placeholder="Enter subject"
-              className="bg-muted/50 dark:bg-muted/80 rounded-none "
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              aria-label="last-name"
-            />
+          <Input
+            placeholder="Enter subject"
+            className="bg-muted/50 dark:bg-muted/80 rounded-none "
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            aria-label="subject"
+          />
 
           <textarea
             placeholder="Short description of the project"
             required
-            className="flex w-full  px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-muted/50 dark:bg-muted/80 rounded-none resize-none"
+            className="flex w-full px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-muted/50 dark:bg-muted/80 rounded-none resize-none"
             rows={4}
             name="message"
             value={formData.message}
             onChange={handleChange}
             aria-label="projectdescription"
           />
-          <Button>Send</Button>
+          <Button>{isLoading ? "Sending..." : "Send"}</Button>
         </form>
         <ToastContainer />
       </div>
