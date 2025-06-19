@@ -78,7 +78,7 @@ import Link from "next/link";
                   {post.title}
                 </h2>
                 {/* <p className="text-gray-700 dark:text-gray-300 line-clamp-3">{post.content}</p> */}
-                <Link href={`/blogs/blogs-details?id=${post._id}`}>
+                <Link href={`/blogs/${post?._id}`}>
                   <button className="mt-4 inline-flex items-center px-4 py-2 text-sm font-semibold rounded-full bg-pink-500 text-white hover:bg-pink-600 transition">
                     Read More →
                   </button>

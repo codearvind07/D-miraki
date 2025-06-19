@@ -1,31 +1,55 @@
-"use client";
+"use client"
+import React from 'react'
 import { useBlogsById } from "@/api/api";
 import { format } from "date-fns";
-import { useSearchParams } from "next/navigation";
-import Head from "next/head";
 
-const BlogDetail = () => {
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id") || "";
 
-  const { data, isLoading, error } = useBlogsById(id);
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  try {
+    const {data:blog} =  useBlogsById(params.id);
 
-  if (error)
+    return {
+      title: blog.title,
+      description: blog.excerpt || "Read this amazing blog article.",
+      openGraph: {
+        title: blog.title,
+        description: blog.excerpt,
+        images: [
+          {
+            url: blog.coverImage,
+            width: 800,
+            height: 600,
+            alt: blog.title,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: blog.title,
+        description: blog.excerpt,
+        images: [blog.coverImage],
+      },
+    };
+  } catch (error) {
+    return {
+      title: "Blog Not Found",
+      description: "This blog post does not exist or failed to load.",
+    };
+  }
+}
+
+export default function BlogDetails({id}:{id:string}) {
+    const { data, isLoading, error } = useBlogsById(id);
+
+     if (error)
     return (
       <div className="text-red-500 text-center py-10">Failed to load blog.</div>
     );
-
   return (
     <>
-      {/* Meta tags for SEO */}
-      {!isLoading && data && (
-        <Head>
-          <title>{data.metaTitle}</title>
-          <meta name="description" content={data.metaDescription} />
-        </Head>
-      )}
+     
 
-      <section className="container mx-auto px-4 py-20 max-w-4xl">
+      <section className="container mx-auto px-4 py-20 w-full">
         {/* Cover Image */}
         <div className="mb-6">
           {isLoading ? (
@@ -34,7 +58,7 @@ const BlogDetail = () => {
             <img
               src={data?.coverImage}
               alt={data?.title}
-              className="w-full h-96 object-cover rounded-xl"
+              className="w-full   rounded-xl"
             />
           )}
         </div>
@@ -115,7 +139,5 @@ const BlogDetail = () => {
         )}
       </section>
     </>
-  );
-};
-
-export default BlogDetail;
+  )
+}

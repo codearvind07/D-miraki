@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
-const baseUrl="https://dmiraki-backend-production.up.railway.app/api"
-// const baseUrl = "https://dmiraki-backend.onrender.com/api";
-// const baseUrl = "http://localhost:5000/api";
+export const baseUrl="https://dmiraki-backend-production.up.railway.app/api"
+//export const baseUrl = "https://dmiraki-backend.onrender.com/api";
+// export const baseUrl = "http://localhost:5000/api";
 
 
 export const login = async (data: { email: string; password: string }) => {
@@ -49,9 +49,9 @@ export const getBlogs = async () => {
   const res = await axios.get(`${baseUrl}/blogs/getBlogs`,);
   return res.data;
 };
-export const getBlogsById = async (id:string) => {
-  const res = await axios.get(`${baseUrl}/blogs/getBlogs?${id}`,);
-  return res.data.blogs[0];
+export const getBlogsById = async (id: string) => {
+  const res = await axios.get(`${baseUrl}/blogs/getBlogs/${id}`);
+  return res.data;
 };
 export const useBlogs = () => {
   return useQuery({
