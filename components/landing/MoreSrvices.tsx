@@ -17,7 +17,7 @@ export default function MoreSrvices() {
     {
       id: 2,
       title: "White Label Marketing Services", 
-      description: "Cater 360 marketing services to your clients via our best-in-class white label services, be it white label SEO & guest posting, white label PPC, or white label web development. We got it all!",
+      description: "Dmiraki marketing services to your clients via our best-in-class white label services, be it white label SEO & guest posting, white label PPC, or white label web development. We got it all!",
       image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
       bgColor: "bg-amber-500",
       textColor: "text-slate-900",
