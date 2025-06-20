@@ -1,19 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export',
   eslint: {
     ignoreDuringBuilds: true,
   },
-   experimental: {
-    serverActions: true,
+
+  experimental: {
+    serverActions: true, // if you're actually using server actions
   },
-  // distDir: 'dist',
-  images: { unoptimized: true },
+
+  images: {
+    unoptimized: true, // Good for self-hosted or non-Vercel deployment
+  },
+
+  reactStrictMode: true, // Recommended for catching issues early
+  swcMinify: true, // Enable SWC-based minification for performance
 };
 
 module.exports = nextConfig;
-
-
-
-
-
