@@ -8,6 +8,7 @@ import Loader from '@/components/Loader';
 import { AboutSection } from '@/components/landing/About';
 import { HowItWorks } from '@/components/landing/HowItWorks';
 import { Services } from '@/components/landing/Services';
+import MoreSrvices from '@/components/landing/MoreSrvices';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +27,7 @@ export default function Home() {
        <AboutSection />
         <HowItWorks />
       <Features />
+      <MoreSrvices/>
        <Services />
       <CTASection />
       <Testimonials />
