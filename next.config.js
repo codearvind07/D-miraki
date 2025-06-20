@@ -4,6 +4,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+   experimental: {
+    serverActions: true,
+  },
   // distDir: 'dist',
   images: { unoptimized: true },
 };
