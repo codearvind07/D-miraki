@@ -45,6 +45,17 @@ export default function MoreSrvices() {
 
   return (
     <div className="min-h-screen py-8">
+       <div className="flex-col justify-center items-center gap-2 flex pb-14">
+  <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r bg-clip-text text-transparent
+        from-primary/60 to-primary
+        animate-text">
+    Ignite Your Business with Creative Tech!
+  </h2>
+  <p className="text-[#B3B3B3] text-sm text-center">
+    Explore our innovative solutions tailored to elevate your brand.
+  </p>
+</div>
+
       <div className="container mx-auto space-y-8">
         {services.map((service, index) => (
           <Card 
