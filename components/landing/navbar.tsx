@@ -21,6 +21,7 @@ import { Menu } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Button, buttonVariants } from "../ui/button";
 import { ModeToggle } from "../mode-toggle";
+import Link from "next/link";
 // import { LogoIcon } from "./Icons";
 
 interface RouteProps {
@@ -70,13 +71,13 @@ const token: string = typeof window !== 'undefined' ? localStorage.getItem('admi
       <NavigationMenu className=" mx-6 mt-5 w-full">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
           <NavigationMenuItem className="font-bold flex">
-            <a
+            <Link
               rel="noreferrer noopener"
               href="/"
               className="ml-2 font-bold text-xl flex cursor-pointer font-recoleta"
             >
-              d'miraki
-            </a>
+              {`d'miraki`}
+            </Link>
           </NavigationMenuItem>
 
           {/* mobile */}

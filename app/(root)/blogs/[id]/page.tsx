@@ -1,24 +1,20 @@
 
-// import { baseUrl } from "@/api/api";
 import BlogDetails from "@/components/BlogDetails";
 import { Metadata } from "next";
-export const baseUrl="https://dmiraki-backend-production.up.railway.app/api"
-// export const baseUrl = "http://localhost:5000/api";
-type BlogDetailProps = {
-  params: { id: string };
-};
 
-export async function generateMetadata(
-  { params }: BlogDetailProps
-): Promise<Metadata> {
+const baseUrl = "https://dmiraki-backend-production.up.railway.app/api";
+
+
+
+export async function generateMetadata({
+  params,
+}: {params:Promise<{id:string}>}): Promise<Metadata> {
   try {
-    
-
-     const res:any = await fetch(`${baseUrl}/blogs/getBlogs/${params.id}`, {
-      cache: "no-store", 
+     const {id} = await params;
+    const res = await fetch(`${baseUrl}/blogs/getBlogs/${id}`, {
+      cache: "no-store",
     });
     const blog = await res.json();
-
 
     return {
       title: blog.metaTitle || "Blog Details",
@@ -26,7 +22,7 @@ export async function generateMetadata(
       openGraph: {
         title: blog.metaTitle,
         description: blog.metaDescription,
-        images: blog.image
+        images: blog.coverImage
           ? [
               {
                 url: blog.coverImage,
@@ -47,18 +43,8 @@ export async function generateMetadata(
   }
 }
 
-export default async function BlogDetail({
-  params,
-}: BlogDetailProps) {
-  const { id } = await params;
+export default async function BlogDetail({ params }:{params:Promise<{id:string}>} ) {
+  const { id } =await params;
 
-  
-
-  return <>
-  
- 
-  <BlogDetails id={id} />
-  
-  
-  </>;
+  return <BlogDetails id={id} />;
 }

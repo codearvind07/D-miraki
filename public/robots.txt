@@ -1,4 +1,9 @@
+# *
 User-agent: *
-Disallow:
+Allow: /
 
+# Host
+Host: https://dmiraki.com/
+
+# Sitemaps
 Sitemap: https://dmiraki.com/sitemap.xml

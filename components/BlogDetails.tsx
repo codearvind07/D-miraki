@@ -2,6 +2,7 @@
 import React from 'react'
 import { useBlogsById } from "@/api/api";
 import { format } from "date-fns";
+import Image from 'next/image';
 
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
