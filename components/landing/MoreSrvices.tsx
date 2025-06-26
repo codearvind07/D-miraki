@@ -60,7 +60,7 @@ export default function MoreSrvices() {
         {services.map((service, index) => (
           <Card 
             key={service.id}
-            className={`${service.bgColor} ${service.textColor} overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1`}
+            className={`  overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1`}
           >
             <div className={`flex flex-col lg:flex-row ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[400px]`}>
               {/* Image Section */}
@@ -81,13 +81,7 @@ export default function MoreSrvices() {
                 <p className="text-base lg:text-lg mb-8 leading-relaxed opacity-90">
                   {service.description}
                 </p>
-                {/* <div className="flex">
-                  <Button 
-                    className={`${service.buttonStyle} px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg`}
-                  >
-                    Learn More
-                  </Button>
-                </div> */}
+                
               </div>
             </div>
           </Card>
