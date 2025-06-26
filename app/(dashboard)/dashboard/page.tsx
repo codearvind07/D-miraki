@@ -1,15 +1,27 @@
+"use client"
 import { DashboardHeader } from "@/components/dashboard/dashboard-header";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { DashboardCards } from "@/components/dashboard/dashboard-cards";
 import { DashboardChart } from "@/components/dashboard/dashboard-chart";
 import { RecentActivity } from "@/components/dashboard/recent-activity";
+import { useEffect } from "react";
+import { isTokenExpired } from "@/utils";
+import { redirect } from "next/navigation";
 
-export const metadata = {
-  title: "Dashboard | Dmiraki Admin",
-  description: "Admin Dashboard Overview",
-};
+
 
 export default function DashboardPage() {
+
+  useEffect(() => {
+     const token: string = typeof window !== 'undefined' ? localStorage.getItem('adminToken') || '' : ''
+     if(isTokenExpired(token)){
+redirect("/")
+     }
+
+   
+  }, [])
+  
+
   return (
     <DashboardShell>
       <DashboardHeader

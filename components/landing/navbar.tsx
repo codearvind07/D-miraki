@@ -22,6 +22,7 @@ import { useRouter } from "next/navigation";
 import { Button, buttonVariants } from "../ui/button";
 import { ModeToggle } from "../mode-toggle";
 import Link from "next/link";
+import { isTokenExpired } from "@/utils";
 // import { LogoIcon } from "./Icons";
 
 interface RouteProps {
@@ -51,6 +52,7 @@ const routeList: RouteProps[] = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useRouter(); // Hook for programmatic navigation
+
 
   const handleNavigation = (path: string) => {
     if (path.startsWith("#")) {
@@ -123,13 +125,18 @@ const token: string = typeof window !== 'undefined' ? localStorage.getItem('admi
                     <ArrowTopRightIcon className="mr-2 w-5 h-5" />
                     Get in Touch
                   </p>
-                  {token && (
+                  {!token || isTokenExpired(token) ? "":(
+                    <>
+                    {token && (
                   <Button
                     onClick={() =>
                       navigate.push("/dashboard")
                     }
                   >Dashboard</Button>
                 )}
+                    </>
+                  )}
+                  
                 </nav>
                
               </SheetContent>

@@ -10,6 +10,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import ClientQueryProvider from "../client-query-provider";
 
+
 export default function DashboardLayout({
   children,
 }: {
@@ -50,4 +51,5 @@ export default function DashboardLayout({
       </ThemeProvider>
     </div>
   );
+  
 }
