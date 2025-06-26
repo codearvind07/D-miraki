@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 export const baseUrl="https://dmiraki-backend-production.up.railway.app/api"
-//export const baseUrl = "https://dmiraki-backend.onrender.com/api";
+export const baseUrlImage = "https://dmiraki-backend.onrender.com/api";
 // export const baseUrl = "http://localhost:5000/api";
 
 
@@ -36,7 +36,7 @@ export const createBlog = async (
 
 
 export const uploadImageFile = async (formData: FormData, token: string) => {
-  const res = await axios.post(`${baseUrl}/upload/uploadFile`, formData, {
+  const res = await axios.post(`${baseUrlImage}/upload/uploadFile`, formData, {
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'multipart/form-data',
