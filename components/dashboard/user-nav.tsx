@@ -22,7 +22,11 @@ export function UserNav() {
   
   const handleLogout = () => {
     // In a real app, this would call a logout function
-    router.push("/login");
+   
+    if(typeof window !=="undefined"){
+      localStorage.removeItem("adminToken")
+    }
+     router.push("/login");
   };
 
   return (
