@@ -85,12 +85,27 @@ export const Contact = () => {
             <li className="flex my-2 flex-row gap-4">
               <span>
                 <MapPin width={20} />
+                </span>
+              {
+                isContactPage ? 
+                <>
+
+<span>
+                 B405, Celebrity Square apartment, Sarjapura Attibele Road, Bangalore -562017
+                  
               </span>
-              <span>
-                {isContactPage
-                  ? 'B405, Celebrity Square apartment, Sarjapura Attibele Road, Bangalore -562017'
-                  : 'Noida, India'}
+                  <span>
+                B-103, Sector-2 Noida-201301, India
               </span>
+                  
+                </>
+                
+                :
+                <span>
+                B-103, Sector-2 Noida-201301, India
+              </span>
+              }
+              
             </li>
           </ul>
         </div>
