@@ -65,15 +65,44 @@ export const Contact = () => {
           <p className="text-base text-muted-foreground text-start mt-4 mb-8">
             Have big ideas but unsure where to begin? Let's talk and find the perfect solution for your business.
           </p>
-          <ul>
-            <a href={`tel:${isContactPage ? '+919538948885' : '+919211341245'}`}>
+          <ul> 
+            {
+
+              isContactPage ? 
+              <>
+                
+                <a href={`tel:+919538948885`}>
               <li className="flex my-2 flex-row gap-4">
                 <span>
                   <PhoneCallIcon width={20} />
                 </span>
-                <span>{isContactPage ? '+91 95389 48885' : '+91 92113 41245'}</span>
+                <span>+91 95389 48885</span>
               </li>
             </a>
+                <a href={`tel:+919211341245`}>
+              <li className="flex my-2 flex-row gap-4">
+                <span>
+                  <PhoneCallIcon width={20} />
+                </span>
+                <span>+91 92113 41245</span>
+              </li>
+            </a>
+              </>
+
+              :
+              
+<a href={`tel:+919211341245`}>
+              <li className="flex my-2 flex-row gap-4">
+                <span>
+                  <PhoneCallIcon width={20} />
+                </span>
+                <span>+91 92113 41245</span>
+              </li>
+            </a>
+
+              
+            }
+            
             <a href="mailto:info@dmiraki.com">
               <li className="flex my-2 flex-row gap-4">
                 <span>
@@ -94,6 +123,7 @@ export const Contact = () => {
                  B405, Celebrity Square apartment, Sarjapura Attibele Road, Bangalore -562017
                   
               </span>
+                  <br/>
                   <span>
                 B-103, Sector-2 Noida-201301, India
               </span>
