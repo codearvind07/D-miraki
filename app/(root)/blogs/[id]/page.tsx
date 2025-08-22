@@ -16,22 +16,33 @@ export async function generateMetadata({
     });
     const blog = await res.json();
 
+    const canonical = `https://dmiraki.com/blogs/${id}`;
+
     return {
-      title: blog.metaTitle || "Blog Details",
-      description: blog.metaDescription || "Read more about this blog.",
+      title: blog.metaTitle || blog.title || "Blog Details",
+      description: blog.metaDescription || blog.excerpt || "Read more about this blog.",
+      alternates: { canonical },
       openGraph: {
-        title: blog.metaTitle,
-        description: blog.metaDescription,
+        title: blog.metaTitle || blog.title,
+        description: blog.metaDescription || blog.excerpt,
+        url: canonical,
+        type: 'article',
         images: blog.coverImage
           ? [
               {
                 url: blog.coverImage,
-                width: 800,
-                height: 600,
+                width: 1200,
+                height: 630,
                 alt: blog.title,
               },
             ]
           : [],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: blog.metaTitle || blog.title,
+        description: blog.metaDescription || blog.excerpt,
+        images: blog.coverImage ? [blog.coverImage] : [],
       },
     };
   } catch (error) {
@@ -45,6 +56,23 @@ export async function generateMetadata({
 
 export default async function BlogDetail({ params }:{params:Promise<{id:string}>} ) {
   const { id } =await params;
-
-  return <BlogDetails id={id} />;
+  return <>
+    {/* Article JSON-LD for rich results */}
+    <script
+      type="application/ld+json"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "",
+        "author": { "@type": "Organization", "name": "DMiraki" },
+        "publisher": { "@type": "Organization", "name": "DMiraki" },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://dmiraki.com/blogs/${id}`
+        }
+      }) }}
+    />
+    <BlogDetails id={id} />
+  </>;
 }

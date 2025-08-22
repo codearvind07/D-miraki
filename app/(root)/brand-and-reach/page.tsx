@@ -1,8 +1,6 @@
 "use client"
 import {
-    // Card,
     CardContent,
-    // CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
@@ -22,30 +20,30 @@ const marketingServices: ServicesProps[] = [
     {
         title: "Social Media Marketing & Management",
         description:
-            "Go Viral, Not Quiet. Forget posting into the void. We brew scroll-stopping strategies—grow your tribe, ignite chats, and turn likes into loyal fans. Let's make your brand the main character online.",
+            "Build Communities That Convert Into Customers. Transform your social presence into a powerful revenue engine with our comprehensive social media strategies.",
         image: image1 as any,
         readmore: "brand-and-reach/social-media-marketing-and-management"
     },
     {
-        title: "Branding & Designing",
-        description:
-            "Your Brand's First Impression, Every Time. Logos? Basic. We craft unforgettable vibes—colors, fonts, and stories that scream, “Yeah, we're THAT good.” Launch or glow up, but never blend in.",
-        image: image2 as any,
-        readmore: "brand-and-reach/branding-and-designing"
-    },
-    {
         title: "Profitable Performance Marketing",
         description:
-            "Ads That Work Harder, Cost Less. Stop guessing what works. We optimize campaigns across mobile, desktop, and social to squeeze every dollar for maximum ROI. Your growth isn't random—it's engineered.",
+            "Data-Driven Campaigns That Maximize ROI. Scale your business with targeted advertising campaigns that deliver measurable results and consistent growth.",
         image: image as any,
         readmore: "brand-and-reach/profitable-performance-marketing"
     },
     {
-        title: "Content Creation",
+        title: "Content Creation & Strategy",
         description:
-            "Content That's Share-Worthy, Not Shelf-Worthy. Stop Scrolling, Start Engaging Generic posts? Yawn. We spin stories so good, your audience will DM, tag, and save-for-later. Words + visuals = your brand's new hype squad.",
+            "Compelling Content That Drives Engagement: Establish thought leadership and drive conversions with strategic content that resonates with your ideal customers.",
         image: image5 as any,
         readmore: "brand-and-reach/content-creation"
+    },
+    {
+        title: "Search Engine Optimization",
+        description:
+            "Organic Visibility That Builds Long-Term Value. Dominate search results and attract high-intent prospects with our proven SEO methodologies.",
+        image: image2 as any,
+        readmore: "brand-and-reach/branding-and-designing"
     },
 ];
 
@@ -75,7 +73,10 @@ function BrandAndReach() {
                         </h1>
                     </main>
                     <p className="md:text-xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
-                        We create digital experiences that captivate and convert—from high-performance websites and stunning visuals to data-driven marketing and seamless IT solutions. Whether it's SEO that ranks, ads that sell, or branding that sticks, we turn ideas into impact. Your brand's next big leap starts with strategy, creativity, and flawless execution. Let's build something extraordinary, together.
+                        Strategic Digital Marketing That Amplifies Your Impact. Build Brand Authority While Driving Measurable Growth.
+                    </p>
+                    <p className="md:text-lg text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
+                        In today's competitive digital landscape, reaching your target audience isn't enough – you need to engage, convert, and retain them. Our Brand & Reach solutions combine strategic thinking with tactical execution to build your brand authority while delivering consistent lead generation and revenue growth.
                     </p>
                 </div>
                 <div className="z-10">
@@ -83,24 +84,71 @@ function BrandAndReach() {
                 </div>
                 <div className="shadow"></div>
             </section>
-            <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {marketingServices.map(({ title, description, readmore }: ServicesProps) => (
-                    <MagicCard key={title} className="hover:scale-95 transition-all rounded-none" gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}>
-                        <CardHeader>
-                            <CardTitle>{title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>{description}</CardContent>
-                        <CardContent>
-                            <div className="gap-2">
-                                <a rel="noreferrer noopener" href={readmore} className={`pl-0 ${buttonVariants({ variant: "link" })}`}>
-                                    <ArrowTopRightIcon className="mr-2 w-5 h-5" />
-                                    Read more
-                                </a>
-                            </div>
-                        </CardContent>
-                    </MagicCard>
-                ))}
-            </div>
+            
+            <section className="space-y-8">
+                <div className="text-center">
+                    <h2 className="text-3xl font-bold">Our Strategic Marketing Services</h2>
+                </div>
+                <div className="relative grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {marketingServices.map(({ title, description, readmore }: ServicesProps) => (
+                        <MagicCard key={title} className="hover:scale-95 transition-all rounded-none" gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}>
+                            <CardHeader>
+                                <CardTitle>{title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>{description}</CardContent>
+                            <CardContent>
+                                <div className="gap-2">
+                                    <a rel="noreferrer noopener" href={readmore} className={`pl-0 ${buttonVariants({ variant: "link" })}`}>
+                                        <ArrowTopRightIcon className="mr-2 w-5 h-5" />
+                                        Read more
+                                    </a>
+                                </div>
+                            </CardContent>
+                        </MagicCard>
+                    ))}
+                </div>
+            </section>
+            
+            <section className="py-12 space-y-8">
+                <div className="text-center">
+                    <h2 className="text-3xl font-bold">Why Our Marketing Approach Works</h2>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="space-y-4 p-6 border rounded-lg">
+                        <h3 className="text-xl font-semibold">Strategic Foundation</h3>
+                        <p className="text-muted-foreground">
+                            First, we start by understanding your business goals, target audience, and competitive landscape to create campaigns that align with your objectives.
+                        </p>
+                    </div>
+                    <div className="space-y-4 p-6 border rounded-lg">
+                        <h3 className="text-xl font-semibold">Multi-Channel Integration</h3>
+                        <p className="text-muted-foreground">
+                            Our campaigns work seamlessly across all digital channels, creating a cohesive brand experience that reinforces your message.
+                        </p>
+                    </div>
+                    <div className="space-y-4 p-6 border rounded-lg">
+                        <h3 className="text-xl font-semibold">Continuous Optimization</h3>
+                        <p className="text-muted-foreground">
+                            We constantly test, measure, and refine your campaigns to ensure maximum performance and ROI.
+                        </p>
+                    </div>
+                    <div className="space-y-4 p-6 border rounded-lg">
+                        <h3 className="text-xl font-semibold">Transparent Reporting</h3>
+                        <p className="text-muted-foreground">
+                            Get detailed insights into campaign performance with our comprehensive analytics and regular strategy reviews.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <section className="text-center py-12">
+                <a href="/contact" className={`${buttonVariants({ variant: "default", size: "lg" })} mr-4`}>
+                    Explore Specific Services
+                </a>
+                <a href="/audit" className={`${buttonVariants({ variant: "outline", size: "lg" })}`}>
+                    Get Your Marketing Audit
+                </a>
+            </section>
         </section>
     );
 }

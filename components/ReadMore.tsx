@@ -2,7 +2,7 @@
 import { MagicCard } from "./ui/magic-card";
 import { useTheme } from "./theme-provider";
 import { CardDescription, CardHeader, CardTitle } from "./ui/card";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface ServiceProps {
   title: string;
@@ -16,10 +16,10 @@ interface ReadMoreProps {
   subtitle: string;
   description: string;
   services: ServiceProps[];
-  imageSrc: string;
+  imageSrc: StaticImageData | string;
   sectionTitle: string;
   sectionSubtitle: string;
-  sectionImageSrc: string;
+  sectionImageSrc: StaticImageData | string;
 }
 
 const ReadMore = ({
@@ -55,8 +55,11 @@ const ReadMore = ({
 
         <Image
           src={imageSrc}
-          alt="Main section image"
+          alt={`${mainTitle} ${subtitle} illustration`}
           className="w-[500px] object-contain rounded-lg animate-floating"
+          width={(imageSrc as StaticImageData)?.width ?? 800}
+          height={(imageSrc as StaticImageData)?.height ?? 600}
+          priority
         />
         <div className="shadow md:mr-[500px]"></div>
         <MagicCard
@@ -66,12 +69,12 @@ const ReadMore = ({
           <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
             <div className="flex flex-col justify-between">
               <div className="pb-6">
-                <h2 className="text-4xl font-bold">
+                <h1 className="text-4xl font-bold">
                   {mainTitle}{" "}
                   <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
                     {subtitle}
                   </span>
-                </h2>
+                </h1>
                 <p className="text-base text-muted-foreground mt-4">
                   {description}
                 </p>
@@ -114,7 +117,9 @@ const ReadMore = ({
           <Image
             src={sectionImageSrc}
             className="w-[300px] md:w-[500px] lg:w-[600px] object-contain"
-            alt="About services"
+            alt={`${sectionTitle} ${sectionSubtitle} illustration`}
+            width={(sectionImageSrc as StaticImageData)?.width ?? 800}
+            height={(sectionImageSrc as StaticImageData)?.height ?? 600}
           />
         </div>
         <div className="shadow"></div>
