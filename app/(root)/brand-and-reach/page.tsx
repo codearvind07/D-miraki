@@ -1,9 +1,5 @@
 "use client"
-import {
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
+import {CardContent,CardHeader,CardTitle,} from "@/components/ui/card";
 import image from "../../../assets/growth.png";
 import image1 from "../../../assets/reflecting.png";
 import image2 from "../../../assets/looking-ahead.png";
