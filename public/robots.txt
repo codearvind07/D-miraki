@@ -2,8 +2,16 @@
 User-agent: *
 Allow: /
 
+# *
+User-agent: *
+Disallow: /dashboard
+Disallow: /dashboard/**
+Disallow: /api/*
+Disallow: /register
+
 # Host
-Host: https://dmiraki.com/
+Host: https://dmiraki.com
 
 # Sitemaps
 Sitemap: https://dmiraki.com/sitemap.xml
+Sitemap: https://dmiraki.com/sitemap-0.xml

@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export', // Enable static HTML export
+  distDir: 'out', // Output directory for static files
+  trailingSlash: true, // Add trailing slashes to URLs for better compatibility
   eslint: {
     ignoreDuringBuilds: true,
-  },
-
-  experimental: {
-    serverActions: true, // if you're actually using server actions
   },
 
   images: {
@@ -13,7 +12,12 @@ const nextConfig = {
   },
 
   reactStrictMode: true, // Recommended for catching issues early
-  swcMinify: true, // Enable SWC-based minification for performance
+  
+  // Add basePath configuration for static export
+  basePath: '',
+  
+  // Ensure proper asset handling for static export
+  assetPrefix: '',
 };
 
 module.exports = nextConfig;

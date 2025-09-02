@@ -1,8 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { PlusCircle } from "lucide-react";
-import Link from "next/link";
+import { FileText } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
@@ -17,12 +16,12 @@ export function BlogsHeader() {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <Button asChild>
-        <Link href="/dashboard/blogs/new">
-          <PlusCircle className="mr-2 h-4 w-4" />
-          New Blog
-        </Link>
-      </Button>
+      <div className="flex items-center gap-2">
+        <FileText className="h-4 w-4" />
+        <span className="text-sm text-muted-foreground">
+          To add/edit blogs, update data/blogs.ts
+        </span>
+      </div>
     </div>
   );
 }

@@ -13,50 +13,51 @@ import { buttonVariants } from "@/components/ui/button";
 import { ChartIcon, WalletIcon, MagnifierIcon } from "@/components/Icons";
 
 // Assets
-import roboto from "../../../../assets/roboto.png";
-import cubeLeg from "../../../../assets/cube-leg.png";
+import image3 from "../../../../assets/plantsback.png";
+import image4 from "../../../../assets/sitting.png";
+import image6 from "../../../../assets/experiments.png";
 
-const contentCreationServices = [
+const iotServices = [
     {
-        title: "Compelling Copywriting",
+        title: "IoT Device Development",
         description:
-            "Crafting powerful and engaging narratives that resonate with your audience, enhancing brand awareness, loyalty, and advocacy.",
+            "Custom IoT device development from concept to production. We design and build connected devices that collect, transmit, and act on data to create intelligent systems.",
         icon: <ChartIcon />,
     },
     {
-        title: "Visual Storytelling",
+        title: "IoT Platform Integration",
         description:
-            "From professional photography to creative visuals, we bring your brand's story to life with captivating content that leaves a lasting impression.",
+            "Seamless integration of IoT devices with cloud platforms and existing systems. We ensure secure data flow and real-time monitoring capabilities.",
         icon: <WalletIcon />,
     },
     {
-        title: "Dynamic Video Content",
+        title: "Smart Solutions for Organizations",
         description:
-            "We produce engaging video content tailored for social platforms and campaigns, ensuring your message is delivered effectively and memorably.",
+            "End-to-end IoT solutions tailored for B2B and organizational needs. From industrial automation to smart building management, we create impactful connected systems.",
         icon: <MagnifierIcon />,
     },
 ];
 
-const contentApproach = [
+const iotApproach = [
   {
-    title: "Strategic Content Planning",
-    description: "We develop comprehensive content strategies aligned with your business goals and audience needs for maximum impact.",
+    title: "Connected Intelligence",
+    description: "We design IoT systems that transform raw data into actionable insights, enabling smarter decision-making and automated processes.",
   },
   {
-    title: "Multi-Format Creation",
-    description: "From written content to visuals and videos, we create diverse content formats that engage users across all touchpoints.",
+    title: "Security-First Architecture",
+    description: "Every IoT solution is built with robust security protocols to protect data integrity and ensure device authentication.",
   },
   {
-    title: "Brand Story Development",
-    description: "We craft compelling brand narratives that build emotional connections and establish trust with your target audience.",
+    title: "Scalable Infrastructure",
+    description: "Our IoT platforms are designed to scale with your business needs, supporting thousands of devices and real-time data processing.",
   },
   {
-    title: "Performance Optimization",
-    description: "Every piece of content is optimized for engagement, conversion, and search visibility to maximize business results.",
+    title: "Seamless Integration",
+    description: "We ensure smooth integration with existing systems and workflows, minimizing disruption while maximizing IoT benefits.",
   },
 ];
 
-function ContentCreation() {
+function IotBasedSoftware() {
   const { theme } = useTheme();
   const sectionRefs = useRef<HTMLElement[]>([]);
 
@@ -80,11 +81,11 @@ function ContentCreation() {
     <>
       <Head>
         <title>
-          Content Creation | Strategic Content Development by DMiraki
+          IoT-Based Software | Connected Solutions by DMiraki
         </title>
         <meta
           name="description"
-          content="Strategic content creation services that build brand stories. From copywriting to visual storytelling and video content, we create engaging narratives that drive results."
+          content="Professional IoT-based software development services. Create connected systems that transform data into actionable insights for your organization."
         />
       </Head>
 
@@ -108,27 +109,27 @@ function ContentCreation() {
               <span>/</span>
               <Link href="/code-and-build" className="hover:text-gray-900 dark:hover:text-white">Code & Build</Link>
               <span>/</span>
-              <span className="text-gray-900 dark:text-white">Content Creation</span>
+              <span className="text-gray-900 dark:text-white">IoT-Based Software</span>
             </nav>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              Content{" "}
+              IoT-Based{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Creation
+                Software
               </span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Strategic Content That Builds Brand Authority. Engaging Storytelling That Drives Meaningful Connections.
+              Connected Solutions That Transform Data Into Action. Intelligent Systems for the Modern Organization.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-200">
-              We create unique, engaging content that builds brand awareness, loyalty, and advocacy. From copywriting and photography to social and video, we believe great storytelling starts with great content that resonates with your audience.
+              We specialize in creating IoT-based software solutions that connect devices, collect valuable data, and enable intelligent automation. Our connected systems help organizations optimize operations, reduce costs, and gain competitive advantages through smart technology.
             </p>
           </div>
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl blur-xl opacity-20 animate-pulse"></div>
             <div className="relative rounded-2xl overflow-hidden transform hover:scale-105 transition-transform duration-700">
               <Image
-                src={roboto}
-                alt="Content Creation Hero"
+                src={image3}
+                alt="IoT-Based Software Hero Image"
                 className="w-full max-w-md mx-auto relative rounded-lg shadow-2xl"
                 priority
               />
@@ -145,15 +146,15 @@ function ContentCreation() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Building Brand Stories
+              IoT Development Services
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Comprehensive content solutions that enhance audience connections through thoughtful storytelling and strategic messaging.
+              Comprehensive IoT solutions designed to connect your devices and transform data into actionable insights.
             </p>
           </div>
 
           <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-            {contentCreationServices.map(({ title, description, icon }) => (
+            {iotServices.map(({ title, description, icon }) => (
               <MagicCard
                 key={title}
                 className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
@@ -182,15 +183,15 @@ function ContentCreation() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Why Our Content Approach Works
+              Why Our IoT Approach Works
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Strategic planning foundation, multi-format expertise, and performance optimization for maximum engagement and brand impact.
+              Connected intelligence, security-first foundation, and scalable architecture for maximum impact.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contentApproach.map(({ title, description }) => (
+            {iotApproach.map(({ title, description }) => (
               <div
                 key={title}
                 className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
@@ -202,45 +203,6 @@ function ContentCreation() {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA SECTION */}
-      <section
-        ref={addToRefs}
-        className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0"
-      >
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl blur-xl opacity-20 animate-pulse"></div>
-            <div className="relative rounded-2xl overflow-hidden transform hover:scale-105 transition-transform duration-700">
-              <Image
-                src={cubeLeg}
-                alt="Professional Content Creation"
-                className="w-full max-w-md mx-auto relative rounded-lg shadow-2xl"
-              />
-            </div>
-          </div>
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Ready to Build Your{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Brand Story?
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Let's create content that not only engages your audience but builds lasting relationships and drives real business growth. From strategy to execution, we'll tell your story.
-            </p>
-            <Link
-              href="/contact"
-              className={`inline-flex items-center ${buttonVariants({
-                size: "lg",
-              })} bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700`}
-            >
-              Start Your Content Strategy
-              <ArrowTopRightIcon className="ml-2 w-5 h-5" />
-            </Link>
           </div>
         </div>
       </section>
@@ -262,4 +224,4 @@ function ContentCreation() {
   );
 }
 
-export default ContentCreation;
+export default IotBasedSoftware;

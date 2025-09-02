@@ -55,6 +55,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover' as const,
+  themeColor: '#ffffff',
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -64,34 +72,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-       <title>DMiraki | Elevate Your Brand with Digital Excellence</title>
-       <meta name="description" content="DMiraki is your trusted digital partner for SEO, branding, web design, marketing strategies, and IT solutions. Transform your vision into impact." />
-        <meta name="keywords" content="DMiraki , dmiraki,DMIRAKI, digital marketing, Web Development, App Development, Digital Transformation, branding,SEO,web design,IT solutions,social media marketing,PPC" />
-        <meta name="author" content="DMiraki" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="robots" content="index, follow" />
-         <link rel="canonical" href="https://dmiraki.com" />
-
-
- <meta property="og:title" content="DMiraki - Elevate Your Brand with Digital Excellence" />
-        <meta property="og:description" content="We specialize in Digital Marketing, Web Development, and App development, transforming businesses digitally." />
-        <meta property="og:image" content="https://dmiraki.com/og-image.jpg" />
-        <meta property="og:image:alt" content="DMiraki - Blockchain, Web3, and App Development Experts" />
-        <meta property="og:url" content="https://dmiraki.com" />
-        <meta property="og:type" content="website" />
-
-
-         {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="DMiraki - Blockchain, Web3 & App Development" />
-        <meta name="twitter:description" content="We specialize in Digital Marketing, Web Development, and App development, transforming businesses digitally." />
-        <meta name="twitter:image" content="https://dmiraki.com/twitter-image.jpg" />
-
-        {/* Alternate Language Versions */}
-        <link rel="alternate" href="https://dmiraki.com" hrefLang="x-default" />
-        <link rel="alternate" href="https://dmiraki.com/en/" hrefLang="en" />
-        <link rel="alternate" href="https://dmiraki.com/es/" hrefLang="es" />
-
         {/* Schema.org JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -146,6 +126,9 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','${GTM_ID}');
           `,
         }} />
+        <link rel="preload" href="/fonts/Recoleta-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Recoleta-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Recoleta-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body
         className={cn("min-h-screen w-full font-sans antialiased overflow-x-hidden", inter.variable)}
