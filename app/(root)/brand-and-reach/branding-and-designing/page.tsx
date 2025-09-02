@@ -238,7 +238,10 @@ export default function UiUxDesignPage() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("animate-fade-in")),
+      (entries) =>
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("animate-fade-in");
+        }),
       { threshold: 0.1 }
     );
     sectionRefs.current.forEach((r) => r && observer.observe(r));
@@ -252,7 +255,9 @@ export default function UiUxDesignPage() {
   return (
     <>
       <Head>
-        <title>UI/UX Design Services | User Experience Design by DMiraki</title>
+        <title>
+          UI/UX Design Services | User Experience Design by DMiraki
+        </title>
         <meta
           name="description"
           content="Professional UI/UX design services by DMiraki. Create intuitive user experiences and beautiful interfaces that convert visitors into customers."
@@ -266,6 +271,9 @@ export default function UiUxDesignPage() {
         <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob"></div>
       </div>
 
+      <section className="container pb-24 space-y-12">
+
+
       {/* Hero */}
       <section
         ref={addToRefs}
@@ -274,14 +282,14 @@ export default function UiUxDesignPage() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-              <span>Code & Build</span>
+              <span>Brand & Reach</span>
               <span>/</span>
-              <span className="text-gray-900 dark:text-white">UI & UX Design</span>
+              <span className="text-gray-900 dark:text-white">Branding & Designing</span>
             </nav>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              UI & UX Design{" "}
+              Branding &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Services
+                Designing Services
               </span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300">
@@ -315,8 +323,11 @@ export default function UiUxDesignPage() {
         </div>
       </section>
 
-      {/* Services Grid (UI/UX services) */}
-      <section ref={addToRefs} className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0">
+      {/* Services Grid */}
+      <section
+        ref={addToRefs}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our UI/UX Design Services</h2>
@@ -329,7 +340,7 @@ export default function UiUxDesignPage() {
             {services.map((s, i) => (
               <div
                 key={i}
-                className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="w-14 h-14 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-blue-600 dark:text-blue-400">
                   {s.icon}
@@ -342,10 +353,11 @@ export default function UiUxDesignPage() {
         </div>
       </section>
 
-      
-
       {/* Design Specializations */}
-      <section ref={addToRefs} className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0">
+      <section
+        ref={addToRefs}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-gradient-to-br from-blue-50/80 via-white to-purple-50/80 dark:from-gray-900 dark:via-gray-950 dark:to-blue-900/40 transition-opacity duration-1000 opacity-0"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Design Specializations</h2>
@@ -374,7 +386,7 @@ export default function UiUxDesignPage() {
       {/* Design Process */}
       <section
         ref={addToRefs}
-        className="py-16 lg:py-24 px-4 lg:px-8 bg-gradient-to-br from-blue-50/80 via-white to-purple-50/80 dark:from-gray-900 dark:via-gray-950 dark:to-blue-900/40 transition-opacity duration-1000 opacity-0"
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -402,7 +414,10 @@ export default function UiUxDesignPage() {
       </section>
 
       {/* Key Design Principles */}
-      <section ref={addToRefs} className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0">
+      <section
+        ref={addToRefs}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-gradient-to-br from-blue-50/80 via-white to-purple-50/80 dark:from-gray-900 dark:via-gray-950 dark:to-blue-900/40 transition-opacity duration-1000 opacity-0"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Key Design Principles We Follow</h2>
@@ -411,30 +426,33 @@ export default function UiUxDesignPage() {
             </p>
           </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {principles.map((p, i) => (
-            <div
-              key={i}
-              className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-            >
-              <div className="w-16 h-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 mb-6"></div>
-              <h3 className="text-xl font-semibold mb-4">{p.header}</h3>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-200">
-                {p.points.map((pt, j) => (
-                  <li key={j} className="flex items-start gap-2">
-                    <span className="mt-1 inline-block w-2 h-2 rounded-full bg-blue-500"></span>
-                    <span>{pt}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {principles.map((p, i) => (
+              <div
+                key={i}
+                className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="w-16 h-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 mb-6"></div>
+                <h3 className="text-xl font-semibold mb-4">{p.header}</h3>
+                <ul className="space-y-2 text-gray-700 dark:text-gray-200">
+                  {p.points.map((pt, j) => (
+                    <li key={j} className="flex items-start gap-2">
+                      <span className="mt-1 inline-block w-2 h-2 rounded-full bg-blue-500"></span>
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Tools and Systems */}
-      <section ref={addToRefs} className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0">
+      <section
+        ref={addToRefs}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Technologies & Tools We Use</h2>
@@ -449,6 +467,7 @@ export default function UiUxDesignPage() {
                 key={i}
                 className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
+                <div className="w-16 h-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 mb-6"></div>
                 <h3 className="text-xl font-semibold mb-4">{t.title}</h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-200">
                   {t.items.map((item, j) => (
@@ -494,8 +513,11 @@ export default function UiUxDesignPage() {
         </div>
       </section>
 
-      {/* Results You Can Expect */}
-      <section ref={addToRefs} className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0">
+      {/* Results */}
+      <section
+        ref={addToRefs}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0"
+      >
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Results You Can Expect</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
@@ -521,8 +543,6 @@ export default function UiUxDesignPage() {
         </div>
       </section>
 
-      
-
       <style jsx>{`
         @keyframes blob {
           0% { transform: translate(0px, 0px) scale(1); }
@@ -535,6 +555,7 @@ export default function UiUxDesignPage() {
         .animation-delay-4000 { animation-delay: 4s; }
         .animate-fade-in { opacity: 1 !important; }
       `}</style>
+      </section>
     </>
   );
 }

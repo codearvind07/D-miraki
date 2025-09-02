@@ -3,11 +3,13 @@ import { DashboardHeader } from "@/components/dashboard/dashboard-header";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { ContactsList } from "@/components/contacts/contacts-list";
 import { ContactsHeader } from "@/components/contacts/contacts-header";
-import { useContactList } from "@/api/api";
+
 import { useEffect, useState } from "react";
 
 export default function ContactsPage() {
   const [token, setToken] = useState<string | null>(null);
+  const [data, setData] = useState<{ contacts: any[] } | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -18,8 +20,21 @@ export default function ContactsPage() {
     }
   }, []);
 
-  const { data ,isLoading} = useContactList(token || "");
- 
+  useEffect(() => {
+    async function fetchContacts() {
+      setIsLoading(true);
+      // Replace with your actual API endpoint
+      const response = await fetch("/api/contacts", {
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+      });
+      const result = await response.json();
+      setData({ contacts: result.contacts || [] });
+      setIsLoading(false);
+    }
+    if (token) {
+      fetchContacts();
+    }
+  }, [token]);
 
   return (
     <DashboardShell>

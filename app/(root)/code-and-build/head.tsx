@@ -1,7 +1,7 @@
 export default function Head() {
-  const title = "Code & Build Services | Web Design, Development, UI/UX | DMiraki";
+  const title = "Web Development & Design Services | Code & Build Solutions by DMiraki";
   const description =
-    "End-to-end web design, development, and UI/UX services by DMiraki to build fast, scalable, and delightful digital products.";
+    "Custom web development, UI/UX design, and technical solutions by DMiraki. Build high-performance websites that convert visitors into customers.";
   const url = "https://dmiraki.com/code-and-build";
   const image = "https://dmiraki.com/assets/og-image.jpg";
 
@@ -9,6 +9,7 @@ export default function Head() {
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content="web development, UI/UX design, custom websites, e-commerce solutions, technical optimization, DMiraki" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />

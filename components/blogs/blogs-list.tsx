@@ -21,7 +21,7 @@ import { MoreHorizontal, Eye, Edit, Trash, ArrowUpDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { formatDate, truncate } from "@/lib/utils";
 import { useState, useEffect } from "react";
-import { useBlogs } from "@/api/api";
+import { getAllBlogs } from "@/data/blogs";
 
 type Blog = {
   _id: string;
@@ -36,41 +36,38 @@ type Blog = {
 };
 
 export function BlogsList() {
-  const { data, isLoading, error } = useBlogs();
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const blogs = getAllBlogs();
+  const [sortedBlogs, setSortedBlogs] = useState(blogs);
   const [sortConfig, setSortConfig] = useState<{
     key: keyof Blog;
     direction: "ascending" | "descending";
   } | null>(null);
 
+  const isLoading = false;
+  const error = null;
+
   useEffect(() => {
-    if (data?.blogs) {
-      setBlogs(data.blogs);
-    }
-  }, [data]);
+    setSortedBlogs(blogs);
+  }, [blogs]);
 
-  const sortedBlogs = [...blogs];
-  if (sortConfig !== null) {
-    sortedBlogs.sort((a, b) => {
-      const aValue:any = a[sortConfig.key];
-      const bValue:any = b[sortConfig.key];
-
-      if (aValue < bValue) return sortConfig.direction === "ascending" ? -1 : 1;
-      if (aValue > bValue) return sortConfig.direction === "ascending" ? 1 : -1;
-      return 0;
-    });
-  }
-
-  const requestSort = (key: keyof Blog) => {
+  const handleSort = (key: keyof Blog) => {
     let direction: "ascending" | "descending" = "ascending";
     if (sortConfig?.key === key && sortConfig.direction === "ascending") {
       direction = "descending";
     }
     setSortConfig({ key, direction });
-  };
 
-  const handleDelete = (id: string) => {
-    setBlogs(blogs.filter((blog) => blog._id !== id));
+    const sorted = [...blogs];
+    sorted.sort((a: any, b: any) => {
+      const aValue = a[key];
+      const bValue = b[key];
+      if (direction === "ascending") {
+        return aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
+      } else {
+        return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
+      }
+    });
+    setSortedBlogs(sorted);
   };
 
   return (
@@ -79,13 +76,13 @@ export function BlogsList() {
         <TableHeader>
           <TableRow>
             <TableHead className="w-[300px]">
-              <Button variant="ghost" onClick={() => requestSort("title")}>
+              <Button variant="ghost" onClick={() => handleSort("title")}>
                 Title
                 <ArrowUpDown className="ml-2 h-4 w-4" />
               </Button>
             </TableHead>
             <TableHead className="hidden md:table-cell">
-              <Button variant="ghost" onClick={() => requestSort("publishedAt")}>
+              <Button variant="ghost" onClick={() => handleSort("publishedAt")}>
                 Date
                 <ArrowUpDown className="ml-2 h-4 w-4" />
               </Button>
@@ -137,11 +134,11 @@ export function BlogsList() {
                       </DropdownMenuItem>
                       <DropdownMenuItem>
                         <Edit className="mr-2 h-4 w-4" />
-                        <span>Edit</span>
+                        <span>Edit (Manual Update Required)</span>
                       </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => handleDelete(blog._id)}>
+                      <DropdownMenuItem disabled>
                         <Trash className="mr-2 h-4 w-4" />
-                        <span>Delete</span>
+                        <span>Delete (Manual Update Required)</span>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>

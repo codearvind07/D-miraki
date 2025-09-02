@@ -1,8 +1,27 @@
 
 import BlogDetails from "@/components/BlogDetails";
 import { Metadata } from "next";
+import { getAllBlogIds, getBlogById } from "@/data/blogs";
 
-const baseUrl = "https://dmiraki-backend-production.up.railway.app/api";
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  try {
+    const blogIds = getAllBlogIds();
+    
+    // Return array of {id} objects for each blog
+    return blogIds.map((id) => ({
+      id: id.toString(),
+    }));
+  } catch (error) {
+    console.error("Failed to generate static params for blogs:", error);
+    // Return some default blog IDs as fallback for static generation
+    return [
+      { id: "1" },
+      { id: "2" },
+      { id: "3" },
+    ];
+  }
+}
 
 
 
@@ -11,10 +30,14 @@ export async function generateMetadata({
 }: {params:Promise<{id:string}>}): Promise<Metadata> {
   try {
      const {id} = await params;
-    const res = await fetch(`${baseUrl}/blogs/getBlogs/${id}`, {
-      cache: "no-store",
-    });
-    const blog = await res.json();
+    const blog = getBlogById(id);
+
+    if (!blog) {
+      return {
+        title: "Blog not found",
+        description: "The requested blog could not be found.",
+      };
+    }
 
     const canonical = `https://dmiraki.com/blogs/${id}`;
 

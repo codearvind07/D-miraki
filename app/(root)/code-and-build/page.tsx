@@ -1,241 +1,235 @@
 "use client";
 
-import {
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
 
-import image3 from "../../../assets/plantsback.png";
-import image4 from "../../../assets/sitting.png";
-import image6 from "../../../assets/experiments.png";
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MagicCard } from "@/components/ui/magic-card";
 import { useTheme } from "@/components/theme-provider";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
-
-import { ServicesProps } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import Image from "next/image";
+import { ServicesProps } from "@/lib/utils";
+
+// Assets
+import image3 from "../../../assets/plantsback.png";
+import image4 from "../../../assets/sitting.png";
+import image6 from "../../../assets/experiments.png";
 
 const developmentServices: ServicesProps[] = [
   {
     title: "Web Design & Development",
     description:
-      "Websites That Work While You Sleep, Your 24/7 Sales Team. Boring sites belong in 2012. We build B2B rocketships—slick, speedy, and begging for clicks. More enquiries? That's just Tuesday for us.",
+      "Custom websites that convert. Built for performance, optimized for conversions, and designed to scale with your business growth. Your website becomes your most powerful sales tool.",
     image: image4 as any,
-    readmore: "code-and-build/web-design-and-development",
+    readmore: "/code-and-build/web-design-and-development",
   },
   {
     title: "UI & UX Design",
     description:
-      "UI/UX So Smooth, It Feels Like Magic. Where Clicks Feel Like Butter. Pretty is pointless if it's clunky. We design brain-friendly interfaces—easy, addictive, and “Why didn't I think of that?” simple. User rage? Never heard of her.",
+      "User experiences that drive results. Intuitive interfaces that guide users toward conversion while building trust and credibility. Every click counts, every interaction matters.",
     image: image6 as any,
-    readmore: "code-and-build/ui-and-ux-design",
+    readmore: "/code-and-build/ui-and-ux-design",
   },
   {
-    title: "Mobile App Development",
+    title: "Content Creation",
     description:
-      "iOS, Android, or both? We build apps that don’t crash and do convert. From startup MVPs to enterprise-grade tools, our mobile experiences stay in users' pockets—and minds.",
-    image: image4 as any,
-    readmore: "code-and-build/mobile-app-development",
-  },
-  {
-    title: "Digital Marketing & SEO",
-    description:
-      "Google loves us—and your site will too. From smart SEO that ranks to paid ads that scale, we turn traffic into leads and leads into loyal fans. It’s data-driven magic.",
-    image: image4 as any,
-    readmore: "code-and-build/digital-marketing-and-seo",
-  },
-  {
-    title: "Backend Development",
-    description:
-      "No fluff, just powerful logic. We build rock-solid backends that scale, automate, and never blink. From APIs to architecture, your app’s brain is in expert hands.",
+      "Compelling content that drives engagement. Strategic storytelling that builds brand authority and connects with your audience to drive meaningful business results.",
     image: image3 as any,
-    readmore: "code-and-build/backend-development",
+    readmore: "/code-and-build/content-creation",
   },
   {
-    title: "DevOps & Cloud Infrastructure",
+    title: "IoT-Based Software",
     description:
-      "Deploy faster, crash never. With CI/CD pipelines, cloud optimization, and container orchestration, we ensure your software performs under pressure—just like us.",
+      "Connected solutions that transform data into actionable insights. Intelligent systems for the modern organization that optimize operations and reduce costs.",
     image: image4 as any,
-    readmore: "code-and-build/devops-and-cloud-infrastructure",
+    readmore: "/code-and-build/iot-based-software",
+  },
+];
+
+const developmentPhilosophy = [
+  {
+    title: "Performance-First Approach",
+    description: "Every line of code is optimized for speed, security, and scalability to ensure your website performs at its peak.",
   },
   {
-    title: "E-commerce Solutions",
-    description:
-      "Shopify, WooCommerce, or custom builds—your store, your rules. We turn browsers into buyers with secure, scalable, and sexy shopping experiences.",
-    image: image4 as any,
-    readmore: "code-and-build/ecommerce-solutions",
+    title: "Mobile-First Design",
+    description: "With mobile traffic dominating, we ensure your website delivers exceptional experiences across all devices.",
   },
   {
-    title: "Custom Software Development",
-    description:
-      "Your vision, coded to perfection. From internal tools to full-fledged SaaS products, we build exactly what you need—nothing more, nothing less.",
-    image: image4 as any,
-    readmore: "code-and-build/custom-software-development",
+    title: "Conversion-Focused Architecture",
+    description: "Our websites are strategically designed to guide visitors through your sales funnel and maximize conversions.",
   },
   {
-    title: "IT Consulting & Strategy",
-    description:
-      "Not sure what to build? We help you figure it out. Our IT strategy sessions turn chaos into clarity and ideas into execution-ready roadmaps.",
-    image: image4 as any,
-    readmore: "code-and-build/it-consulting-and-strategy",
+    title: "Future-Proof Technology",
+    description: "We use cutting-edge, scalable technologies that grow with your business and adapt to changing needs.",
   },
 ];
 
 function CodeAndBuild() {
   const { theme } = useTheme();
+  const sectionRefs = useRef<HTMLElement[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("animate-fade-in");
+        }),
+      { threshold: 0.1 }
+    );
+    sectionRefs.current.forEach((r) => r && observer.observe(r));
+    return () => sectionRefs.current.forEach((r) => r && observer.unobserve(r));
+  }, []);
+
+  const addToRefs = (el: HTMLElement | null) => {
+    if (el && !sectionRefs.current.includes(el)) sectionRefs.current.push(el);
+  };
 
   return (
-    <section className="container pb-24 space-y-12">
-      {/* Hero */}
-      <section className="relative grid lg:grid-cols-2 place-items-center gap-10">
-        <div className="text-center lg:text-start space-y-6">
-          <div className="hidden sm:block">
-            <nav
-              aria-label="Breadcrumb"
-              className="absolute top-8 left-6 flex flex-wrap items-center gap-1 p-1"
-            >
-              <a
-                href="/"
-                className="inline-flex items-center gap-1.5 text-sm text-stone-800 dark:text-white transition-colors duration-300 ease-in hover:text-primary dark:hover:text-primary"
-              >
-                <svg
-                  width="1.5em"
-                  height="1.5em"
-                  strokeWidth="1.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  color="currentColor"
-                  className="h-[18px] w-[18px]"
-                >
-                  <path
-                    d="M17 21H7C4.79086 21 3 19.2091 3 17V10.7076C3 9.30887 3.73061 8.01175 4.92679 7.28679L9.92679 4.25649C11.2011 3.48421 12.7989 3.48421 14.0732 4.25649L19.0732 7.28679C20.2694 8.01175 21 9.30887 21 10.7076V17C21 19.2091 19.2091 21 17 21Z"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M9 17H15"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-              <span className="inline-block mx-1 text-sm select-none pointer-events-none opacity-50 text-stone-800 dark:text-white">
-                /
-              </span>
-              <a
-                href="/code-and-build"
-                className="inline-flex items-center gap-1.5 text-sm text-stone-800 dark:text-white transition-colors duration-300 ease-in hover:text-primary dark:hover:text-primary"
-              >
-                Code & Build
-              </a>
-            </nav>
-          </div>
+    <>
+      <Head>
+        <title>
+          Code & Build Services | Web Development & Design Solutions by DMiraki
+        </title>
+        <meta
+          name="description"
+          content="Custom web development, UI/UX design, and technical solutions by DMiraki. Build high-performance websites that convert visitors into customers."
+        />
+      </Head>
 
-          <header className="text-4xl md:text-6xl font-bold">
-            <h1 className="inline">
-              <span className="inline bg-gradient-to-r bg-clip-text text-transparent from-[#47a3f3] via-purple-500 to-[#47a3f3] animate-text">
-                Code & Build
+      {/* Animated background blobs */}
+      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob"></div>
+      </div>
+
+      <section className="container pb-24 space-y-12">
+      {/* HERO */}
+      <section
+        ref={addToRefs}
+        className="relative py-16 lg:py-24 px-4 lg:px-8 bg-gradient-to-br from-blue-50/50 via-white to-purple-50/50 dark:from-gray-900 dark:via-gray-950 dark:to-blue-900/20 transition-opacity duration-1000 opacity-0"
+      >
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+              <span>Home</span>
+              <span>/</span>
+              <span className="text-gray-900 dark:text-white">Code & Build</span>
+            </nav>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              Code &{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                Build
               </span>
             </h1>
-          </header>
-
-          <p className="md:text-xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
-            We create digital experiences that captivate and convert—from
-            high-performance websites and stunning visuals to data-driven
-            marketing and seamless IT solutions. Whether it's SEO that ranks,
-            ads that sell, or branding that sticks, we turn ideas into impact.
-            Your brand's next big leap starts with strategy, creativity, and
-            flawless execution. Let's build something extraordinary, together.
-          </p>
-
-          {/* Optional: primary CTA cluster */}
-          <div className="flex gap-3 justify-center lg:justify-start">
-            <a
-              href="/contact"
-              className={buttonVariants({
-                variant: "default",
-                className:
-                  "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white",
-              })}
-            >
-              Start a Project
-            </a>
-            <a
-              href="/work"
-              className={buttonVariants({
-                variant: "outline",
-                className:
-                  "border-blue-200 dark:border-blue-800 hover:bg-blue-50/50 dark:hover:bg-blue-900/20",
-              })}
-            >
-              View Work
-            </a>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Technical Excellence That Powers Business Growth. Where Beautiful Design Meets Flawless Functionality.
+            </p>
+            <p className="text-lg text-gray-700 dark:text-gray-200">
+              Your website is often the first impression potential customers have of your business. Our Code & Build solutions ensure that impression is powerful, professional, and profitable. We create digital experiences that not only look exceptional but perform flawlessly across all devices and drive measurable business results.
+            </p>
+          </div>
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl blur-xl opacity-20 animate-pulse"></div>
+            <div className="relative rounded-2xl overflow-hidden transform hover:scale-105 transition-transform duration-700">
+              <Image
+                src={image3}
+                alt="Code & Build Hero Image"
+                className="w-full max-w-md mx-auto relative rounded-lg shadow-2xl"
+                priority
+              />
+            </div>
           </div>
         </div>
+      </section>
 
-        <div className="relative z-10">
-          {/* Glow behind image */}
-          <div className="pointer-events-none absolute -inset-6 rounded-3xl bg-gradient-to-r from-blue-400 to-purple-500 blur-2xl opacity-20" />
-          <Image
-            src={image3}
-            alt="Code & Build hero"
-            className="w-[220px] md:w-[360px] lg:w-[560px] mx-auto drop-shadow-xl"
-            priority
-          />
+      {/* SERVICES */}
+      <section
+        ref={addToRefs}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Our Development Services
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Comprehensive solutions designed to build your digital presence and drive measurable growth, including cutting-edge IoT-based software.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {developmentServices.map(({ title, description, readmore }: ServicesProps) => (
+              <div
+                key={title}
+                className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <h3 className="text-xl font-semibold mb-4">{title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">{description}</p>
+                <Link
+                  href={readmore}
+                  className={`inline-flex items-center ${buttonVariants({
+                    variant: "link",
+                  })} text-blue-600 dark:text-blue-400`}
+                >
+                  <ArrowTopRightIcon className="mr-2 w-5 h-5" />
+                  Read more
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section aria-labelledby="services-heading" className="relative">
-        <h2 id="services-heading" className="sr-only">
-          Services
-        </h2>
+      {/* PHILOSOPHY */}
+      <section
+        ref={addToRefs}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-gradient-to-br from-blue-50/80 via-white to-purple-50/80 dark:from-gray-900 dark:via-gray-950 dark:to-blue-900/40 transition-opacity duration-1000 opacity-0"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Why Our Development Approach Works
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Performance-first foundation, mobile-responsive design, and conversion-focused architecture for maximum impact.
+            </p>
+          </div>
 
-        {/* Animated soft blobs background (subtle) */}
-        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute top-[10%] left-[10%] w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply blur-2xl opacity-10" />
-          <div className="absolute bottom-[5%] right-[8%] w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply blur-2xl opacity-10" />
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {developmentServices.map(({ title, description, readmore }) => (
-            <MagicCard
-              key={title}
-              className="transition-all rounded-2xl hover:-translate-y-1 hover:shadow-xl"
-              gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-            >
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xl">{title}</CardTitle>
-              </CardHeader>
-
-              <CardContent className="text-muted-foreground">
-                {description}
-              </CardContent>
-
-              <CardContent className="pt-4">
-                <div className="flex items-center">
-                  <a
-                    rel="noreferrer noopener"
-                    href={`/${readmore}`}
-                    className={`pl-0 inline-flex items-center ${buttonVariants({
-                      variant: "link",
-                    })}`}
-                  >
-                    <ArrowTopRightIcon className="mr-2 w-5 h-5" />
-                    Read more
-                  </a>
-                </div>
-              </CardContent>
-            </MagicCard>
-          ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {developmentPhilosophy.map(({ title, description }) => (
+              <div
+                key={title}
+                className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="w-16 h-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 mb-6"></div>
+                <h3 className="text-xl font-semibold mb-4">{title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-    </section>
+
+      <style jsx>{`
+        @keyframes blob {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        .animate-fade-in { opacity: 1 !important; }
+      `}</style>
+      </section>
+    </>
   );
 }
 
