@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import pilot from "../../../assets/pilot.png";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MedalIcon, MapIcon, PlaneIcon, GiftIcon } from "@/components/Icons";
@@ -70,16 +69,6 @@ function About() {
 
   return (
     <>
-      <Head>
-        <title>
-          About DMiraki | Strategic Digital Marketing & Development Partner
-        </title>
-        <meta
-          name="description"
-          content="Learn about DMiraki's mission, vision, and values. Your strategic partner in digital success with passionate experts dedicated to your business growth."
-        />
-      </Head>
-
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -87,7 +76,7 @@ function About() {
         <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob"></div>
       </div>
 
-    <section className="container pb-24 space-y-12">
+      <section className="container pb-24 space-y-12">
       {/* Hero Section */}
       <section
         ref={addToRefs}

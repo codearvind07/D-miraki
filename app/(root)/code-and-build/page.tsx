@@ -1,6 +1,6 @@
 "use client";
 
-import Head from "next/head";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -89,15 +89,7 @@ function CodeAndBuild() {
 
   return (
     <>
-      <Head>
-        <title>
-          Code & Build Services | Web Development & Design Solutions by DMiraki
-        </title>
-        <meta
-          name="description"
-          content="Custom web development, UI/UX design, and technical solutions by DMiraki. Build high-performance websites that convert visitors into customers."
-        />
-      </Head>
+
 
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">

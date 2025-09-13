@@ -1,15 +1,15 @@
 export default function Head() {
-  const title = "Social Media Marketing & Management | Boost Your Brand";
+  const title = "Content Creation Services | Creative Content Agency";
   const description =
-    "Grow your business with expert social media marketing & management services. Facebook, Instagram, LinkedIn, and YouTube strategies that drive ROI.";
-  const url = "https://dmiraki.com/brand-and-reach/social-media-marketing-and-management";
+    "Get engaging, high-quality content for your brand. Social media posts, blogs, videos, graphics & copywriting that drive traffic and boost conversions.";
+  const url = "https://dmiraki.com/code-and-build/content-creation";
   const image = "https://dmiraki.com/assets/og-image.jpg";
 
   return (
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="social media marketing services, social media management agency, social media marketing company, best social media marketing agency, Facebook ads management, Instagram growth services, LinkedIn marketing agency, YouTube promotion services, Twitter marketing, affordable social media marketing agency for small business, Instagram marketing services to grow business, LinkedIn lead generation agency for B2B companies, best social media management services for startups, professional Facebook ads management company, brand awareness campaigns, content scheduling tools, social media engagement strategy, paid social advertising, online presence growth" />
+      <meta name="keywords" content="content creation services, content creation agency, digital content services, professional content creators, social media content creation, blog and article writing services, video content production, creative graphic design agency, ad copywriting services, affordable content creation services for small businesses, best content creation agency for startups, professional blog writing and content services, video content creation for social media marketing, content creation services for e-commerce brands, brand storytelling, digital media production, creative visuals, SEO content writing, multimedia content creation" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />
@@ -29,7 +29,7 @@ export default function Head() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Social Media Marketing & Management",
+            "name": "Content Creation",
             "provider": {
               "@type": "Organization",
               "name": "DMiraki",
@@ -38,9 +38,9 @@ export default function Head() {
             "url": url,
             "description": description,
             "areaServed": "Global",
-            "serviceType": "MarketingService",
-            "category": "Social Media Marketing",
-            "keywords": "social media marketing services, social media management agency, Facebook ads management, Instagram growth services, LinkedIn marketing agency, YouTube promotion services"
+            "serviceType": "ContentCreation",
+            "category": "Content Creation",
+            "keywords": "content creation services, content creation agency, digital content services, social media content creation, blog and article writing services"
           }),
         }}
       />
@@ -52,8 +52,8 @@ export default function Head() {
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dmiraki.com" },
-              { "@type": "ListItem", "position": 2, "name": "Brand & Reach", "item": "https://dmiraki.com/brand-and-reach" },
-              { "@type": "ListItem", "position": 3, "name": "Social Media Marketing & Management", "item": url }
+              { "@type": "ListItem", "position": 2, "name": "Code & Build", "item": "https://dmiraki.com/code-and-build" },
+              { "@type": "ListItem", "position": 3, "name": "Content Creation", "item": url }
             ]
           }),
         }}

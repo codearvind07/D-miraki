@@ -1,15 +1,15 @@
 export default function Head() {
-  const title = "Social Media Marketing & Management | Boost Your Brand";
+  const title = "IoT-Based Software Solutions | Connected Systems Development";
   const description =
-    "Grow your business with expert social media marketing & management services. Facebook, Instagram, LinkedIn, and YouTube strategies that drive ROI.";
-  const url = "https://dmiraki.com/brand-and-reach/social-media-marketing-and-management";
+    "Build intelligent IoT systems with our software development services. Custom IoT solutions, device development, and platform integration for enterprise efficiency and data insights.";
+  const url = "https://dmiraki.com/code-and-build/iot-based-software";
   const image = "https://dmiraki.com/assets/og-image.jpg";
 
   return (
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="social media marketing services, social media management agency, social media marketing company, best social media marketing agency, Facebook ads management, Instagram growth services, LinkedIn marketing agency, YouTube promotion services, Twitter marketing, affordable social media marketing agency for small business, Instagram marketing services to grow business, LinkedIn lead generation agency for B2B companies, best social media management services for startups, professional Facebook ads management company, brand awareness campaigns, content scheduling tools, social media engagement strategy, paid social advertising, online presence growth" />
+      <meta name="keywords" content="IoT development, IoT solutions, IoT software, enterprise IoT, IoT platform, smart device software, IoT data analytics, connected solutions, custom IoT development, IoT for operational efficiency, IoT data insights, reduce costs with IoT, IoT for manufacturing, IoT device development, IoT platform integration, smart solutions for organizations, connected intelligence, security-first architecture, scalable IoT infrastructure, seamless IoT integration, industrial IoT solutions, smart building management, IoT automation, real-time IoT monitoring, IoT security protocols, cloud IoT integration, IoT data processing, enterprise IoT systems, B2B IoT solutions, IoT sensor networks, wireless IoT solutions" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />
@@ -29,7 +29,7 @@ export default function Head() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Social Media Marketing & Management",
+            "name": "IoT-Based Software",
             "provider": {
               "@type": "Organization",
               "name": "DMiraki",
@@ -38,9 +38,9 @@ export default function Head() {
             "url": url,
             "description": description,
             "areaServed": "Global",
-            "serviceType": "MarketingService",
-            "category": "Social Media Marketing",
-            "keywords": "social media marketing services, social media management agency, Facebook ads management, Instagram growth services, LinkedIn marketing agency, YouTube promotion services"
+            "serviceType": "SoftwareDevelopment",
+            "category": "IoT Solutions",
+            "keywords": "IoT development, IoT solutions, IoT software, enterprise IoT, IoT platform, smart device software"
           }),
         }}
       />
@@ -52,8 +52,8 @@ export default function Head() {
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dmiraki.com" },
-              { "@type": "ListItem", "position": 2, "name": "Brand & Reach", "item": "https://dmiraki.com/brand-and-reach" },
-              { "@type": "ListItem", "position": 3, "name": "Social Media Marketing & Management", "item": url }
+              { "@type": "ListItem", "position": 2, "name": "Code & Build", "item": "https://dmiraki.com/code-and-build" },
+              { "@type": "ListItem", "position": 3, "name": "IoT-Based Software", "item": url }
             ]
           }),
         }}

@@ -1,7 +1,13 @@
+import Link from "next/link";
 
  const PrivacyPolicy = () => {
     return (
       <section className="flex flex-col items-start justify-center py-20 px-6 max-w-3xl mx-auto">
+        <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <Link href="/" className="hover:text-gray-900 dark:hover:text-white">Home</Link>
+          <span>/</span>
+          <span className="text-gray-900 dark:text-white">Privacy Policy</span>
+        </nav>
         <h1 className="text-2xl font-bold mb-4">Privacy Policy</h1>
   
         <p className="mb-4">
@@ -59,6 +65,12 @@
         </p>
         <p className="font-semibold">Dmiraki</p>
         <p>Email: <a href="mailto:info@dmiraki.com" className="text-blue-600 hover:underline">info@dmiraki.com</a></p>
+        
+        <div className="mt-8">
+          <Link href="/contact-us" className="text-blue-600 hover:underline">
+            Contact Us →
+          </Link>
+        </div>
       </section>
     );
   };

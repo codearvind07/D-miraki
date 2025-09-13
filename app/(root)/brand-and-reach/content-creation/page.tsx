@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -13,25 +12,25 @@ const services = [
   {
     title: "Strategic Content Planning",
     description:
-      "Content strategy, editorial calendars, audience research, personas, and competitive content analysis.",
+      "Content strategy, editorial calendars, audience research, personas, and competitive content analysis. Our B2B content strategy helps establish thought leadership content for your industry.",
     icon: <ChartIcon />,
   },
   {
     title: "Written Content Creation",
     description:
-      "Blogs, articles, website copy, landing pages, emails, and social media copy that convert and engage.",
+      "Blogs, articles, website copy, landing pages, emails, and social media copy that convert and engage. Our blog writing service creates content that drives engagement and supports lead generation.",
     icon: <WalletIcon />,
   },
   {
     title: "Visual Content Production",
     description:
-      "Infographics, social graphics, eBook/whitepaper design, and branded visual systems.",
+      "Infographics, social graphics, eBook/whitepaper design, and branded visual systems. Our visual content strategy creates compelling brand storytelling experiences.",
     icon: <MagnifierIcon />,
   },
   {
     title: "Video Content Creation",
     description:
-      "Explainers, social videos, webinars, editing, and platform-specific optimization.",
+      "Explainers, social videos, webinars, editing, and platform-specific optimization. Our video content strategy drives engagement and converts viewers into customers.",
     icon: <ChartIcon />,
   },
 ];
@@ -41,25 +40,25 @@ const contentTypes = [
     badge: "EDU",
     title: "Educational Content",
     color: "from-blue-500 to-blue-700",
-    text: "Build authority by solving real problems with value-driven insights.",
+    text: "Build authority by solving real problems with value-driven insights. Our content that drives engagement educates and informs your target audience.",
   },
   {
     badge: "LM",
     title: "Lead Magnets",
     color: "from-purple-500 to-purple-700",
-    text: "eBooks, whitepapers, and guides that capture qualified leads.",
+    text: "eBooks, whitepapers, and guides that capture qualified leads. Our content marketing for lead generation approach delivers high-quality prospects.",
   },
   {
     badge: "SP",
     title: "Social Proof",
     color: "from-green-500 to-green-700",
-    text: "Case studies and success stories that build trust and reduce risk.",
+    text: "Case studies and success stories that build trust and reduce risk. Our content that converts includes powerful social proof elements.",
   },
   {
     badge: "SEO",
     title: "SEO-Optimized Content",
     color: "from-orange-500 to-orange-700",
-    text: "Content that ranks and converts without sacrificing usefulness.",
+    text: "Content that ranks and converts without sacrificing usefulness. Our B2B content strategy ensures content that drives engagement while improving search rankings.",
   },
 ];
 
@@ -137,27 +136,27 @@ const industries = [
 const benefits = [
   {
     kpi: "↑ Organic Traffic",
-    text: "SEO‑optimized content that attracts qualified visitors.",
+    text: "SEO‑optimized content that attracts qualified visitors. Our content marketing strategy increases organic website traffic.",
     color: "bg-blue-500",
   },
   {
     kpi: "↑ Leads",
-    text: "Lead magnets and CTAs convert readers into MQLs.",
+    text: "Lead magnets and CTAs convert readers into MQLs. Our content marketing for lead generation delivers measurable results.",
     color: "bg-green-500",
   },
   {
     kpi: "↑ Authority",
-    text: "Consistent value builds brand leadership and trust.",
+    text: "Consistent value builds brand leadership and trust. Our B2B content strategy helps establish thought leadership content in your industry.",
     color: "bg-purple-500",
   },
   {
     kpi: "↑ Retention",
-    text: "Educational content supports customers post‑purchase.",
+    text: "Educational content supports customers post‑purchase. Our content that drives engagement keeps customers coming back.",
     color: "bg-orange-500",
   },
   {
     kpi: "↓ Cost",
-    text: "Content marketing is cost‑efficient and compounding.",
+    text: "Content marketing is cost‑efficient and compounding. Our content that converts provides excellent ROI for your marketing budget.",
     color: "bg-rose-500",
   },
 ];
@@ -183,16 +182,6 @@ export default function ContentCreationPage() {
 
   return (
     <>
-      <Head>
-        <title>
-          Content Creation Services | Strategic Content Marketing by DMiraki
-        </title>
-        <meta
-          name="description"
-          content="Professional content creation services by DMiraki. Blog writing, video production, and strategic content marketing that drives engagement and conversions."
-        />
-      </Head>
-
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -223,10 +212,10 @@ export default function ContentCreationPage() {
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-200">
               Transform expertise into compelling content that builds authority,
-              nurtures trust, and supports measurable business outcomes.
+              nurtures trust, and supports measurable business outcomes. Our content strategy and creation services include B2B content marketing, blog writing service, video content strategy, and brand storytelling that drives engagement and converts audiences.
             </p>
             <div className="flex gap-4">
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-600 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
                 Start a Content Plan
               </button>
               <button className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 text-gray-800 dark:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">

@@ -1,15 +1,15 @@
 export default function Head() {
-  const title = "Social Media Marketing & Management | Boost Your Brand";
+  const title = "SEO Services | Expert Search Engine Optimization Agency";
   const description =
-    "Grow your business with expert social media marketing & management services. Facebook, Instagram, LinkedIn, and YouTube strategies that drive ROI.";
-  const url = "https://dmiraki.com/brand-and-reach/social-media-marketing-and-management";
+    "Boost your rankings with professional SEO services. Local SEO, technical SEO, e-commerce SEO & keyword strategies that drive organic traffic and sales.";
+  const url = "https://dmiraki.com/brand-and-reach/search-engine-optimization";
   const image = "https://dmiraki.com/assets/og-image.jpg";
 
   return (
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="social media marketing services, social media management agency, social media marketing company, best social media marketing agency, Facebook ads management, Instagram growth services, LinkedIn marketing agency, YouTube promotion services, Twitter marketing, affordable social media marketing agency for small business, Instagram marketing services to grow business, LinkedIn lead generation agency for B2B companies, best social media management services for startups, professional Facebook ads management company, brand awareness campaigns, content scheduling tools, social media engagement strategy, paid social advertising, online presence growth" />
+      <meta name="keywords" content="SEO services, SEO agency, search engine optimization company, SEO experts near me, local SEO services, e-commerce SEO agency, technical SEO services, affordable SEO packages, SEO content writing, best SEO agency for small businesses, affordable SEO services for startups, local SEO company for Google Business Profile, e-commerce SEO services to increase sales, technical SEO audit services, organic traffic growth, keyword optimization, Google search rankings, SEO backlinks strategy, mobile-friendly website SEO" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />
@@ -29,7 +29,7 @@ export default function Head() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Social Media Marketing & Management",
+            "name": "Search Engine Optimization",
             "provider": {
               "@type": "Organization",
               "name": "DMiraki",
@@ -39,8 +39,8 @@ export default function Head() {
             "description": description,
             "areaServed": "Global",
             "serviceType": "MarketingService",
-            "category": "Social Media Marketing",
-            "keywords": "social media marketing services, social media management agency, Facebook ads management, Instagram growth services, LinkedIn marketing agency, YouTube promotion services"
+            "category": "SEO Services",
+            "keywords": "SEO services, SEO agency, search engine optimization company, local SEO services, technical SEO services, e-commerce SEO agency"
           }),
         }}
       />
@@ -53,7 +53,7 @@ export default function Head() {
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dmiraki.com" },
               { "@type": "ListItem", "position": 2, "name": "Brand & Reach", "item": "https://dmiraki.com/brand-and-reach" },
-              { "@type": "ListItem", "position": 3, "name": "Social Media Marketing & Management", "item": url }
+              { "@type": "ListItem", "position": 3, "name": "Search Engine Optimization", "item": url }
             ]
           }),
         }}
