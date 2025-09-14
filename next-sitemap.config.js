@@ -25,6 +25,17 @@ module.exports = {
     let changefreq = 'weekly';
     if (path === '/') { priority = 1.0; changefreq = 'daily'; }
     else if (path.startsWith('/blogs')) { priority = 0.8; changefreq = 'daily'; }
+    // Prioritize key service pages
+    else if (path.includes('social-media-marketing-and-management') || 
+             path.includes('profitable-performance-marketing') || 
+             path.includes('content-creation') || 
+             path.includes('search-engine-optimization') || 
+             path.includes('web-design-and-development') || 
+             path.includes('ui-and-ux-design') || 
+             path.includes('iot-based-software')) { 
+      priority = 0.9; 
+      changefreq = 'weekly'; 
+    }
     else if (path.startsWith('/brand-and-reach') || path.startsWith('/code-and-build')) { priority = 0.8; changefreq = 'weekly'; }
 
     return {

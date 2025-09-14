@@ -13,8 +13,12 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
+// Updated metadata without i18n-specific properties
 export const metadata: Metadata = {
-  title: "DMiraki | Elevate Your Brand with Digital Excellence",
+  title: {
+    default: "DMiraki | Elevate Your Brand with Digital Excellence",
+    template: "%s | DMiraki"
+  },
   description:
     "DMiraki is your trusted digital partner for SEO, branding, web design, marketing strategies, and IT solutions. Transform your vision into impact.",
   keywords: [
@@ -28,6 +32,9 @@ export const metadata: Metadata = {
     "IT solutions",
     "social media marketing",
     "PPC",
+    "global digital marketing",
+    "international SEO",
+    "multilingual website"
   ],
   authors: [{ name: "DMiraki" }],
   robots: "index, follow",

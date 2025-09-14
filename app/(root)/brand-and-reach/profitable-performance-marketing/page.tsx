@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { ChartIcon, WalletIcon, MagnifierIcon } from "@/components/Icons";
@@ -9,7 +8,7 @@ import roboto from "../../../../assets/roboto.png";
 const services = [
   {
     title: "Google Ads Management",
-    description: "Strategic campaign management that maximizes ROI through advanced targeting and optimization.",
+    description: "Strategic Google Ads management that maximizes ROI through advanced targeting and optimization for lead generation advertising.",
     icon: <ChartIcon />,
     features: [
       "Search campaigns optimization",
@@ -20,7 +19,7 @@ const services = [
   },
   {
     title: "Facebook & Instagram Ads",
-    description: "Social media advertising that reaches your ideal customers where they spend their time.",
+    description: "Paid social media advertising that reaches your ideal customers where they spend their time with high-intent targeting.",
     icon: <WalletIcon />,
     features: [
       "Custom audience creation",
@@ -31,7 +30,7 @@ const services = [
   },
   {
     title: "LinkedIn Advertising",
-    description: "B2B focused campaigns that connect with decision-makers and generate quality leads.",
+    description: "B2B focused campaigns that connect with decision-makers and generate quality leads through performance-based marketing strategies.",
     icon: <MagnifierIcon />,
     features: [
       "Sponsored content",
@@ -42,7 +41,7 @@ const services = [
   },
   {
     title: "Performance Analytics",
-    description: "Data-driven insights that continuously improve campaign performance and ROI.",
+    description: "Data-driven insights that continuously improve campaign performance and ROI. Our performance analytics help you maximize advertising ROI.",
     icon: <ChartIcon />,
     features: [
       "Conversion tracking",
@@ -79,25 +78,25 @@ const methodologySteps = [
 const campaignTypes = [
   {
     title: "Customer Acquisition",
-    description: "Drive new customer growth with targeted campaigns designed to attract and convert your ideal prospects into paying customers.",
+    description: "Drive new customer growth with targeted campaigns designed to attract and convert your ideal prospects into paying customers. Our lead generation advertising strategies ensure maximum customer acquisition ROI.",
     badge: "ACQ",
     color: "from-blue-500 to-blue-700"
   },
   {
     title: "Lead Generation",
-    description: "Generate high-quality leads through strategic campaigns that capture interest and nurture prospects through the sales funnel.",
+    description: "Generate high-quality leads through strategic campaigns that capture interest and nurture prospects through the sales funnel. Our data-driven marketing campaigns focus on scalable lead generation.",
     badge: "LEAD",
     color: "from-green-500 to-green-700"
   },
   {
     title: "Brand Awareness",
-    description: "Build brand recognition and reach new audiences with campaigns designed to increase visibility and market presence.",
+    description: "Build brand recognition and reach new audiences with campaigns designed to increase visibility and market presence. Our performance-based marketing agency approach ensures brand awareness that converts.",
     badge: "BRAND",
     color: "from-purple-500 to-purple-700"
   },
   {
     title: "Retargeting & Retention",
-    description: "Re-engage past visitors and customers with personalized campaigns that drive repeat business and increase lifetime value.",
+    description: "Re-engage past visitors and customers with personalized campaigns that drive repeat business and increase lifetime value. Our scalable PPC campaigns optimize for customer retention.",
     badge: "RET",
     color: "from-orange-500 to-orange-700"
   }
@@ -106,25 +105,25 @@ const campaignTypes = [
 const performanceMetrics = [
   {
     title: "Return on Ad Spend",
-    description: "Track revenue generated for every dollar spent on advertising campaigns.",
+    description: "Track revenue generated for every dollar spent on advertising campaigns. Our ROI marketing strategies maximize your return on ad spend.",
     label: "ROAS",
     color: "bg-blue-500"
   },
   {
     title: "Cost Per Acquisition",
-    description: "Monitor the cost to acquire each new customer across all channels.",
+    description: "Monitor the cost to acquire each new customer across all channels. Our performance marketing approach reduces cost per acquisition while increasing quality.",
     label: "CPA",
     color: "bg-green-500"
   },
   {
     title: "Conversion Rate",
-    description: "Measure the percentage of visitors who complete desired actions.",
+    description: "Measure the percentage of visitors who complete desired actions. Our data-driven marketing campaigns optimize for higher conversion rates.",
     label: "CVR",
     color: "bg-purple-500"
   },
   {
     title: "Customer Lifetime Value",
-    description: "Calculate the total value generated by each customer over time.",
+    description: "Calculate the total value generated by each customer over time. Our scalable PPC campaigns focus on maximizing customer lifetime value.",
     label: "CLV",
     color: "bg-orange-500"
   }
@@ -151,14 +150,6 @@ function ProfitablePerformanceMarketing() {
 
   return (
     <>
-      <Head>
-        <title>Performance Marketing Services | PPC & Paid Advertising by DMiraki</title>
-        <meta
-          name="description"
-          content="Drive profitable growth with DMiraki's performance marketing services. Google Ads, Facebook Ads, and multi-channel campaigns that maximize ROI."
-        />
-      </Head>
-
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -189,10 +180,10 @@ function ProfitablePerformanceMarketing() {
                 Data-Driven Campaigns That Maximize Every Marketing Dollar
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-200">
-                Performance marketing isn't about spending more – it's about spending smarter. We combine advanced targeting, compelling creative, and continuous optimization to drive profitable customer acquisition and sustainable growth.
+                Performance marketing isn't about spending more – it's about spending smarter. Our data-driven marketing campaigns combine advanced targeting, compelling creative, and continuous optimization to drive profitable customer acquisition and sustainable growth. With our scalable PPC campaigns and performance-based marketing approach, we help you maximize advertising ROI while reducing costs.
               </p>
               <div className="flex gap-4">
-                <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-600 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
                   Get Campaign Audit
                 </button>
                 <button className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 text-gray-800 dark:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">

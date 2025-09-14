@@ -1,15 +1,15 @@
 export default function Head() {
-  const title = "Blogs | Insights, Guides & Case Studies | DMiraki";
+  const title = "Disclaimer | DMiraki";
   const description =
-    "Explore DMiraki's latest blogs on digital marketing, web design, SEO, social media, and growth strategies.";
-  const url = "https://dmiraki.com/blogs";
+    "Read DMiraki's disclaimer regarding the use of our website and the information provided.";
+  const url = "https://dmiraki.com/disclaimer";
   const image = "https://dmiraki.com/assets/og-image.jpg";
 
   return (
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="digital marketing blog, web design insights, SEO tips, social media strategies, growth strategies, digital transformation, online marketing, website development, digital strategy, marketing trends" />
+      <meta name="keywords" content="DMiraki disclaimer, website disclaimer, digital agency disclaimer, information accuracy, external links disclaimer" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />
@@ -29,15 +29,10 @@ export default function Head() {
           {
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Blog",
-              "name": "DMiraki Blog",
+              "@type": "WebPage",
+              "name": "Disclaimer",
               "url": url,
-              "description": description,
-              "publisher": {
-                "@type": "Organization",
-                "name": "DMiraki",
-                "url": "https://dmiraki.com"
-              }
+              "description": description
             }),
           }
         }
@@ -51,7 +46,7 @@ export default function Head() {
               "@type": "BreadcrumbList",
               "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dmiraki.com" },
-                { "@type": "ListItem", "position": 2, "name": "Blogs", "item": url }
+                { "@type": "ListItem", "position": 2, "name": "Disclaimer", "item": url }
               ]
             }),
           }
@@ -60,5 +55,3 @@ export default function Head() {
     </>
   );
 }
-
-

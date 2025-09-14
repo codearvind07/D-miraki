@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -20,19 +19,19 @@ const uiUxDesignServices = [
     {
         title: "Beautifully Crafted Interfaces",
         description:
-            "We design visually stunning interfaces that captivate users and create a lasting impression, ensuring your product stands out in a competitive market.",
+            "We design visually stunning interfaces that captivate users and create a lasting impression, ensuring your product stands out in a competitive market. Our interface design expertise creates intuitive website design that users love.",
         icon: <ChartIcon />,
     },
     {
         title: "Intuitive User Experiences",
         description:
-            "Our designs prioritize simplicity and functionality, making it easy for users to navigate, engage, and achieve their goals effortlessly.",
+            "Our designs prioritize simplicity and functionality, making it easy for users to navigate, engage, and achieve their goals effortlessly. Our UX design for SaaS solutions improves website conversion rate with UX.",
         icon: <WalletIcon />,
     },
     {
         title: "User-Centered Design Process",
         description:
-            "Through research and iterative testing, we create designs that not only look great but also resonate with users, driving engagement and satisfaction.",
+            "Through research and iterative testing, we create designs that not only look great but also resonate with users, driving engagement and satisfaction. Our UX research and prototyping approach ensures user-centered design that reduces bounce rate with UI.",
         icon: <MagnifierIcon />,
     },
 ];
@@ -40,19 +39,19 @@ const uiUxDesignServices = [
 const designApproach = [
   {
     title: "User Research",
-    description: "We start with comprehensive user research to understand behaviors, needs, and pain points that inform our design decisions.",
+    description: "We start with comprehensive UX research to understand behaviors, needs, and pain points that inform our design decisions. Our user journey mapping identifies key touchpoints for optimization.",
   },
   {
     title: "Design Systems",
-    description: "We create scalable design systems that ensure consistency across all touchpoints while maintaining flexibility for growth.",
+    description: "We create scalable design systems that ensure consistency across all touchpoints while maintaining flexibility for growth. Our website usability frameworks ensure intuitive website design.",
   },
   {
     title: "Prototyping & Testing",
-    description: "Interactive prototypes allow us to test and validate design concepts before development, ensuring optimal user experiences.",
+    description: "Interactive prototypes allow us to test and validate design concepts before development, ensuring optimal user experiences. Our prototyping process helps improve website conversion rate with UX.",
   },
   {
     title: "Continuous Iteration",
-    description: "We refine designs based on user feedback and analytics, ensuring your interfaces evolve with user needs and business goals.",
+    description: "We refine designs based on user feedback and analytics, ensuring your interfaces evolve with user needs and business goals. Our continuous iteration approach helps reduce bounce rate with UI.",
   },
 ];
 
@@ -78,16 +77,6 @@ function UIAndUXDesign() {
 
   return (
     <>
-      <Head>
-        <title>
-          UI & UX Design | User Experience Design by DMiraki
-        </title>
-        <meta
-          name="description"
-          content="Professional UI & UX design services that create beautiful, intuitive interfaces. Our designs must not only look beautiful, but function beautifully and drive user engagement."
-        />
-      </Head>
-
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -120,7 +109,7 @@ function UIAndUXDesign() {
               Beautiful Designs That Function Beautifully. Creating Intuitive Experiences That Drive Engagement.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-200">
-              Our designs must not only look beautiful, but they must also function beautifully. A great design not only entices you to touch, but it must be intuitive and simple to understand. We create experiences that users love and businesses benefit from.
+              Our designs must not only look beautiful, but they must also function beautifully. A great design not only entices you to touch, but it must be intuitive and simple to understand. We create experiences that users love and businesses benefit from through our website usability and interface design expertise. Our user-centered design agency approach helps improve website conversion rate with UX and reduce bounce rate with UI.
             </p>
           </div>
           <div className="relative">
@@ -230,13 +219,13 @@ function UIAndUXDesign() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Let's design interfaces that users love and that drive real business results. From user research to final implementation, we'll create experiences that matter.
+              Let's design interfaces that users love and that drive real business results. From user research to final implementation, we'll create experiences that matter with our intuitive website design approach. Our user-centered design agency helps improve website conversion rate with UX and reduce bounce rate with UI.
             </p>
             <Link
               href="/contact"
               className={`inline-flex items-center ${buttonVariants({
                 size: "lg",
-              })} bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700`}
+              })} bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-600`}
             >
               Start Your Design Project
               <ArrowTopRightIcon className="ml-2 w-5 h-5" />

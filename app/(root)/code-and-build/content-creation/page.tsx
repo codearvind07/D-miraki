@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -78,16 +77,6 @@ function ContentCreation() {
 
   return (
     <>
-      <Head>
-        <title>
-          Content Creation | Strategic Content Development by DMiraki
-        </title>
-        <meta
-          name="description"
-          content="Strategic content creation services that build brand stories. From copywriting to visual storytelling and video content, we create engaging narratives that drive results."
-        />
-      </Head>
-
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -236,7 +225,7 @@ function ContentCreation() {
               href="/contact"
               className={`inline-flex items-center ${buttonVariants({
                 size: "lg",
-              })} bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700`}
+              })} bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-600`}
             >
               Start Your Content Strategy
               <ArrowTopRightIcon className="ml-2 w-5 h-5" />

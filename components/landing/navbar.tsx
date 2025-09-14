@@ -22,7 +22,6 @@ import { Button, buttonVariants } from "../ui/button";
 import { ModeToggle } from "../mode-toggle";
 import Link from "next/link";
 import { isTokenExpired } from "@/utils";
-// import { LogoIcon } from "./Icons";
 
 interface RouteProps {
   href: string;
@@ -159,7 +158,6 @@ const token: string = typeof window !== 'undefined' ? localStorage.getItem('admi
 
           <div className="hidden md:flex gap-2">
             <p
-             
               onClick={() =>
                       navigate.push("/contact-us")
                     }

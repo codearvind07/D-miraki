@@ -1,15 +1,15 @@
 export default function Head() {
-  const title = "Social Media Marketing & Management | Boost Your Brand";
+  const title = "Web Design & Development | Modern Website Solutions";
   const description =
-    "Grow your business with expert social media marketing & management services. Facebook, Instagram, LinkedIn, and YouTube strategies that drive ROI.";
-  const url = "https://dmiraki.com/brand-and-reach/social-media-marketing-and-management";
+    "Get fast, responsive & SEO-friendly websites with our web design & development services. Custom WordPress, e-commerce & UI/UX solutions for growth.";
+  const url = "https://dmiraki.com/code-and-build/web-design-and-development";
   const image = "https://dmiraki.com/assets/og-image.jpg";
 
   return (
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="social media marketing services, social media management agency, social media marketing company, best social media marketing agency, Facebook ads management, Instagram growth services, LinkedIn marketing agency, YouTube promotion services, Twitter marketing, affordable social media marketing agency for small business, Instagram marketing services to grow business, LinkedIn lead generation agency for B2B companies, best social media management services for startups, professional Facebook ads management company, brand awareness campaigns, content scheduling tools, social media engagement strategy, paid social advertising, online presence growth" />
+      <meta name="keywords" content="web design and development services, website design company, web development agency, responsive web design services, WordPress development company, custom web design agency, e-commerce website development, professional website redesign services, UI/UX design services, affordable web design and development services, best website design company for small businesses, custom WordPress development agency, e-commerce web development services for startups, mobile-friendly website design services, front-end development, backend solutions, CMS web design, website optimization, user experience design" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />
@@ -29,7 +29,7 @@ export default function Head() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Social Media Marketing & Management",
+            "name": "Web Design & Development",
             "provider": {
               "@type": "Organization",
               "name": "DMiraki",
@@ -38,9 +38,9 @@ export default function Head() {
             "url": url,
             "description": description,
             "areaServed": "Global",
-            "serviceType": "MarketingService",
-            "category": "Social Media Marketing",
-            "keywords": "social media marketing services, social media management agency, Facebook ads management, Instagram growth services, LinkedIn marketing agency, YouTube promotion services"
+            "serviceType": "WebDevelopment",
+            "category": "Web Design & Development",
+            "keywords": "web design and development services, website design company, web development agency, responsive web design services, WordPress development company"
           }),
         }}
       />
@@ -52,8 +52,8 @@ export default function Head() {
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dmiraki.com" },
-              { "@type": "ListItem", "position": 2, "name": "Brand & Reach", "item": "https://dmiraki.com/brand-and-reach" },
-              { "@type": "ListItem", "position": 3, "name": "Social Media Marketing & Management", "item": url }
+              { "@type": "ListItem", "position": 2, "name": "Code & Build", "item": "https://dmiraki.com/code-and-build" },
+              { "@type": "ListItem", "position": 3, "name": "Web Design & Development", "item": url }
             ]
           }),
         }}

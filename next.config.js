@@ -18,6 +18,8 @@ const nextConfig = {
   
   // Ensure proper asset handling for static export
   assetPrefix: '',
+  
+  
 };
 
 module.exports = nextConfig;

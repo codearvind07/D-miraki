@@ -3,6 +3,7 @@ import React from 'react'
 import { getBlogById } from "@/data/blogs";
 import { format } from "date-fns";
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function BlogDetails({id}:{id:string}) {
     const blog = getBlogById(id);
@@ -16,6 +17,15 @@ export default function BlogDetails({id}:{id:string}) {
   return (
     <>
       <section className="container mx-auto px-4 py-20 w-full">
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <Link href="/" className="hover:text-gray-900 dark:hover:text-white">Home</Link>
+          <span>/</span>
+          <Link href="/blogs" className="hover:text-gray-900 dark:hover:text-white">Blogs</Link>
+          <span>/</span>
+          <span className="text-gray-900 dark:text-white">Blog Post</span>
+        </nav>
+        
         {/* Cover Image */}
         <div className="mb-6">
           {isLoading ? (
@@ -90,6 +100,13 @@ export default function BlogDetails({id}:{id:string}) {
             )}
           </>
         )}
+        
+        {/* Back to Blogs Link */}
+        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <Link href="/blogs" className="text-blue-600 hover:underline dark:text-blue-400">
+            ← Back to all blogs
+          </Link>
+        </div>
       </section>
     </>
   )

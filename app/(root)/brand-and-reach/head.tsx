@@ -21,6 +21,36 @@ export default function Head() {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={
+          {
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "name": "Brand & Reach Services",
+              "url": url,
+              "description": description
+            }),
+          }
+        }
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={
+          {
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dmiraki.com" },
+                { "@type": "ListItem", "position": 2, "name": "Brand & Reach", "item": url }
+              ]
+            }),
+          }
+        }
+      />
     </>
   );
 }

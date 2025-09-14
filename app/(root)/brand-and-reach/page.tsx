@@ -1,7 +1,7 @@
 "use client";
 "use client";
 
-import Head from "next/head";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -45,7 +45,7 @@ const marketingServices: ServicesProps[] = [
     description:
       "Organic Visibility That Builds Long-Term Value. Dominate search results and attract high-intent prospects with our proven SEO methodologies.",
     image: image2 as any,
-    readmore: "/brand-and-reach/branding-and-designing",
+    readmore: "/brand-and-reach/search-engine-optimization",
   },
 ];
 
@@ -71,15 +71,7 @@ function BrandAndReach() {
 
   return (
     <>
-      <Head>
-        <title>
-          Brand & Reach Services | Strategic Digital Marketing by DMiraki
-        </title>
-        <meta
-          name="description"
-          content="Strategic digital marketing services by DMiraki. Build brand authority while driving measurable growth through comprehensive marketing solutions."
-        />
-      </Head>
+
 
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">

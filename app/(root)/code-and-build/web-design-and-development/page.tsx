@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -20,19 +19,19 @@ const webDesignServices = [
     {
         title: "User-Centric Website Design",
         description:
-            "We create intuitive and visually engaging websites that enhance user experiences, making navigation seamless and interactions meaningful for B2B and organizational audiences.",
+            "We create intuitive and visually engaging websites that enhance user experiences, making navigation seamless and interactions meaningful for B2B and organizational audiences. Our responsive web design ensures your website looks great on all devices.",
         icon: <ChartIcon />,
     },
     {
         title: "Optimized Lead Generation",
         description:
-            "Our development process focuses on increasing inquiries and conversions through strategic layouts, clear calls-to-action, and optimized performance across all devices.",
+            "Our development process focuses on increasing inquiries and conversions through strategic layouts, clear calls-to-action, and optimized performance across all devices. Our website optimized for conversions approach drives more leads and sales.",
         icon: <WalletIcon />,
     },
     {
         title: "Custom Solutions for Organizations",
         description:
-            "From tailored designs to scalable development, we provide solutions that align with your organization's goals, ensuring your website stands out and delivers measurable impact.",
+            "From tailored designs to scalable development, we provide solutions that align with your organization's goals, ensuring your website stands out and delivers measurable impact. Our custom web development services include WordPress development and ecommerce website development.",
         icon: <MagnifierIcon />,
     },
 ];
@@ -40,19 +39,19 @@ const webDesignServices = [
 const developmentApproach = [
   {
     title: "Strategic Planning",
-    description: "We start by understanding your business goals, target audience, and competitive landscape to create websites that align with your objectives.",
+    description: "We start by understanding your business goals, target audience, and competitive landscape to create websites that align with your objectives. Our sales-focused web design approach ensures maximum ROI.",
   },
   {
     title: "Performance Optimization",
-    description: "Every element is optimized for speed, SEO, and user experience to ensure maximum engagement and conversion rates.",
+    description: "Every element is optimized for speed, SEO, and user experience to ensure maximum engagement and conversion rates. Our high-converting website design techniques improve your website's performance.",
   },
   {
     title: "Responsive Design",
-    description: "Our websites work flawlessly across all devices, providing consistent experiences for desktop, tablet, and mobile users.",
+    description: "Our websites work flawlessly across all devices, providing consistent experiences for desktop, tablet, and mobile users. Our responsive web design ensures your site looks great everywhere.",
   },
   {
     title: "Ongoing Support",
-    description: "We provide continuous maintenance and updates to keep your website secure, fast, and aligned with evolving business needs.",
+    description: "We provide continuous maintenance and updates to keep your website secure, fast, and aligned with evolving business needs. Our custom website for small business solutions include ongoing support.",
   },
 ];
 
@@ -78,16 +77,6 @@ function WebDesignAndDevelopment() {
 
   return (
     <>
-      <Head>
-        <title>
-          Web Design & Development | Custom Websites by DMiraki
-        </title>
-        <meta
-          name="description"
-          content="Professional web design and development services focused on B2B and organizations. Improve usability, increase inquiries, and make your business stand out online."
-        />
-      </Head>
-
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -120,7 +109,7 @@ function WebDesignAndDevelopment() {
               Custom Websites That Convert Visitors Into Customers. Professional Development for B2B and Organizations.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-200">
-              We focus on website development for B2B and organizations, with a focus on improving usability, increasing inquiries, and making you stand out. Our websites become powerful business tools that drive growth and establish digital authority.
+              We focus on website development for B2B and organizations, with a focus on improving usability, increasing inquiries, and making you stand out. Our custom web development and responsive web design services create powerful business tools that drive growth and establish digital authority. Whether you need a custom website for small business or enterprise-level solutions, our web design agency delivers high-converting website design that's optimized for conversions.
             </p>
           </div>
           <div className="relative">
@@ -230,13 +219,13 @@ function WebDesignAndDevelopment() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Let's create a website that not only looks exceptional but drives real business results. From concept to launch, we'll build your digital foundation for success.
+              Let's create a website that not only looks exceptional but drives real business results. Whether you need a redesign website for leads or a completely new sales-focused web design, we'll build your digital foundation for success with our high-converting website design approach.
             </p>
             <Link
               href="/contact"
               className={`inline-flex items-center ${buttonVariants({
                 size: "lg",
-              })} bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700`}
+              })} bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-600`}
             >
               Start Your Project
               <ArrowTopRightIcon className="ml-2 w-5 h-5" />

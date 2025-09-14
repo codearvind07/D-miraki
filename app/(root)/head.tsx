@@ -9,6 +9,7 @@ export default function Head() {
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content="digital marketing agency, branding services, web design company, SEO services, social media marketing, IT solutions, digital transformation, online marketing, website development, digital strategy" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />
@@ -21,8 +22,40 @@ export default function Head() {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={
+          {
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "DMiraki",
+              "url": "https://dmiraki.com",
+              "logo": "https://dmiraki.com/assets/icon.png",
+              "description": description,
+              "sameAs": [
+                "https://www.instagram.com/dmirakihq",
+                "https://www.linkedin.com/company/dmiraki",
+              ],
+            }),
+          }
+        }
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={
+          {
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dmiraki.com" }
+              ]
+            }),
+          }
+        }
+      />
     </>
   );
 }
-
-

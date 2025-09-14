@@ -21,19 +21,19 @@ const iotServices = [
     {
         title: "IoT Device Development",
         description:
-            "Custom IoT device development from concept to production. We design and build connected devices that collect, transmit, and act on data to create intelligent systems.",
+            "Custom IoT device development from concept to production. We design and build connected devices that collect, transmit, and act on data to create intelligent systems. Our smart device software solutions provide IoT data insights for better decision-making.",
         icon: <ChartIcon />,
     },
     {
         title: "IoT Platform Integration",
         description:
-            "Seamless integration of IoT devices with cloud platforms and existing systems. We ensure secure data flow and real-time monitoring capabilities.",
+            "Seamless integration of IoT devices with cloud platforms and existing systems. We ensure secure data flow and real-time monitoring capabilities. Our IoT platform expertise enables IoT for operational efficiency.",
         icon: <WalletIcon />,
     },
     {
         title: "Smart Solutions for Organizations",
         description:
-            "End-to-end IoT solutions tailored for B2B and organizational needs. From industrial automation to smart building management, we create impactful connected systems.",
+            "End-to-end IoT solutions tailored for B2B and organizational needs. From industrial automation to smart building management, we create impactful connected systems. Our enterprise IoT solutions help reduce costs with IoT and improve manufacturing processes.",
         icon: <MagnifierIcon />,
     },
 ];
@@ -41,19 +41,19 @@ const iotServices = [
 const iotApproach = [
   {
     title: "Connected Intelligence",
-    description: "We design IoT systems that transform raw data into actionable insights, enabling smarter decision-making and automated processes.",
+    description: "We design IoT systems that transform raw data into actionable insights, enabling smarter decision-making and automated processes. Our IoT data analytics provide valuable IoT data insights for your business.",
   },
   {
     title: "Security-First Architecture",
-    description: "Every IoT solution is built with robust security protocols to protect data integrity and ensure device authentication.",
+    description: "Every IoT solution is built with robust security protocols to protect data integrity and ensure device authentication. Our enterprise IoT solutions prioritize security and compliance.",
   },
   {
     title: "Scalable Infrastructure",
-    description: "Our IoT platforms are designed to scale with your business needs, supporting thousands of devices and real-time data processing.",
+    description: "Our IoT platforms are designed to scale with your business needs, supporting thousands of devices and real-time data processing. Our scalable IoT solutions grow with your organization.",
   },
   {
     title: "Seamless Integration",
-    description: "We ensure smooth integration with existing systems and workflows, minimizing disruption while maximizing IoT benefits.",
+    description: "We ensure smooth integration with existing systems and workflows, minimizing disruption while maximizing IoT benefits. Our IoT platform integration expertise ensures seamless connectivity.",
   },
 ];
 
@@ -79,16 +79,6 @@ function IotBasedSoftware() {
 
   return (
     <>
-      <Head>
-        <title>
-          IoT-Based Software | Connected Solutions by DMiraki
-        </title>
-        <meta
-          name="description"
-          content="Professional IoT-based software development services. Create connected systems that transform data into actionable insights for your organization."
-        />
-      </Head>
-
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -121,7 +111,7 @@ function IotBasedSoftware() {
               Connected Solutions That Transform Data Into Action. Intelligent Systems for the Modern Organization.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-200">
-              We specialize in creating IoT-based software solutions that connect devices, collect valuable data, and enable intelligent automation. Our connected systems help organizations optimize operations, reduce costs, and gain competitive advantages through smart technology.
+              We specialize in creating IoT-based software solutions that connect devices, collect valuable data, and enable intelligent automation. Our connected systems help organizations optimize operations, reduce costs, and gain competitive advantages through smart technology. Our enterprise IoT and IoT platform expertise delivers custom IoT development solutions for operational efficiency and manufacturing.
             </p>
           </div>
           <div className="relative">
