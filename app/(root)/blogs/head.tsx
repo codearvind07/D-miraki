@@ -1,62 +1,217 @@
+import { Metadata } from 'next';
+
+// Static blog data with more relevant images
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  coverImage: string;
+  date: string;
+  keywords: string;
+}
+
+const blogs: BlogPost[] = [
+  {
+    id: "1",
+    title: "Why Every Business Needs a Professional Website in 2025",
+    excerpt: "Discover why having a professional website is crucial for business success in 2025, from building credibility to reaching customers 24/7.",
+    coverImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-01-15",
+    keywords: "professional business website, website necessity 2025, why a website is important, small business website, digital presence, online credibility, 24/7 customer reach, business success website"
+  },
+  {
+    id: "2",
+    title: "Next.js 15: The Future of React Development is Here",
+    excerpt: "Explore the revolutionary features of Next.js 15 including Turbopack, enhanced App Router, and built-in performance monitoring tools.",
+    coverImage: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-03-22",
+    keywords: "Next.js 15 features, React development future, Next.js Turbopack, App Router Next.js 15, Next.js performance monitoring, new Next.js update, server components React, Next.js trends 2025"
+  },
+  {
+    id: "3",
+    title: "The ROI of Professional Web Design: Numbers That Matter",
+    excerpt: "Learn how professional web design delivers measurable ROI through increased conversions, reduced acquisition costs, and long-term value creation.",
+    coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-02-08",
+    keywords: "ROI of web design, professional web design benefits, measure website ROI, web design conversion rate, web design value, cost of professional website, long-term value web design, design impact on business"
+  },
+  {
+    id: "4",
+    title: "AI Integration in Modern Web Applications: Transforming User Experiences",
+    excerpt: "Discover how artificial intelligence is revolutionizing web applications with personalized experiences, intelligent automation, and predictive analytics.",
+    coverImage: "https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=996",
+    date: "2025-04-10",
+    keywords: "AI in web applications, AI transforming user experience, intelligent automation web, personalized web experiences, AI integration strategy, predictive analytics web apps, modern web trends AI, future of web applications"
+  },
+  {
+    id: "5",
+    title: "Cybersecurity Best Practices for Business Websites in 2025",
+    excerpt: "Essential cybersecurity strategies to protect your business website from threats, including SSL implementation, regular updates, and user authentication.",
+    coverImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-01-30",
+    keywords: "cybersecurity for business websites 2025, essential website security, SSL implementation guide, user authentication best practices, protect website from threats, business website security strategy, website updates security, small business cybersecurity"
+  },
+  {
+    id: "6",
+    title: "Responsive Web Design: Creating Seamless Experiences Across All Devices",
+    excerpt: "Master responsive web design principles to ensure your website looks and functions perfectly on desktops, tablets, and smartphones.",
+    coverImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-03-15",
+    keywords: "responsive web design principles, seamless web experience, design across all devices, mobile-friendly design, adaptive design vs responsive, why is responsive design important, desktop tablet smartphone design, fluid web layouts"
+  },
+  {
+    id: "7",
+    title: "Progressive Web Apps (PWAs): The Future of Mobile Web Experience",
+    excerpt: "Explore how Progressive Web Apps combine the best of web and mobile applications, delivering app-like experiences through web browsers.",
+    coverImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-04-05",
+    keywords: "Progressive Web Apps (PWAs), PWA benefits, mobile web experience future, web app vs native app, PWA development guide, installable web apps, app-like experiences web, service workers PWA"
+  },
+  {
+    id: "8",
+    title: "Mobile-First Design: Why Your Business Website Must Prioritize Mobile Users",
+    excerpt: "With over 60% of web traffic coming from mobile devices, mobile-first design isn't just a trend—it's a business necessity.",
+    coverImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-02-20",
+    keywords: "mobile-first design strategy, prioritize mobile users, importance of mobile-first, mobile web traffic statistics, business website mobile priority, mobile-first vs responsive, designing for smartphone users, improved mobile UX"
+  },
+  {
+    id: "9",
+    title: "E-commerce Website Essentials: Building a Profitable Online Store in 2025",
+    excerpt: "E-commerce continues to grow exponentially, with global online sales expected to reach $8 trillion by 2026.",
+    coverImage: "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-05-12",
+    keywords: "e-commerce website essentials 2025, build a profitable online store, global online sales trends, e-commerce growth, starting an online store, best e-commerce platforms, e-commerce business tips, website for online sales"
+  },
+  {
+    id: "10",
+    title: "Serverless Architecture: The Future of Scalable Web Applications",
+    excerpt: "Explore how serverless architecture is revolutionizing web development with automatic scaling, cost efficiency, and enhanced reliability.",
+    coverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80",
+    date: "2025-02-26",
+    keywords: "serverless architecture, scalable web applications, serverless computing benefits, automatic scaling web, cost-efficiency serverless, FaaS (Function as a Service), serverless reliability, future of backend development"
+  },
+  {
+    id: "11",
+    title: "WebAssembly (WASM): High-Performance Web Applications Revolution",
+    excerpt: "Discover how WebAssembly is revolutionizing web development by enabling high-performance applications to run in browsers at near-native speeds.",
+    coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-03-05",
+    keywords: "WebAssembly (WASM), high-performance web applications, WASM in browsers, near-native speed web, WebAssembly development, future of web performance, WASM use cases, revolutionizing web apps"
+  },
+  {
+    id: "12",
+    title: "Local SEO for Business Websites: Dominating Your Local Market Online",
+    excerpt: "Master local SEO strategies for business websites to dominate local search results and attract more customers from your geographic area.",
+    coverImage: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-02-26",
+    keywords: "local SEO for business website, dominate local search results, local market online presence, attract local customers, Google My Business SEO, local search strategies, map pack ranking, optimizing for local market"
+  },
+  {
+    id: "13",
+    title: "Website Performance Optimization: Speed Strategies That Drive Business Results",
+    excerpt: "Learn essential website performance optimization strategies to improve speed, user experience, and business results with proven techniques.",
+    coverImage: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-06-23",
+    keywords: "website performance optimization, website speed strategies, core web vitals improvement, performance for business results, boost website speed, user experience optimization, page load time reduction, web performance metrics"
+  },
+  {
+    id: "14",
+    title: "Modern Development Frameworks 2025: Choosing the Right Tech Stack",
+    excerpt: "Navigate the modern development framework landscape in 2025 with insights on React, Vue, Angular, and choosing the right tech stack for your project.",
+    coverImage: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80",
+    date: "2025-05-02",
+    keywords: "modern development frameworks 2025, choosing the right tech stack, React vs Vue vs Angular, frontend framework comparison, best development frameworks, MERN stack vs MEVN stack, project tech stack decision, web development landscape 2025"
+  },
+  {
+    id: "15",
+    title: "The Business Case for Custom Web Development vs Templates in 2025",
+    excerpt: "Understand when to choose custom web development vs templates for your business, covering costs, benefits, scalability, and strategic considerations.",
+    coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    date: "2025-07-19",
+    keywords: "custom web development vs templates, business case for custom development, custom website benefits, template limitations, cost of custom website, web development scalability, choosing a website solution, strategic web development"
+  }
+];
+
+export async function generateMetadata(): Promise<Metadata> {
+  const siteUrl = 'https://dmiraki.com'; // 🔁 Replace with your actual domain
+  const pageTitle = 'Latest Blogs & Insights | Web Development Trends 2025';
+  const pageDescription = 'Explore expert insights on Next.js, AI integration, responsive design, and web performance — stay updated with the latest web development trends.';
+  const pageImage = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80';
+  const canonicalUrl = `${siteUrl}/blogs`;
+  
+  // Combine all blog keywords for the main blogs page
+  const allKeywords = blogs.flatMap(blog => blog.keywords.split(', ')).join(', ');
+  
+  // Primary and secondary SEO keywords for digital services
+  const serviceKeywords = [
+    "website development services",
+    "mobile app development",
+    "Android app development",
+    "iOS app development",
+    "SEO services for websites and apps",
+    "digital marketing services",
+    "online advertising solutions",
+    "business growth through digital marketing",
+    "professional web and app development",
+    "mobile and web solutions 2025",
+    "custom website and mobile app development",
+    "Android and iOS app optimization",
+    "SEO strategies for mobile apps",
+    "social media marketing and ads",
+    "pay-per-click (PPC) advertising services",
+    "app store optimization (ASO) for Android & iOS",
+    "digital marketing campaigns for businesses",
+    "responsive website design and mobile apps",
+    "full-stack web and mobile solutions",
+    "marketing automation for online growth",
+    "web design and UX/UI",
+    "app performance and speed optimization",
+    "SEO audit for websites and apps",
+    "content marketing and social media ads",
+    "mobile-first website strategies",
+    "conversion rate optimization (CRO)",
+    "local SEO and Google My Business",
+    "influencer and performance marketing",
+    "retargeting and display ads",
+    "analytics and tracking for digital campaigns"
+  ].join(', ');
+
+  return {
+    title: pageTitle,
+    description: pageDescription,
+    keywords: `${allKeywords}, ${serviceKeywords}`,
+    authors: [{ name: "DMiraki Team" }],
+    robots: "index, follow",
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: pageTitle,
+      description: pageDescription,
+      url: canonicalUrl,
+      type: "website",
+      siteName: "DMiraki",
+      locale: "en_US",
+      images: [
+        {
+          url: pageImage,
+          width: 1200,
+          height: 630,
+          alt: "DMiraki Blog - Web Development Insights",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDescription,
+      images: [pageImage],
+      site: "@dmiraki",
+    },
+  };
+}
+
 export default function Head() {
-  const title = "Blogs | Insights, Guides & Case Studies | DMiraki";
-  const description =
-    "Explore DMiraki's latest blogs on digital marketing, web design, SEO, social media, and growth strategies.";
-  const url = "https://dmiraki.com/blogs";
-  const image = "https://dmiraki.com/assets/og-image.jpg";
-
-  return (
-    <>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content="digital marketing blog, web design insights, SEO tips, social media strategies, growth strategies, digital transformation, online marketing, website development, digital strategy, marketing trends" />
-      <link rel="canonical" href={url} />
-
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
-      <meta property="og:image" content={image} />
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={
-          {
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Blog",
-              "name": "DMiraki Blog",
-              "url": url,
-              "description": description,
-              "publisher": {
-                "@type": "Organization",
-                "name": "DMiraki",
-                "url": "https://dmiraki.com"
-              }
-            }),
-          }
-        }
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={
-          {
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dmiraki.com" },
-                { "@type": "ListItem", "position": 2, "name": "Blogs", "item": url }
-              ]
-            }),
-          }
-        }
-      />
-    </>
-  );
+  return null;
 }

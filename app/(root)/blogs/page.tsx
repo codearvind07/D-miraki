@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import Link from "next/link";
 
 // Static blog data with more relevant images
@@ -133,86 +132,6 @@ const blogs: BlogPost[] = [
     keywords: "custom web development vs templates, business case for custom development, custom website benefits, template limitations, cost of custom website, web development scalability, choosing a website solution, strategic web development"
   }
 ];
-
-// ✅ SEO Meta & Head Elements
-export async function generateMetadata(): Promise<Metadata> {
-  const siteUrl = 'https://dmiraki.com'; // 🔁 Replace with your actual domain
-  const pageTitle = 'Latest Blogs & Insights | Web Development Trends 2025';
-  const pageDescription = 'Explore expert insights on Next.js, AI integration, responsive design, and web performance — stay updated with the latest web development trends.';
-  const pageImage = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80';
-  const canonicalUrl = `${siteUrl}/blogs`;
-  
-  // Combine all blog keywords for the main blogs page
-  const allKeywords = blogs.flatMap(blog => blog.keywords.split(', ')).join(', ');
-  
-  // Primary and secondary SEO keywords for digital services
-  const serviceKeywords = [
-    "website development services",
-    "mobile app development",
-    "Android app development",
-    "iOS app development",
-    "SEO services for websites and apps",
-    "digital marketing services",
-    "online advertising solutions",
-    "business growth through digital marketing",
-    "professional web and app development",
-    "mobile and web solutions 2025",
-    "custom website and mobile app development",
-    "Android and iOS app optimization",
-    "SEO strategies for mobile apps",
-    "social media marketing and ads",
-    "pay-per-click (PPC) advertising services",
-    "app store optimization (ASO) for Android & iOS",
-    "digital marketing campaigns for businesses",
-    "responsive website design and mobile apps",
-    "full-stack web and mobile solutions",
-    "marketing automation for online growth",
-    "web design and UX/UI",
-    "app performance and speed optimization",
-    "SEO audit for websites and apps",
-    "content marketing and social media ads",
-    "mobile-first website strategies",
-    "conversion rate optimization (CRO)",
-    "local SEO and Google My Business",
-    "influencer and performance marketing",
-    "retargeting and display ads",
-    "analytics and tracking for digital campaigns"
-  ].join(', ');
-
-  return {
-    title: pageTitle,
-    description: pageDescription,
-    keywords: `${allKeywords}, ${serviceKeywords}`,
-    authors: [{ name: "DMiraki Team" }],
-    robots: "index, follow",
-    alternates: {
-      canonical: canonicalUrl,
-    },
-    openGraph: {
-      title: pageTitle,
-      description: pageDescription,
-      url: canonicalUrl,
-      type: "website",
-      siteName: "DMiraki",
-      locale: "en_US",
-      images: [
-        {
-          url: pageImage,
-          width: 1200,
-          height: 630,
-          alt: "DMiraki Blog - Web Development Insights",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: pageTitle,
-      description: pageDescription,
-      images: [pageImage],
-      site: "@dmiraki",
-    },
-  };
-}
 
 const Blogs = () => {
   return (
