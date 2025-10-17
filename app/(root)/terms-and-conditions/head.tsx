@@ -1,7 +1,6 @@
 export default function Head() {
   const title = "Terms & Conditions | DMiraki";
-  const description =
-    "Read the terms and conditions that govern your use of DMiraki's website and services.";
+  const description = "Terms and conditions for using the DMiraki website and services. By accessing or using our website, you agree to comply with these terms.";
   const url = "https://dmiraki.com/terms-and-conditions";
   const image = "https://dmiraki.com/assets/og-image.jpg";
 
@@ -9,7 +8,6 @@ export default function Head() {
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="DMiraki terms and conditions, website terms, digital agency terms, service terms, legal terms, website usage terms" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />

@@ -1,7 +1,6 @@
 export default function Head() {
   const title = "Privacy Policy | DMiraki";
-  const description =
-    "Learn about how DMiraki collects, uses, and protects your personal data when you interact with our services.";
+  const description = "Learn how DMiraki collects, uses, and protects your personal data when you interact with our services. Your privacy is important to us.";
   const url = "https://dmiraki.com/privacy-policy";
   const image = "https://dmiraki.com/assets/og-image.jpg";
 
@@ -9,7 +8,6 @@ export default function Head() {
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="DMiraki privacy policy, data protection, personal information, privacy terms, website privacy, digital agency privacy" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />

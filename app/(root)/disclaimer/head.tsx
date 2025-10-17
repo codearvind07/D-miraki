@@ -1,7 +1,6 @@
 export default function Head() {
   const title = "Disclaimer | DMiraki";
-  const description =
-    "Read DMiraki's disclaimer regarding the use of our website and the information provided.";
+  const description = "Disclaimer for the DMiraki website. The information provided is for general informational purposes only. We strive to keep content accurate but make no guarantees.";
   const url = "https://dmiraki.com/disclaimer";
   const image = "https://dmiraki.com/assets/og-image.jpg";
 
@@ -9,7 +8,6 @@ export default function Head() {
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="DMiraki disclaimer, website disclaimer, digital agency disclaimer, information accuracy, external links disclaimer" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content="website" />
