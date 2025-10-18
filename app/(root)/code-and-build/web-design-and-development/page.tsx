@@ -92,6 +92,7 @@ function WebDesignAndDevelopment() {
       >
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
+            {/* Added breadcrumb for internal linking */}
             <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
               <Link href="/" className="hover:text-gray-900 dark:hover:text-white">Home</Link>
               <span>/</span>
@@ -99,6 +100,7 @@ function WebDesignAndDevelopment() {
               <span>/</span>
               <span className="text-gray-900 dark:text-white">Web Design & Development</span>
             </nav>
+            {/* Added H1 tag for SEO */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
               Web Design &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
@@ -133,6 +135,7 @@ function WebDesignAndDevelopment() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Enhancing Digital Presence
             </h2>
@@ -170,6 +173,7 @@ function WebDesignAndDevelopment() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Why Our Development Approach Works
             </h2>

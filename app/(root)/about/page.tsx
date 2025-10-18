@@ -1,11 +1,11 @@
 "use client";
 
+import NextHead from "next/head";
 import pilot from "../../../assets/pilot.png";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MedalIcon, MapIcon, PlaneIcon, GiftIcon } from "@/components/Icons";
 import { MagicCard } from "@/components/ui/magic-card";
 import { buttonVariants } from "@/components/ui/button";
-
 import experiments from "@/assets/experiments.png";
 import chaotic from "../../../assets/chaotic.png";
 import Image from "next/image";
@@ -69,6 +69,34 @@ function About() {
 
   return (
     <>
+      <NextHead>
+        <title>About DMiraki | Website & Mobile App Development Company</title>
+        <meta name="description" content="DMiraki is a professional website development and mobile app development company offering custom digital solutions, SEO services, and digital marketing for business growth." />
+        <meta name="keywords" content="website development company, mobile app development services, Android app development company, iOS app development company, SEO services for mobile and web, digital marketing company, online advertising solutions, professional web and app solutions, full-stack development company, business growth through digital solutions, custom website and mobile app solutions, Android and iOS app optimization services, SEO strategies for websites and mobile apps, social media marketing and paid ads, PPC advertising and online campaigns, app store optimization (ASO) for Android & iOS, responsive website design and development, marketing automation and analytics, performance-driven digital solutions, professional IT services for businesses, UX/UI design and development, website speed and performance optimization, content marketing and SEO campaigns, mobile-first website strategy, conversion rate optimization (CRO), Google Ads and social media campaigns, local SEO and Google My Business, retargeting and display advertising, app and web analytics, innovative digital solutions for businesses" />
+        <meta name="author" content="DMiraki Team" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://dmiraki.com/about" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="About DMiraki | Website & Mobile App Development Company" />
+        <meta property="og:description" content="DMiraki is a professional website development and mobile app development company offering custom digital solutions, SEO services, and digital marketing for business growth." />
+        <meta property="og:url" content="https://dmiraki.com/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="DMiraki" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="About DMiraki - Digital Solutions Company" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About DMiraki | Website & Mobile App Development Company" />
+        <meta name="twitter:description" content="DMiraki is a professional website development and mobile app development company offering custom digital solutions, SEO services, and digital marketing for business growth." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" />
+        <meta name="twitter:site" content="@dmiraki" />
+      </NextHead>
+      
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -84,11 +112,13 @@ function About() {
       >
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
+            {/* Added breadcrumb for internal linking */}
             <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
               <Link href="/" className="hover:text-gray-900 dark:hover:text-white">Home</Link>
               <span>/</span>
               <span className="text-gray-900 dark:text-white">About</span>
             </nav>
+            {/* Added H1 tag for SEO */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
               About{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">

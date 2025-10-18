@@ -23,15 +23,16 @@ export default function Home() {
   }, []);
   return (
     <>
-     <HeroSection />
-       <AboutSection />
+      <div className="min-h-screen bg-background">
+        <HeroSection />
+        <AboutSection />
         <HowItWorks />
-      <Features />
-      <MoreSrvices/>
-       <Services />
-      <CTASection />
-      <Testimonials />
-   
+        <Features />
+        <MoreSrvices/>
+        <Services />
+        <CTASection />
+        <Testimonials />
+      </div>
     </>
   );
 }

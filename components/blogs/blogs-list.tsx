@@ -1,159 +1,80 @@
 "use client";
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { useEffect, useState } from "react";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MoreHorizontal, Eye, Edit, Trash, ArrowUpDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { formatDate, truncate } from "@/lib/utils";
-import { useState, useEffect } from "react";
-import { getAllBlogs } from "@/data/blogs";
+import { format } from "date-fns";
 
-type Blog = {
-  _id: string;
-  title: string;
-  excerpt: string;
-  status: string;
-  publishedAt: string;
-  views?: number;
-  author: {
-    name: string;
-  };
-};
+// Mock data for blogs
+const mockBlogs = [
+  {
+    id: "1",
+    title: "Getting Started with Next.js 14",
+    excerpt: "Learn the fundamentals of Next.js 14 and how to build modern web applications.",
+    category: "Web Development",
+    publishedAt: "2024-01-15T14:30:00Z",
+    readingTime: "5 min read",
+    status: "published",
+  },
+  {
+    id: "2",
+    title: "Advanced TypeScript Patterns",
+    excerpt: "Explore advanced TypeScript patterns to improve your code quality.",
+    category: "Programming",
+    publishedAt: "2024-01-10T09:15:00Z",
+    readingTime: "8 min read",
+    status: "published",
+  },
+  {
+    id: "3",
+    title: "UI/UX Design Principles",
+    excerpt: "Essential design principles every developer should know.",
+    category: "Design",
+    publishedAt: "2024-01-05T16:45:00Z",
+    readingTime: "6 min read",
+    status: "draft",
+  },
+];
 
 export function BlogsList() {
-  const blogs = getAllBlogs();
-  const [sortedBlogs, setSortedBlogs] = useState(blogs);
-  const [sortConfig, setSortConfig] = useState<{
-    key: keyof Blog;
-    direction: "ascending" | "descending";
-  } | null>(null);
-
-  const isLoading = false;
-  const error = null;
+  const [blogs, setBlogs] = useState<any[]>([]);
 
   useEffect(() => {
-    setSortedBlogs(blogs);
-  }, [blogs]);
-
-  const handleSort = (key: keyof Blog) => {
-    let direction: "ascending" | "descending" = "ascending";
-    if (sortConfig?.key === key && sortConfig.direction === "ascending") {
-      direction = "descending";
-    }
-    setSortConfig({ key, direction });
-
-    const sorted = [...blogs];
-    sorted.sort((a: any, b: any) => {
-      const aValue = a[key];
-      const bValue = b[key];
-      if (direction === "ascending") {
-        return aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
-      } else {
-        return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
-      }
-    });
-    setSortedBlogs(sorted);
-  };
+    // In a real app, this would be an API call
+    setBlogs(mockBlogs);
+  }, []);
 
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[300px]">
-              <Button variant="ghost" onClick={() => handleSort("title")}>
-                Title
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-              </Button>
-            </TableHead>
-            <TableHead className="hidden md:table-cell">
-              <Button variant="ghost" onClick={() => handleSort("publishedAt")}>
-                Date
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-              </Button>
-            </TableHead>
-            <TableHead className="hidden md:table-cell">Status</TableHead>
-            <TableHead className="hidden lg:table-cell">Author</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {!isLoading && blogs.length > 0 ? (
-            sortedBlogs.map((blog:any) => (
-              <TableRow key={blog._id}>
-                <TableCell className="font-medium">
-                  <div>
-                    <div className="font-medium">{blog.title}</div>
-                    <div className="text-sm text-muted-foreground hidden md:block">
-                      {truncate(blog.excerpt, 60)}
-                    </div>
-                  </div>
-                </TableCell>
-                <TableCell className="hidden md:table-cell">
-                  {formatDate(blog.publishedAt)}
-                </TableCell>
-                <TableCell className="hidden md:table-cell">
-                  <Badge
-                    variant={blog.status === "published" ? "default" : "secondary"}
-                  >
-                    {blog.status}
-                  </Badge>
-                </TableCell>
-                <TableCell className="hidden lg:table-cell">
-                  {blog.author?.name || "N/A"}
-                </TableCell>
-                <TableCell className="text-right">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" className="h-8 w-8 p-0">
-                        <span className="sr-only">Open menu</span>
-                        <MoreHorizontal className="h-4 w-4" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>
-                        <Eye className="mr-2 h-4 w-4" />
-                        <span>View</span>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <Edit className="mr-2 h-4 w-4" />
-                        <span>Edit (Manual Update Required)</span>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem disabled>
-                        <Trash className="mr-2 h-4 w-4" />
-                        <span>Delete (Manual Update Required)</span>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={5} className="h-24 text-center">
-                {isLoading ? "Loading..." : "No blogs found."}
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {blogs.map((blog) => (
+        <Card key={blog.id} className="flex flex-col">
+          <CardHeader>
+            <div className="flex justify-between items-start">
+              <CardTitle className="text-xl">{blog.title}</CardTitle>
+              <Badge variant={blog.status === "published" ? "default" : "secondary"}>
+                {blog.status}
+              </Badge>
+            </div>
+            <CardDescription>{blog.excerpt}</CardDescription>
+          </CardHeader>
+          <CardContent className="flex-grow">
+            <div className="flex justify-between text-sm text-muted-foreground">
+              <span>{blog.category}</span>
+              <span>{format(new Date(blog.publishedAt), "MMM d, yyyy")}</span>
+            </div>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <span className="text-sm text-muted-foreground">{blog.readingTime}</span>
+            <div className="space-x-2">
+              <Button variant="outline" size="sm">Edit</Button>
+              <Button variant="destructive" size="sm">Delete</Button>
+            </div>
+          </CardFooter>
+        </Card>
+      ))}
     </div>
   );
 }
+
+export default BlogsList;

@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   NavigationMenu,
@@ -21,7 +21,10 @@ import { useRouter } from "next/navigation";
 import { Button, buttonVariants } from "../ui/button";
 import { ModeToggle } from "../mode-toggle";
 import Link from "next/link";
-import { isTokenExpired } from "@/utils";
+import Marquee from "../ui/marquee";
+import DiwaliGlitter from "@/components/landing/diwali-glitter";
+import { useDiwali } from "@/components/landing/diwali-context";
+import MarqueeFireworks from "@/components/landing/marquee-fireworks";
 
 interface RouteProps {
   href: string;
@@ -50,7 +53,17 @@ const routeList: RouteProps[] = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useRouter(); // Hook for programmatic navigation
+  const { isFirstLoad, setFirstLoadComplete } = useDiwali();
 
+  // Set first load complete after a short delay to ensure effects are visible
+  useEffect(() => {
+    if (isFirstLoad) {
+      const timer = setTimeout(() => {
+        setFirstLoadComplete();
+      }, 10000); // Show effects for 10 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [isFirstLoad, setFirstLoadComplete]);
 
   const handleNavigation = (path: string) => {
     if (path.startsWith("#")) {
@@ -65,120 +78,130 @@ export const Navbar = () => {
     }
     setIsOpen(false); // Close the sheet if open
   };
-const token: string = typeof window !== 'undefined' ? localStorage.getItem('adminToken') || '' : ''
+  
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur dark:border-b-slate-700">
-      <NavigationMenu className=" mx-6 mt-5 w-full">
-        <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
-          <NavigationMenuItem className="font-bold flex">
-            <Link
-              rel="noreferrer noopener"
-              href="/"
-              className="ml-2 font-bold text-xl flex cursor-pointer font-recoleta"
-            >
-              {`d'miraki`}
-            </Link>
-          </NavigationMenuItem>
-
-          {/* mobile */}
-          <span className="flex md:hidden">
-            <ModeToggle />
-
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger className="px-2">
-                <Menu
-                  className="flex md:hidden h-5 w-5"
-                  onClick={() => setIsOpen(true)}
-                >
-                  <span className="sr-only">Menu Icon</span>
-                </Menu>
-              </SheetTrigger>
-
-              <SheetContent side={"left"}>
-                <SheetHeader>
-                  <SheetTitle className="font-bold text-xl font-recoleta">
-                    d'miraki
-                  </SheetTitle>
-                </SheetHeader>
-                <nav className="flex flex-col justify-center items-center gap-2 mt-4">
-                  {routeList.map(({ href, label }: RouteProps) => (
-                    <button
-                     
-                      key={label}
-                      onClick={() => handleNavigation(href)}
-                      className={buttonVariants({ variant: "ghost" })}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                  <p
-                   style={{ cursor: "pointer" }}
-                    onClick={() =>
-                      navigate.push("/contact-us")
-                    }
-                    className={`w-[110px] border ${buttonVariants({
-                      variant: "ghost",
-                    })}`}
-                  >
-                    <ArrowTopRightIcon className="mr-2 w-5 h-5" />
-                    Get in Touch
-                  </p>
-                  {!token || isTokenExpired(token) ? "":(
-                    <>
-                    {token && (
-                  <Button
-                    onClick={() =>
-                      navigate.push("/dashboard")
-                    }
-                  >Dashboard</Button>
-                )}
-                    </>
-                  )}
-                  
-                </nav>
-               
-              </SheetContent>
-            </Sheet>
+    <>
+      {/* Diwali Wishes Banner - always shown */}
+      <div className="bg-black text-white text-center py-2 px-4">
+        <p className="font-bold text-lg animate-pulse">
+          🪔 Happy Diwali from the D'Miraki Family! May this festival of lights bring joy, prosperity, and success to your life! 🪔
+        </p>
+      </div>
+      
+      {/* Diwali Marquee Bar - always shown below header */}
+      <div className="bg-black py-2 relative overflow-hidden">
+        <MarqueeFireworks height={50} />
+        <Marquee className="[--duration:40s] [--gap:3rem] relative z-20" pauseOnHover>
+          <span className="text-white font-bold text-lg mx-4">
+            🪔 Happy Diwali from the D'Miraki Family! Wishing you a prosperous and joyful festival of lights! 🪔
           </span>
-
-          {/* desktop */}
-          <nav className="hidden md:flex gap-2">
-            {routeList.map(({ href, label }: RouteProps) => (
-              <button
-                key={label}
-                onClick={() => handleNavigation(href)}
-                className={`text-[17px] ${buttonVariants({
-                  variant: "link",
-                })}`}
+          <span className="text-white font-bold text-lg mx-4">
+            🪔 Happy Diwali from the D'Miraki Family! Wishing you a prosperous and joyful festival of lights! 🪔
+          </span>
+          <span className="text-white font-bold text-lg mx-4">
+            🪔 Happy Diwali from the D'Miraki Family! Wishing you a prosperous and joyful festival of lights! 🪔
+          </span>
+        </Marquee>
+      </div>
+      
+      {/* Diwali Glitter Effect - only shown on first load */}
+      {isFirstLoad && <DiwaliGlitter />}
+      
+      <header className="sticky top-0 z-40 w-full backdrop-blur dark:border-b-slate-700">
+        <NavigationMenu className=" mx-6 mt-5 w-full">
+          <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
+            <NavigationMenuItem className="font-bold flex">
+              <Link
+                rel="noreferrer noopener"
+                href="/"
+                className="ml-2 font-bold text-xl flex cursor-pointer font-recoleta"
               >
-                {label}
-              </button>
-            ))}
-          </nav>
+                {`d'miraki`}
+              </Link>
+            </NavigationMenuItem>
 
-          <div className="hidden md:flex gap-2">
-            <p
-              onClick={() =>
+            {/* mobile */}
+            <span className="flex md:hidden">
+              <ModeToggle />
+
+              <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                <SheetTrigger className="px-2">
+                  <Menu
+                    className="flex md:hidden h-5 w-5"
+                    onClick={() => setIsOpen(true)}
+                  >
+                    <span className="sr-only">Menu Icon</span>
+                  </Menu>
+                </SheetTrigger>
+
+                <SheetContent side={"left"}>
+                  <SheetHeader>
+                    <SheetTitle className="font-bold text-xl font-recoleta">
+                      d'miraki
+                    </SheetTitle>
+                  </SheetHeader>
+                  <nav className="flex flex-col justify-center items-center gap-2 mt-4">
+                    {routeList.map(({ href, label }: RouteProps) => (
+                      <button
+                     
+                        key={label}
+                        onClick={() => handleNavigation(href)}
+                        className={buttonVariants({ variant: "ghost" })}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                    <p
+                     style={{ cursor: "pointer" }}
+                      onClick={() =>
+                        navigate.push("/contact-us")
+                      }
+                      className={`w-[110px] border ${buttonVariants({
+                        variant: "ghost",
+                      })}`}
+                    >
+                      <ArrowTopRightIcon className="mr-2 w-5 h-5" />
+                      Get in Touch
+                    </p>
+
+                  
+                  </nav>
+               
+                </SheetContent>
+              </Sheet>
+            </span>
+
+            {/* desktop */}
+            <nav className="hidden md:flex gap-2">
+              {routeList.map(({ href, label }: RouteProps) => (
+                <button
+                  key={label}
+                  onClick={() => handleNavigation(href)}
+                  className={`text-[17px] ${buttonVariants({
+                    variant: "link",
+                  })}`}
+                >
+                  {label}
+                </button>
+              ))}
+            </nav>
+
+            <div className="hidden md:flex gap-2">
+              <p
+                onClick={() =>
                       navigate.push("/contact-us")
                     }
-              className={`border ${buttonVariants({ variant: "ghost" })} cursor-pointer`}
-            >
-              <ArrowTopRightIcon className="mr-2 w-5 h-5" />
-              Get in Touch
-            </p>
+                className={`border ${buttonVariants({ variant: "ghost" })} cursor-pointer`}
+              >
+                <ArrowTopRightIcon className="mr-2 w-5 h-5" />
+                Get in Touch
+              </p>
 
-             {token && (
-                  <Button
-                    onClick={() =>
-                      navigate.push("/dashboard")
-                    }
-                  >Dashboard</Button>
-                )}
-
-            <ModeToggle />
-          </div>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </header>
+              <ModeToggle />
+            </div>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </header>
+    </>
   );
 };

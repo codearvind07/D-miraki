@@ -1,9 +1,8 @@
 "use client";
 
-
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";  
 
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MagicCard } from "@/components/ui/magic-card";
@@ -106,11 +105,13 @@ function CodeAndBuild() {
       >
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
+            {/* Added breadcrumb for internal linking */}
             <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-              <span>Home</span>
+              <Link href="/" className="hover:text-gray-900 dark:hover:text-white">Home</Link>
               <span>/</span>
               <span className="text-gray-900 dark:text-white">Code & Build</span>
             </nav>
+            {/* Added H1 tag for SEO */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
               Code &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
@@ -145,6 +146,7 @@ function CodeAndBuild() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Our Development Services
             </h2>
@@ -183,6 +185,7 @@ function CodeAndBuild() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Why Our Development Approach Works
             </h2>

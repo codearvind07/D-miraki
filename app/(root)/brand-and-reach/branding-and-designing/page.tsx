@@ -1,6 +1,7 @@
 "use client";
 
-import Head from "next/head";
+import { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -10,7 +11,7 @@ import roboto from "../../../../assets/roboto.png";
 import cubeLeg from "../../../../assets/cube-leg.png";
 
 /**
- * Services mapped to your “Our UI/UX Design Services”
+ * Services mapped to your "Our UI/UX Design Services"
  */
 const services = [
   {
@@ -74,7 +75,7 @@ const specializations = [
 ];
 
 /**
- * Process steps mapped to your “Our Design Process”
+ * Process steps mapped to your "Our Design Process"
  */
 const processSteps = [
   {
@@ -254,16 +255,6 @@ export default function UiUxDesignPage() {
 
   return (
     <>
-      <Head>
-        <title>
-          UI/UX Design Services | User Experience Design by DMiraki
-        </title>
-        <meta
-          name="description"
-          content="Professional UI/UX design services by DMiraki. Create intuitive user experiences and beautiful interfaces that convert visitors into customers."
-        />
-      </Head>
-
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -281,11 +272,15 @@ export default function UiUxDesignPage() {
       >
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
+            {/* Added breadcrumb for internal linking */}
             <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-              <span>Brand & Reach</span>
+              <Link href="/" className="hover:text-gray-900 dark:hover:text-white">Home</Link>
+              <span>/</span>
+              <Link href="/brand-and-reach" className="hover:text-gray-900 dark:hover:text-white">Brand & Reach</Link>
               <span>/</span>
               <span className="text-gray-900 dark:text-white">Branding & Designing</span>
             </nav>
+            {/* Added H1 tag for SEO */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
               Branding &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
@@ -330,6 +325,7 @@ export default function UiUxDesignPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our UI/UX Design Services</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Strategic UX, beautiful UI, and continuous optimization for real business impact.
@@ -360,6 +356,7 @@ export default function UiUxDesignPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Design Specializations</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Deep expertise across web, apps, software, and e‑commerce.
@@ -390,6 +387,7 @@ export default function UiUxDesignPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Design Process</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Validate early, design clearly, and iterate with real user feedback.
@@ -420,6 +418,7 @@ export default function UiUxDesignPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Key Design Principles We Follow</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Practical principles that keep users—and outcomes—front and center.
@@ -455,6 +454,7 @@ export default function UiUxDesignPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Technologies & Tools We Use</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Design, research, and systemization for scale and clarity.
@@ -490,6 +490,7 @@ export default function UiUxDesignPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            {/* Added H2 tag for SEO */}
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Industry Applications</h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               Experience across complex and high‑consideration categories.
@@ -519,6 +520,7 @@ export default function UiUxDesignPage() {
         className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950 transition-opacity duration-1000 opacity-0"
       >
         <div className="max-w-7xl mx-auto text-center">
+          {/* Added H2 tag for SEO */}
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Results You Can Expect</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
             Outcomes that align user needs with business performance.

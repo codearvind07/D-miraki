@@ -1,4 +1,3 @@
-
 "use client"
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
@@ -9,8 +8,8 @@ import { Contact } from '@/components/landing/Contact';
 import { FAQ } from '@/components/landing/FAQ';
 import { useEffect, useState } from 'react';
 import Loader from '@/components/Loader';
-
-
+import { DiwaliProvider } from '@/components/landing/diwali-context';
+import DiwaliSection from '@/components/landing/diwali-section';
 
 export default function RootLayout({
   children,
@@ -36,18 +35,21 @@ export default function RootLayout({
           sizes="any" 
         />
       </head>
-      <body className={cn('min-h-screen w-full font-sans antialiased')}>
+      <body className={cn('min-h-screen w-full font-sans antialiased bg-background')}>
          {isLoading ? (
                 <Loader />
               ) : (
                 <ThemeProvider>
-                  <Navbar />
-                  {children}
-                  <Contact />
-                  <FAQ />
-                  <FooterSection />
-        
-                  <Toaster />
+                  <DiwaliProvider>
+                    <Navbar />
+                    {children}
+                    <DiwaliSection />
+                    <Contact />
+                    <FAQ />
+                    <FooterSection />
+          
+                    <Toaster />
+                  </DiwaliProvider>
                 </ThemeProvider>
               )}
       </body>

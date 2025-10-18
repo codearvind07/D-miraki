@@ -1,113 +1,170 @@
-"use client"
-import React from 'react'
-import { getBlogById } from "@/data/blogs";
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
-import Image from 'next/image';
-import Link from 'next/link';
 
-export default function BlogDetails({id}:{id:string}) {
-    const blog = getBlogById(id);
-    const isLoading = false;
-    const error = !blog;
+// Mock data for blogs
+const mockBlogs = [
+  {
+    id: "1",
+    title: "Why Every Business Needs a Professional Website in 2024",
+    excerpt: "Discover why having a professional website is crucial for business success in 2024, from building credibility to reaching customers 24/7.",
+    content: `
+      <p>In today's digital landscape, a professional website is no longer a luxury—it's a necessity for businesses of all sizes. Here's why:</p>
+      
+      <h2>Building Credibility and Trust</h2>
+      <p>A well-designed website immediately establishes your business as credible and trustworthy. Potential customers often research companies online before making purchasing decisions.</p>
+      
+      <h2>24/7 Availability</h2>
+      <p>Your website works around the clock, providing information about your products or services even when your physical store is closed.</p>
+      
+      <h2>Reaching a Wider Audience</h2>
+      <p>With a website, you're not limited by geography. You can reach customers anywhere in the world, expanding your market beyond local boundaries.</p>
+    `,
+    coverImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    category: "Business Strategy",
+    tags: ["Business Website", "Digital Marketing", "Online Presence", "Web Development"],
+    technology: ["HTML", "CSS", "JavaScript", "SEO"],
+    publishedAt: "2024-01-15T14:30:00Z",
+    metaTitle: "Why Every Business Needs a Professional Website in 2024 | DMiraki",
+    metaDescription: "Discover why having a professional website is essential for business success in 2024. Learn how to build credibility, reach customers 24/7, and drive growth with effective web design.",
+    author: {
+      name: "DMiraki Team",
+      bio: "Experts in web development and digital strategy",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+    },
+    readingTime: "8 min read"
+  },
+  {
+    id: "2",
+    title: "Next.js 15: The Future of React Development is Here",
+    excerpt: "Explore the revolutionary features of Next.js 15 including Turbopack, enhanced App Router, and built-in performance monitoring tools.",
+    content: `
+      <p>Next.js 15 brings exciting new features that push the boundaries of React development even further.</p>
+      
+      <h2>Turbopack: Lightning-Fast Compilation</h2>
+      <p>Turbopack, the new Rust-based compiler, offers up to 700x faster updates and 10x faster cold starts compared to Webpack.</p>
+      
+      <h2>Enhanced App Router</h2>
+      <p>The App Router in Next.js 15 introduces improved layouts, better error handling, and more intuitive data fetching patterns.</p>
+      
+      <h2>Built-in Performance Monitoring</h2>
+      <p>Next.js 15 now includes built-in performance monitoring tools that help you identify and fix performance bottlenecks.</p>
+    `,
+    coverImage: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    category: "Web Development",
+    tags: ["Next.js", "React", "Turbopack", "Web Development", "Performance"],
+    technology: ["Next.js", "React", "JavaScript", "TypeScript"],
+    publishedAt: "2024-03-22T09:15:00Z",
+    metaTitle: "Next.js 15: The Future of React Development is Here | DMiraki",
+    metaDescription: "Explore the revolutionary features of Next.js 15 including Turbopack, enhanced App Router, and built-in performance monitoring tools for modern web development.",
+    author: {
+      name: "DMiraki Team",
+      bio: "Experts in web development and digital strategy",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+    },
+    readingTime: "6 min read"
+  },
+  {
+    id: "3",
+    title: "The ROI of Professional Web Design: Numbers That Matter",
+    excerpt: "Learn how professional web design delivers measurable ROI through increased conversions, reduced acquisition costs, and long-term value creation.",
+    content: `
+      <p>Investing in professional web design isn't just about aesthetics—it's a strategic decision that delivers measurable returns.</p>
+      
+      <h2>Increased Conversion Rates</h2>
+      <p>Professional web design can increase conversion rates by 15-50% through improved user experience and strategic call-to-action placement.</p>
+      
+      <h2>Reduced Customer Acquisition Costs</h2>
+      <p>A well-designed website reduces bounce rates and increases engagement, leading to lower customer acquisition costs.</p>
+      
+      <h2>Long-term Value Creation</h2>
+      <p>Professional design creates lasting brand impressions that build customer loyalty and drive repeat business.</p>
+    `,
+    coverImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    category: "Business Strategy",
+    tags: ["Web Design", "ROI", "Business Growth", "Conversion Rate", "Digital Marketing"],
+    technology: ["UI/UX", "Web Design", "Conversion Optimization"],
+    publishedAt: "2024-02-08T16:45:00Z",
+    metaTitle: "The ROI of Professional Web Design: Numbers That Matter | DMiraki",
+    metaDescription: "Learn how professional web design delivers measurable ROI through increased conversions, reduced acquisition costs, and long-term value creation for your business.",
+    author: {
+      name: "DMiraki Team",
+      bio: "Experts in web development and digital strategy",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+    },
+    readingTime: "7 min read"
+  }
+];
 
-     if (error)
-    return (
-      <div className="text-red-500 text-center py-10">Failed to load blog.</div>
-    );
+export default function BlogDetails({ id }: { id: string }) {
+  const [blog, setBlog] = useState<any>(null);
+
+  useEffect(() => {
+    // In a real app, this would be an API call
+    const foundBlog = mockBlogs.find(b => b.id === id);
+    setBlog(foundBlog);
+  }, [id]);
+
+  if (!blog) {
+    return <div className="container py-12 text-center">Blog not found</div>;
+  }
+
   return (
-    <>
-      <section className="container mx-auto px-4 py-20 w-full">
-        {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
-          <Link href="/" className="hover:text-gray-900 dark:hover:text-white">Home</Link>
-          <span>/</span>
-          <Link href="/blogs" className="hover:text-gray-900 dark:hover:text-white">Blogs</Link>
-          <span>/</span>
-          <span className="text-gray-900 dark:text-white">Blog Post</span>
-        </nav>
-        
-        {/* Cover Image */}
+    <div className="container py-12">
+      <article className="max-w-4xl mx-auto">
         <div className="mb-6">
-          {isLoading ? (
-            <div className="w-full h-96 bg-gray-300 dark:bg-gray-700 animate-pulse rounded-xl" />
-          ) : (
-            <img
-              src={blog?.coverImage}
-              alt={blog?.title}
-              className="w-full rounded-xl"
-            />
-          )}
-        </div>
-
-        {/* Content */}
-        {isLoading ? (
-          <div className="space-y-4">
-            <div className="h-4 w-1/3 bg-gray-300 dark:bg-gray-700 animate-pulse rounded" />
-            <div className="h-10 w-3/4 bg-gray-300 dark:bg-gray-700 animate-pulse rounded" />
-            <div className="space-y-2">
-              <div className="h-4 w-full bg-gray-300 dark:bg-gray-700 animate-pulse rounded" />
-              <div className="h-4 w-full bg-gray-300 dark:bg-gray-700 animate-pulse rounded" />
-              <div className="h-4 w-2/3 bg-gray-300 dark:bg-gray-700 animate-pulse rounded" />
-            </div>
+          <Button variant="ghost" className="mb-4 pl-0">
+            ← Back to Blogs
+          </Button>
+          <div className="flex flex-wrap gap-2 mb-4">
+            <Badge>{blog.category}</Badge>
+            {blog.technology.map((tech: string, index: number) => (
+              <Badge key={index} variant="secondary">{tech}</Badge>
+            ))}
           </div>
-        ) : (
-          <>
-            {/* Published Date */}
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              {blog?.createdAt ? format(new Date(blog.createdAt), "dd MMM yyyy") : 'No date'}
-            </p>
-
-            {/* Title */}
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-4">
-              {blog?.title}
-            </h1>
-
-            {/* Category */}
-            <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-300 mb-6">
-              <span className="text-blue-600 dark:text-blue-400">{blog?.category}</span>
+          <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
+          <div className="flex items-center gap-4 text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Image
+                src={blog.author.avatar}
+                alt={blog.author.name}
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
+              <span>{blog.author.name}</span>
             </div>
-
-            {/* Excerpt */}
-            {blog?.excerpt && (
-              <p className="italic text-gray-700 dark:text-gray-400 mb-6">
-                "{blog.excerpt}"
-              </p>
-            )}
-
-            {/* Blog Content */}
-            <div
-              className="prose dark:prose-invert max-w-none text-gray-800 dark:text-gray-300"
-              dangerouslySetInnerHTML={{ __html: blog?.content || "" }}
-            />
-
-            {/* Tags */}
-            {blog?.tags && (
-              <div className="mt-8">
-                <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">
-                  Tags:
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {blog.tags.split(',').map((tag: string, index: number) => (
-                    <span
-                      key={index}
-                      className="text-xs bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-3 py-1 rounded-full"
-                    >
-                      #{tag.trim()}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-          </>
-        )}
-        
-        {/* Back to Blogs Link */}
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <Link href="/blogs" className="text-blue-600 hover:underline dark:text-blue-400">
-            ← Back to all blogs
-          </Link>
+            <span>{format(new Date(blog.publishedAt), "MMMM d, yyyy")}</span>
+            <span>{blog.readingTime}</span>
+          </div>
         </div>
-      </section>
-    </>
-  )
+
+        <div className="relative w-full h-96 mb-8 rounded-lg overflow-hidden">
+          <Image
+            src={blog.coverImage}
+            alt={blog.title}
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div 
+          className="prose prose-lg max-w-none dark:prose-invert"
+          dangerouslySetInnerHTML={{ __html: blog.content }}
+        />
+
+        <div className="mt-12 pt-8 border-t">
+          <div className="flex flex-wrap gap-2">
+            {blog.tags.map((tag: string, index: number) => (
+              <Badge key={index} variant="outline">#{tag}</Badge>
+            ))}
+          </div>
+        </div>
+      </article>
+    </div>
+  );
 }
