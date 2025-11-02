@@ -1,6 +1,12 @@
 import { Metadata } from "next";
+import CodeAndBuildClient from "./code-and-build-client";
+
 
 export async function generateMetadata(): Promise<Metadata> {
+  // We'll use the same metadata generation logic as in head.tsx
+  // But we need to call the generateMetadata function from head.tsx
+  // Since we can't directly import and call it, we'll recreate the logic here
+  
   const siteUrl = 'https://dmiraki.com';
   const pageTitle = 'Code & Build Services | Web Design, UI/UX & IoT Solutions';
   const pageDescription = 'Professional web design and development, UI/UX design, content creation, and IoT-based software solutions to build your digital presence and drive measurable growth.';
@@ -81,6 +87,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Head() {
-  return null;
+export default function CodeAndBuild() {
+  return <CodeAndBuildClient />;
 }

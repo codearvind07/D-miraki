@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Metadata } from 'next';
 
 // Static blog data with more relevant images
 interface BlogPost {
@@ -133,70 +134,255 @@ const blogs: BlogPost[] = [
   }
 ];
 
+export async function generateMetadata(): Promise<Metadata> {
+  const siteUrl = 'https://dmiraki.com';
+  const pageTitle = 'Latest Blogs & Insights | Web Development Trends 2025';
+  const pageDescription = 'Explore expert insights on Next.js, AI integration, responsive design, and web performance — stay updated with the latest web development trends.';
+  const pageImage = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80';
+  const canonicalUrl = `${siteUrl}/blogs`;
+  
+  // Combine all blog keywords for the main blogs page
+  const allKeywords = blogs.flatMap(blog => blog.keywords.split(', ')).join(', ');
+  
+  // Primary and secondary SEO keywords for digital services
+  const serviceKeywords = [
+    "website development services",
+    "mobile app development",
+    "Android app development",
+    "iOS app development",
+    "SEO services for websites and apps",
+    "digital marketing services",
+    "online advertising solutions",
+    "business growth through digital marketing",
+    "professional web and app development",
+    "mobile and web solutions 2025",
+    "custom website and mobile app development",
+    "Android and iOS app optimization",
+    "SEO strategies for mobile apps",
+    "social media marketing and ads",
+    "pay-per-click (PPC) advertising services",
+    "app store optimization (ASO) for Android & iOS",
+    "digital marketing campaigns for businesses",
+    "responsive website design and mobile apps",
+    "full-stack web and mobile solutions",
+    "marketing automation for online growth",
+    "web design and UX/UI",
+    "app performance and speed optimization",
+    "SEO audit for websites and apps",
+    "content marketing and social media ads",
+    "mobile-first website strategies",
+    "conversion rate optimization (CRO)",
+    "local SEO and Google My Business",
+    "influencer and performance marketing",
+    "retargeting and display ads",
+    "analytics and tracking for digital campaigns"
+  ].join(', ');
+
+  return {
+    title: pageTitle,
+    description: pageDescription,
+    keywords: `${allKeywords}, ${serviceKeywords}`,
+    authors: [{ name: "DMiraki Team" }],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      }
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: pageTitle,
+      description: pageDescription,
+      url: canonicalUrl,
+      type: "website",
+      siteName: "DMiraki",
+      locale: "en_US",
+      images: [
+        {
+          url: pageImage,
+          width: 1200,
+          height: 630,
+          alt: "DMiraki Blog - Web Development Insights",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDescription,
+      images: [pageImage],
+      site: "@dmiraki",
+    },
+  };
+}
+
 const Blogs = () => {
   return (
-    <section className="container mx-auto px-4 py-20">
-      {/* Blog Header */}
-      <div className="text-center mb-16 max-w-3xl mx-auto">
-        {/* Added H1 tag for SEO */}
-        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight
-        inline bg-gradient-to-r bg-clip-text text-transparent
-              from-[rgb(255,99,71)] via-[rgb(255,165,0)] to-[rgb(0,191,255)]
-              animate-text font-recoleta
-        ">
-          Insights & Innovations in Web Development
-        </h1>
-        <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-          Stay updated with the latest in frontend technologies, design trends, and best practices from our expert team.
-        </p>
-      </div>
+    <>
+      {/* Breadcrumbs for better SEO */}
+      <nav className="container mx-auto px-4 py-4 text-sm text-gray-600" aria-label="Breadcrumb">
+        <ol className="flex space-x-2">
+          <li><Link href="/" className="hover:underline">Home</Link></li>
+          <li className="before:content-['/'] before:mx-2">Blogs</li>
+        </ol>
+      </nav>
+      
+      <section className="container mx-auto px-4 py-8">
+        {/* Blog Header */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          {/* Added H1 tag for SEO */}
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight
+          inline bg-gradient-to-r bg-clip-text text-transparent
+                from-[rgb(255,99,71)] via-[rgb(255,165,0)] to-[rgb(0,191,255)]
+                animate-text font-recoleta
+          ">
+            Insights & Innovations in Web Development
+          </h1>
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+            Stay updated with the latest in frontend technologies, design trends, and best practices from our expert team.
+          </p>
+        </div>
 
-      {/* Blog Grid */}
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        {blogs.map((post) => (
-          <article
-            key={post.id}
-            className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] group"
-          >
-            <div className="h-48 bg-gradient-to-br from-pink-400 to-yellow-500 relative">
-              {post.coverImage ? (
-                <img
-                  src={post.coverImage}
-                  alt={`${post.title} - blog cover image`}
-                  className="w-full h-48 object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-48 flex items-center justify-center text-white font-medium">
-                  No Image Available
-                </div>
-              )}
-            </div>
+        {/* Blog Grid */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {blogs.map((post) => (
+            <article
+              key={post.id}
+              className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] group"
+            >
+              <div className="h-48 bg-gradient-to-br from-pink-400 to-yellow-500 relative">
+                {post.coverImage ? (
+                  <img
+                    src={post.coverImage}
+                    alt={`${post.title} - blog cover image`}
+                    className="w-full h-48 object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-48 flex items-center justify-center text-white font-medium">
+                    No Image Available
+                  </div>
+                )}
+              </div>
 
-            <div className="p-6 space-y-4">
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                {post.date}
-              </p>
-              {/* Added H2 tag for SEO */}
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white group-hover:text-pink-500 transition-colors duration-300">
-                {post.title}
-              </h2>
-              <p className="text-gray-700 dark:text-gray-300 line-clamp-3">
-                {post.excerpt}
-              </p>
-              <Link href={`/blogs/blog${post.id}`} className="inline-block">
-                <button 
-                  className="mt-4 inline-flex items-center px-4 py-2 text-sm font-semibold rounded-full bg-pink-500 text-white hover:bg-pink-600 transition-colors duration-200"
-                  aria-label={`Read more about ${post.title}`}
-                >
-                  Read More →
-                </button>
-              </Link>
+              <div className="p-6 space-y-4">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {post.date}
+                </p>
+                {/* Added H2 tag for SEO */}
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white group-hover:text-pink-500 transition-colors duration-300">
+                  {post.title}
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300 line-clamp-3">
+                  {post.excerpt}
+                </p>
+                <Link href={`/blogs/blog${post.id}`} className="inline-block">
+                  <button 
+                    className="mt-4 inline-flex items-center px-4 py-2 text-sm font-semibold rounded-full bg-pink-500 text-white hover:bg-pink-600 transition-colors duration-200"
+                    aria-label={`Read more about ${post.title}`}
+                  >
+                    Read More →
+                  </button>
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+        
+        {/* Additional Navigation Links for SEO */}
+        <section className="mt-16 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold mb-6 text-center">Explore Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Link href="/brand-and-reach" className="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+              <h3 className="text-xl font-semibold mb-2">Brand & Reach</h3>
+              <p className="text-gray-600 dark:text-gray-300">Enhance your brand visibility and expand your market reach with our strategic solutions.</p>
+            </Link>
+            <Link href="/code-and-build" className="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+              <h3 className="text-xl font-semibold mb-2">Code & Build</h3>
+              <p className="text-gray-600 dark:text-gray-300">Transform your ideas into powerful digital solutions with our development expertise.</p>
+            </Link>
+          </div>
+        </section>
+        
+        {/* FAQ Section for better SEO */}
+        <section className="mt-16 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-xl font-semibold mb-2">Why are your blogs focused on web development trends for 2025?</h3>
+              <p className="text-gray-600">Our blog content is specifically curated to provide insights into the latest technologies and practices that will shape the digital landscape in 2025, helping businesses stay ahead of the curve.</p>
             </div>
-          </article>
-        ))}
-      </div>
-    </section>
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-xl font-semibold mb-2">How often do you publish new blog posts?</h3>
+              <p className="text-gray-600">We publish new blog posts every week, covering topics such as Next.js, React, AI integration, responsive design, and performance optimization.</p>
+            </div>
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-xl font-semibold mb-2">Can I get professional web development services based on your blog insights?</h3>
+              <p className="text-gray-600">Absolutely! Our blog content is directly tied to the services we offer at DMiraki. We implement these cutting-edge techniques in our web development projects to deliver exceptional results for our clients.</p>
+            </div>
+          </div>
+        </section>
+        
+        {/* Related Pages Navigation */}
+        <section className="mt-16 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold mb-6 text-center">Continue Exploring</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/about" className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
+              About Us
+            </Link>
+            <Link href="/contact-us" className="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full hover:bg-green-200 dark:hover:bg-green-800 transition-colors">
+              Contact Us
+            </Link>
+            <Link href="/brand-and-reach/search-engine-optimization" className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full hover:bg-purple-200 dark:hover:bg-purple-800 transition-colors">
+              SEO Services
+            </Link>
+            <Link href="/code-and-build/web-design-and-development" className="px-4 py-2 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full hover:bg-yellow-200 dark:hover:bg-yellow-800 transition-colors">
+              Web Development
+            </Link>
+          </div>
+        </section>
+      </section>
+      
+      {/* JSON-LD for rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "DMiraki Blog",
+            "description": "Expert insights on web development trends, Next.js, AI integration, and responsive design for 2025.",
+            "url": "https://dmiraki.com/blogs",
+            "publisher": {
+              "@type": "Organization",
+              "name": "DMiraki",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://dmiraki.com/logo.png"
+              }
+            },
+            "blogPost": blogs.map(blog => ({
+              "@type": "BlogPosting",
+              "headline": blog.title,
+              "description": blog.excerpt,
+              "datePublished": blog.date,
+              "image": blog.coverImage,
+              "author": {
+                "@type": "Organization",
+                "name": "DMiraki Team"
+              }
+            }))
+          })
+        }}
+      />
+    </>
   );
 };
 

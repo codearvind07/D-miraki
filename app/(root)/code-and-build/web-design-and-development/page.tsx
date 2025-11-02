@@ -199,6 +199,31 @@ function WebDesignAndDevelopment() {
         </div>
       </section>
 
+      {/* Additional Navigation Links */}
+      <section className="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-950">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Explore Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Link href="/code-and-build" className="bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900 dark:to-teal-900 p-6 rounded-xl hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold mb-2">Code & Build</h3>
+              <p className="text-gray-600 dark:text-gray-300">Transform ideas into powerful digital solutions.</p>
+            </Link>
+            <Link href="/brand-and-reach" className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900 dark:to-indigo-900 p-6 rounded-xl hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold mb-2">Brand & Reach</h3>
+              <p className="text-gray-600 dark:text-gray-300">Expand your brand presence and reach new audiences.</p>
+            </Link>
+            <Link href="/blogs" className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900 dark:to-orange-900 p-6 rounded-xl hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold mb-2">Latest Insights</h3>
+              <p className="text-gray-600 dark:text-gray-300">Stay updated with our latest blog posts.</p>
+            </Link>
+            <Link href="/contact-us" className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900 dark:to-pink-900 p-6 rounded-xl hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold mb-2">Get in Touch</h3>
+              <p className="text-gray-600 dark:text-gray-300">Start your project with our expert team.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA SECTION */}
       <section
         ref={addToRefs}
@@ -226,7 +251,7 @@ function WebDesignAndDevelopment() {
               Let's create a website that not only looks exceptional but drives real business results. Whether you need a redesign website for leads or a completely new sales-focused web design, we'll build your digital foundation for success with our high-converting website design approach.
             </p>
             <Link
-              href="/contact"
+              href="/contact-us"
               className={`inline-flex items-center ${buttonVariants({
                 size: "lg",
               })} bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-600`}

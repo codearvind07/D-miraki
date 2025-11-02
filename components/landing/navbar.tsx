@@ -21,10 +21,6 @@ import { useRouter } from "next/navigation";
 import { Button, buttonVariants } from "../ui/button";
 import { ModeToggle } from "../mode-toggle";
 import Link from "next/link";
-import Marquee from "../ui/marquee";
-import DiwaliGlitter from "@/components/landing/diwali-glitter";
-import { useDiwali } from "@/components/landing/diwali-context";
-import MarqueeFireworks from "@/components/landing/marquee-fireworks";
 
 interface RouteProps {
   href: string;
@@ -53,17 +49,6 @@ const routeList: RouteProps[] = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useRouter(); // Hook for programmatic navigation
-  const { isFirstLoad, setFirstLoadComplete } = useDiwali();
-
-  // Set first load complete after a short delay to ensure effects are visible
-  useEffect(() => {
-    if (isFirstLoad) {
-      const timer = setTimeout(() => {
-        setFirstLoadComplete();
-      }, 10000); // Show effects for 10 seconds
-      return () => clearTimeout(timer);
-    }
-  }, [isFirstLoad, setFirstLoadComplete]);
 
   const handleNavigation = (path: string) => {
     if (path.startsWith("#")) {
@@ -81,32 +66,6 @@ export const Navbar = () => {
   
   return (
     <>
-      {/* Diwali Wishes Banner - always shown */}
-      <div className="bg-black text-white text-center py-2 px-4">
-        <p className="font-bold text-lg animate-pulse">
-          🪔 Happy Diwali from the D'Miraki Family! May this festival of lights bring joy, prosperity, and success to your life! 🪔
-        </p>
-      </div>
-      
-      {/* Diwali Marquee Bar - always shown below header */}
-      <div className="bg-black py-2 relative overflow-hidden">
-        <MarqueeFireworks height={50} />
-        <Marquee className="[--duration:40s] [--gap:3rem] relative z-20" pauseOnHover>
-          <span className="text-white font-bold text-lg mx-4">
-            🪔 Happy Diwali from the D'Miraki Family! Wishing you a prosperous and joyful festival of lights! 🪔
-          </span>
-          <span className="text-white font-bold text-lg mx-4">
-            🪔 Happy Diwali from the D'Miraki Family! Wishing you a prosperous and joyful festival of lights! 🪔
-          </span>
-          <span className="text-white font-bold text-lg mx-4">
-            🪔 Happy Diwali from the D'Miraki Family! Wishing you a prosperous and joyful festival of lights! 🪔
-          </span>
-        </Marquee>
-      </div>
-      
-      {/* Diwali Glitter Effect - only shown on first load */}
-      {isFirstLoad && <DiwaliGlitter />}
-      
       <header className="sticky top-0 z-40 w-full backdrop-blur dark:border-b-slate-700">
         <NavigationMenu className=" mx-6 mt-5 w-full">
           <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">

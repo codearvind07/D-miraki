@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";  
 
-import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MagicCard } from "@/components/ui/magic-card";
 import { useTheme } from "@/components/theme-provider";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { buttonVariants } from "@/components/ui/button";
@@ -66,7 +64,7 @@ const developmentPhilosophy = [
   },
 ];
 
-function CodeAndBuild() {
+export default function CodeAndBuildClient() {
   const { theme } = useTheme();
   const sectionRefs = useRef<HTMLElement[]>([]);
 
@@ -252,5 +250,3 @@ function CodeAndBuild() {
     </>
   );
 }
-
-export default CodeAndBuild;

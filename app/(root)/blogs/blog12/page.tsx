@@ -7,100 +7,108 @@ const blog12 = {
   id: "12",
   title: "Local SEO for Business Websites: Dominating Your Local Market Online",
   content: `
-  <h2><b>The Power of Local SEO</b></h2>
+  <h2><b>The Local Search Revolution: Why Proximity Matters More Than Ever</b></h2>
+  <p>Local search has become the cornerstone of modern consumer behavior, with 46% of all Google searches having local intent. For businesses serving specific geographic areas, mastering local SEO is no longer optional—it's essential for survival and growth.</p>
   <ul class="list-disc list-inside">
-    <li>Local SEO is crucial for businesses serving local markets</li>
-    <li>46% of Google searches have local intent</li>
-    <li>76% of local searches result in store visits within 24 hours</li>
+    <li>76% of people who search for something nearby visit a business within 24 hours</li>
+    <li>Local searches convert 40% more often than non-local searches</li>
+    <li>Mobile local searches lead to in-store visits 78% of the time</li>
   </ul>
 
-  <h2>Google My Business Optimization</h2>
+  <blockquote>
+    Local SEO is like having a megaphone that only reaches the people who are most likely to become your customers—those right in your backyard.
+  </blockquote>
+
+  <h2>Google My Business: Your Local Digital Headquarters</h2>
+  <p>Google My Business (GMB) is the foundation of local SEO success, serving as your business's digital storefront in Google's local search results and Maps.</p>
   <ul class="list-disc list-inside">
-    <li>A complete, optimized Google My Business profile is essential for local visibility</li>
-    <li>Accurate information, photos, and regular updates significantly impact local search rankings</li>
-    <li>Responding to customer reviews and posting regular updates improves engagement</li>
+    <li>Ensure your business information is accurate and consistent across all platforms</li>
+    <li>Upload high-quality photos of your business, products, and team</li>
+    <li>Respond promptly to customer reviews to show you value customer feedback</li>
   </ul>
 
-  <h2>Local Keyword Strategy</h2>
+  <h2>Local Keyword Strategy: Speaking Your Customers' Language</h2>
+  <p>Effective local SEO requires understanding how your target audience searches for businesses like yours in your specific geographic area.</p>
   <ul class="list-disc list-inside">
-    <li>Targeting location-specific keywords like "pizza delivery near me" or "Denver dentist" helps businesses appear for high-intent local searches</li>
-    <li>Using geo-modifiers in your content increases local relevance</li>
-    <li>Long-tail local keywords often have higher conversion rates than broad terms</li>
+    <li>Research location-specific keywords that match your customers' search intent</li>
+    <li>Optimize your website content with geo-modified keywords naturally</li>
+    <li>Create location-specific landing pages for different service areas</li>
   </ul>
 
-  <h2>Online Reviews Management</h2>
+  <h2>Online Reviews: Building Trust and Authority</h2>
+  <p>Online reviews are a critical ranking factor for local SEO and significantly influence customer purchasing decisions. Managing your online reputation is essential for local success.</p>
   <ul class="list-disc list-inside">
-    <li>Customer reviews directly impact local rankings and consumer trust</li>
-    <li>Actively managing reviews, responding professionally, and encouraging satisfied customers to review boosts local SEO</li>
-    <li>Negative reviews should be addressed promptly and professionally to minimize damage</li>
+    <li>Encourage satisfied customers to leave positive reviews on Google and other platforms</li>
+    <li>Respond professionally to both positive and negative reviews</li>
+    <li>Monitor review platforms regularly to stay on top of your reputation</li>
   </ul>
 
-  <h2>Local Content Marketing</h2>
+  <h2>Local Link Building: Establishing Community Authority</h2>
+  <p>Building relationships with other local businesses and organizations can significantly boost your local SEO efforts through relevant, geographically-focused backlinks.</p>
   <ul class="list-disc list-inside">
-    <li>Creating content about local events, community involvement, and area-specific topics helps businesses establish local authority</li>
-    <li>Local news, seasonal content, and neighborhood guides resonate with local audiences</li>
-    <li>Partnering with other local businesses for content creates valuable local links</li>
+    <li>Partner with local organizations, charities, and community groups</li>
+    <li>Sponsor local events and ensure you receive proper online recognition</li>
+    <li>Get featured in local news outlets and business directories</li>
   </ul>
 
-  <h2>Technical Local SEO</h2>
+  <h2>Local Schema Markup: Helping Search Engines Understand Your Business</h2>
+  <p>Structured data markup helps search engines better understand your business and can lead to enhanced search results that improve click-through rates.</p>
   <ul class="list-disc list-inside">
-    <li>Schema markup, NAP consistency, local citations, and mobile optimization are technical factors that significantly impact local search performance</li>
-    <li>Ensuring your website loads quickly and is mobile-friendly is crucial for local search rankings</li>
-    <li>Consistent business information across directories builds trust with search engines</li>
+    <li>Implement LocalBusiness schema to provide detailed business information</li>
+    <li>Include your business hours, address, phone number, and service areas</li>
+    <li>Use review and rating schema to highlight positive customer feedback</li>
   </ul>
   `,
-  excerpt: "Master local SEO strategies for business websites to dominate local search results and attract more customers from your geographic area.",
-  coverImage: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  tags: "Local SEO,Google My Business,Local Marketing,Search Optimization,Business Growth",
-  technology: ["SEO", "Google My Business", "Local Marketing", "Content Strategy"],
+  excerpt:
+    "Master local SEO strategies for business websites to dominate local search results and attract more customers from your geographic area.",
+  coverImage:
+    "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  tags: "Local SEO,Google My Business,Local Search,Reviews,Web Development,SEO,Geographic Marketing",
+  technology: ["SEO", "Google", "Local", "Schema Markup", "Reviews"],
   category: "SEO",
-  publishedAt: "2025-02-26T09:15:00Z",
+  publishedAt: "2025-02-26T10:00:00Z",
   metaTitle: "Local SEO for Business Websites: Dominating Your Local Market Online | DMiraki Blog",
-  metaDescription: "Master local SEO strategies for business websites to dominate local search results and attract more customers from your geographic area.",
+  metaDescription:
+    "Master local SEO strategies for business websites to dominate local search results and attract more customers from your geographic area.",
   author: {
     name: "DMiraki Team",
-    bio: "Digital marketing experts specializing in local SEO strategies.",
+    bio: "Local SEO experts and digital marketing strategists.",
   },
-  readingTime: "6 min read",
+  readingTime: "7 min read",
 };
 
 // --- Metadata ---
 export async function generateMetadata(): Promise<Metadata> {
   const blog = blog12;
-  const canonical = `https://dmiraki.com/blogs/local-seo-for-business-websites`;
+  const canonical = `https://dmiraki.com/blogs/local-seo-for-business-websites-dominating-your-local-market-online`;
   
   // Primary and secondary SEO keywords
   const seoKeywords = [
-    "local SEO for business websites",
+    "local SEO",
     "local search optimization",
-    "improve local business visibility",
-    "local SEO strategies",
-    "dominate local market online",
-    "local business online presence",
-    "local SEO 2025",
-    "business website local search",
-    "local SEO tips for small businesses",
+    "Google My Business",
+    "local business SEO",
     "local search ranking",
-    "how to optimize your business website for local search",
-    "Google My Business optimization tips",
-    "local SEO techniques for small businesses",
-    "increase foot traffic through local SEO",
-    "local SEO content strategy",
-    "local backlinks and citations",
-    "mobile optimization for local search",
-    "local keyword research strategies",
-    "improve local rankings with SEO",
-    "local reviews and reputation management",
-    "Google Maps SEO",
-    "NAP consistency (Name, Address, Phone)",
-    "online business directories",
+    "local SEO strategy",
+    "dominate local search",
+    "local SEO best practices",
+    "local SEO for small business",
+    "local search marketing",
+    "SEO for local business",
+    "local SEO checklist",
+    "local SEO tips",
+    "local search results",
+    "local SEO services",
     "local SEO audit",
-    "schema markup for local business",
-    "voice search optimization for local businesses",
-    "local SEO analytics and reporting",
-    "geo-targeted content",
-    "customer reviews and ratings",
-    "competitive local SEO analysis"
+    "local SEO keywords",
+    "local SEO optimization",
+    "local business ranking",
+    "local search visibility",
+    "Google Maps SEO",
+    "local citation building",
+    "local link building",
+    "local SEO trends 2025",
+    "geographic SEO"
   ];
   
   return {
@@ -109,13 +117,24 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords: [
       "local SEO",
       "Google My Business",
-      "local marketing",
-      "SEO strategies",
+      "search optimization",
       "DMiraki",
       ...blog.technology,
       ...blog.tags.split(","),
       ...seoKeywords
     ],
+    authors: [{ name: blog.author.name }],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      }
+    },
     alternates: { canonical },
     openGraph: {
       title: blog.metaTitle,
@@ -123,14 +142,24 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "article",
       url: canonical,
       siteName: "DMiraki",
-      images: [{ url: blog.coverImage }],
+      images: [
+        {
+          url: blog.coverImage,
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        }
+      ],
+      publishedTime: blog.publishedAt,
+      authors: [blog.author.name],
+      tags: blog.tags.split(","),
     },
     twitter: {
       card: "summary_large_image",
       title: blog.metaTitle,
       description: blog.metaDescription,
       images: [blog.coverImage],
-      creator: "@dmiraki",
+      site: "@dmiraki",
     },
   };
 }
@@ -146,16 +175,52 @@ const formatDate = (dateString: string) =>
 // --- Blog Page ---
 export default function Blog12() {
   const tableOfContents = [
-    { title: "The Power of Local SEO", id: "the-power-of-local-seo" },
-    { title: "Google My Business Optimization", id: "google-my-business-optimization" },
-    { title: "Local Keyword Strategy", id: "local-keyword-strategy" },
-    { title: "Online Reviews Management", id: "online-reviews-management" },
-    { title: "Local Content Marketing", id: "local-content-marketing" },
-    { title: "Technical Local SEO", id: "technical-local-seo" },
+    { title: "The Local Search Revolution", id: "the-local-search-revolution-why-proximity-matters-more-than-ever" },
+    { title: "Google My Business", id: "google-my-business-your-local-digital-headquarters" },
+    { title: "Local Keyword Strategy", id: "local-keyword-strategy-speaking-your-customers-language" },
+    { title: "Online Reviews", id: "online-reviews-building-trust-and-authority" },
+    { title: "Local Link Building", id: "local-link-building-establishing-community-authority" },
+    { title: "Local Schema Markup", id: "local-schema-markup-helping-search-engines-understand-your-business" },
   ];
 
   return (
-    <div className="min-h-screen bg-black text-gray-200">
+    <>
+      {/* JSON-LD Structured Data for better SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://dmiraki.com/blogs/local-seo-for-business-websites-dominating-your-local-market-online"
+            },
+            "headline": blog12.title,
+            "description": blog12.excerpt,
+            "image": blog12.coverImage,
+            "author": {
+              "@type": "Organization",
+              "name": blog12.author.name,
+              "url": "https://dmiraki.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "DMiraki",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://dmiraki.com/logo.png"
+              }
+            },
+            "datePublished": blog12.publishedAt,
+            "dateModified": blog12.publishedAt,
+            "articleSection": blog12.category,
+            "keywords": blog12.tags,
+            "wordCount": "790"
+          })
+        }}
+      />
+      
       {/* Main */}
       <main className="container mx-auto px-4 py-12 md:py-16 max-w-7xl">
         {/* Breadcrumb */}
@@ -211,7 +276,7 @@ export default function Blog12() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-3">
             <article
-              className="prose prose-lg dark:prose-invert max-w-none prose-h2:text-3xl prose-p:text-gray-300 prose-blockquote:border-l-4 prose-blockquote:border-blue-400"
+              className="prose prose-lg dark:prose-invert max-w-none prose-h2:text-3xl prose-p:text-gray-300 prose-blockquote:border-l-4 prose-blockquote:border-blue-400 prose-blockquote:bg-blue-900/20 prose-blockquote:pl-4"
               dangerouslySetInnerHTML={{ __html: blog12.content }}
             />
           </div>
@@ -226,13 +291,13 @@ export default function Blog12() {
                 </h4>
                 <nav className="space-y-3">
                   {tableOfContents.map((item, index) => (
-                    <Link
+                    <a
                       key={index}
                       href={`#${item.id}`}
                       className="block text-sm text-gray-400 hover:text-blue-400 transition-colors font-medium hover:pl-1"
                     >
                       {index + 1}. {item.title}
-                    </Link>
+                    </a>
                   ))}
                 </nav>
               </div>
@@ -257,6 +322,6 @@ export default function Blog12() {
           </aside>
         </div>
       </main>
-    </div>
+    </>
   );
 }

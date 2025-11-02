@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { formatDate } from "@/lib/utils";
+import Link from "next/link";
 
 export function RecentActivity() {
   const activities = [
@@ -13,6 +14,7 @@ export function RecentActivity() {
       action: "created a new blog post",
       target: "Getting Started with Next.js",
       date: new Date("2023-08-20T14:23:54"),
+      href: "/dashboard/blogs",
     },
     {
       user: {
@@ -23,6 +25,7 @@ export function RecentActivity() {
       action: "enrolled in course",
       target: "Advanced Web Development",
       date: new Date("2023-08-19T09:12:34"),
+      href: "/dashboard/courses",
     },
     {
       user: {
@@ -33,6 +36,7 @@ export function RecentActivity() {
       action: "submitted a contact form",
       target: "Project Inquiry",
       date: new Date("2023-08-18T16:45:12"),
+      href: "/dashboard/contacts",
     },
     {
       user: {
@@ -43,6 +47,7 @@ export function RecentActivity() {
       action: "updated project",
       target: "Portfolio Website",
       date: new Date("2023-08-17T11:32:09"),
+      href: "/dashboard/projects",
     },
     {
       user: {
@@ -53,6 +58,7 @@ export function RecentActivity() {
       action: "registered new account",
       target: "",
       date: new Date("2023-08-16T15:18:27"),
+      href: "/dashboard/users",
     },
   ];
 
@@ -73,10 +79,14 @@ export function RecentActivity() {
               </Avatar>
               <div className="space-y-1">
                 <p className="text-sm font-medium leading-none">
-                  <span className="font-semibold">{activity.user.name}</span>{" "}
+                  <Link href={`/dashboard/users`} className="font-semibold">
+                    {activity.user.name}
+                  </Link>{" "}
                   {activity.action}{" "}
                   {activity.target && (
-                    <span className="font-semibold">"{activity.target}"</span>
+                    <Link href={activity.href} className="font-semibold">
+                      "{activity.target}"
+                    </Link>
                   )}
                 </p>
                 <p className="text-xs text-muted-foreground">

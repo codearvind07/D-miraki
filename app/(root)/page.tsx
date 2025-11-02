@@ -1,38 +1,94 @@
-"use client"
-import { Testimonials } from '@/components/landing/testimonials';
-import { Features } from '@/components/landing/features';
-import { HeroSection } from '@/components/landing/hero-section';
-import { CTASection } from '@/components/landing/cta-section';
-import { useEffect, useState } from 'react';
-import Loader from '@/components/Loader';
-import { AboutSection } from '@/components/landing/About';
-import { HowItWorks } from '@/components/landing/HowItWorks';
-import { Services } from '@/components/landing/Services';
-import MoreSrvices from '@/components/landing/MoreSrvices';
+import { Metadata } from 'next';
+import HomeClient from './home-client';
+
+// Add metadata for the home page
+export async function generateMetadata(): Promise<Metadata> {
+  const siteUrl = 'https://dmiraki.com';
+  const pageTitle = 'DMiraki | Elevate Your Brand with Digital Excellence';
+  const pageDescription = 'DMiraki is your trusted digital partner for SEO, branding, web design, marketing, and IT solutions. Transform your vision into impact.';
+  const pageImage = 'https://dmiraki.com/assets/og-image.jpg';
+
+  return {
+    title: pageTitle,
+    description: pageDescription,
+    keywords: [
+      'digital marketing',
+      'web development',
+      'SEO services',
+      'branding',
+      'IT solutions',
+      'digital transformation',
+      'online marketing',
+      'website design',
+      'content marketing',
+      'social media management'
+    ],
+    authors: [{ name: 'DMiraki Team' }],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      }
+    },
+    alternates: {
+      canonical: siteUrl,
+    },
+    openGraph: {
+      title: pageTitle,
+      description: pageDescription,
+      url: siteUrl,
+      type: 'website',
+      siteName: 'DMiraki',
+      locale: 'en_US',
+      images: [
+        {
+          url: pageImage,
+          width: 1200,
+          height: 630,
+          alt: 'DMiraki - Digital Excellence',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: pageTitle,
+      description: pageDescription,
+      images: [pageImage],
+      site: '@dmiraki',
+    },
+  };
+}
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [fadeIn, setFadeIn] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      setTimeout(() => setFadeIn(true), 100); // Slight delay for smooth transition
-    }, 2000); // Loader duration
-    return () => clearTimeout(timer);
-  }, []);
   return (
     <>
-      <div className="min-h-screen bg-background">
-        <HeroSection />
-        <AboutSection />
-        <HowItWorks />
-        <Features />
-        <MoreSrvices/>
-        <Services />
-        <CTASection />
-        <Testimonials />
-      </div>
+      {/* JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "DMiraki",
+            "url": "https://dmiraki.com",
+            "description": "DMiraki is your trusted digital partner for SEO, branding, web design, marketing, and IT solutions. Transform your vision into impact.",
+            "publisher": {
+              "@type": "Organization",
+              "name": "DMiraki",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://dmiraki.com/assets/icon.png"
+              }
+            }
+          })
+        }}
+      />
+      <HomeClient />
     </>
   );
 }

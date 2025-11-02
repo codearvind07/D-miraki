@@ -16,7 +16,7 @@
     "baseUrl": ".", // Set base URL for path resolution
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve", // Keep for Next.js JSX handling
+    "jsx": "react-jsx", // Keep for Next.js JSX handling
     "incremental": true,
     "plugins": [
       {
@@ -34,7 +34,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next-env.d.ts",
-    "out/types/**/*.ts"
+    "out/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "out/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

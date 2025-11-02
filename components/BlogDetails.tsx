@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
@@ -113,13 +114,18 @@ export default function BlogDetails({ id }: { id: string }) {
     return <div className="container py-12 text-center">Blog not found</div>;
   }
 
+  // Get related blogs (excluding current one)
+  const relatedBlogs = mockBlogs.filter(b => b.id !== id).slice(0, 2);
+
   return (
     <div className="container py-12">
       <article className="max-w-4xl mx-auto">
         <div className="mb-6">
-          <Button variant="ghost" className="mb-4 pl-0">
-            ← Back to Blogs
-          </Button>
+          <Link href="/blogs">
+            <Button variant="ghost" className="mb-4 pl-0">
+              ← Back to Blogs
+            </Button>
+          </Link>
           <div className="flex flex-wrap gap-2 mb-4">
             <Badge>{blog.category}</Badge>
             {blog.technology.map((tech: string, index: number) => (
@@ -164,6 +170,59 @@ export default function BlogDetails({ id }: { id: string }) {
             ))}
           </div>
         </div>
+        
+        {/* Related Posts Section */}
+        {relatedBlogs.length > 0 && (
+          <section className="mt-16">
+            <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {relatedBlogs.map((relatedBlog) => (
+                <article 
+                  key={relatedBlog.id}
+                  className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                >
+                  <div className="relative w-full h-48">
+                    <Image 
+                      src={relatedBlog.coverImage} 
+                      alt={relatedBlog.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2">{relatedBlog.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">{relatedBlog.excerpt}</p>
+                    <Link 
+                      href={`/blogs/blog${relatedBlog.id}`}
+                      className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                    >
+                      Read More →
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+        
+        {/* Additional Navigation Links */}
+        <section className="mt-16">
+          <h2 className="text-2xl font-bold mb-6">Explore Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link href="/brand-and-reach" className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900 dark:to-indigo-900 p-6 rounded-xl hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold mb-2">Brand & Reach</h3>
+              <p className="text-gray-600 dark:text-gray-300">Expand your brand presence and reach new audiences.</p>
+            </Link>
+            <Link href="/code-and-build" className="bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900 dark:to-teal-900 p-6 rounded-xl hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold mb-2">Code & Build</h3>
+              <p className="text-gray-600 dark:text-gray-300">Transform ideas into powerful digital solutions.</p>
+            </Link>
+            <Link href="/contact-us" className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900 dark:to-orange-900 p-6 rounded-xl hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold mb-2">Get in Touch</h3>
+              <p className="text-gray-600 dark:text-gray-300">Start your project with our expert team.</p>
+            </Link>
+          </div>
+        </section>
       </article>
     </div>
   );

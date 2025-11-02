@@ -3,9 +3,6 @@ const nextConfig = {
   output: 'export', // Enable static HTML export
   distDir: 'out', // Output directory for static files
   trailingSlash: true, // Add trailing slashes to URLs for better compatibility
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
 
   images: {
     unoptimized: true, // Good for self-hosted or non-Vercel deployment
@@ -18,8 +15,6 @@ const nextConfig = {
   
   // Ensure proper asset handling for static export
   assetPrefix: '',
-  
-  
 };
 
 module.exports = nextConfig;

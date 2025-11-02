@@ -7,167 +7,126 @@ const blog5 = {
   id: "5",
   title: "Cybersecurity Best Practices for Business Websites in 2025",
   content: `
-  <h2>The Growing Threat Landscape</h2>
-  <p>As we move deeper into 2025, cyber threats are becoming more sophisticated and frequent. Businesses of all sizes are at risk, with small businesses increasingly targeted due to perceived weaker defenses. Understanding the current threat landscape is the first step toward protecting your digital assets.</p>
+  <h2><b>SSL Implementation: The Foundation of Web Security</b></h2>
+  <p>In 2025, having a secure website isn't just about protecting data—it's about building trust with your customers. SSL certificates are the first line of defense, encrypting data between your users and your server.</p>
   <ul class="list-disc list-inside">
-    <li>Ransomware attacks increased by 105% in 2 024</li>
-    <li>Small businesses account for 43% of cyber attack victims</li>
-    <li>Average cost of a data breach reached $4.88 million in 2025</li>
-    <li>95% of cybersecurity breaches are caused by human error</li>
-  </ul>
-
-  <h2>Essential Security Measures</h2>
-  <p>Implementing robust cybersecurity measures doesn't have to be complex or expensive. Start with these fundamental practices that provide the greatest return on investment for protecting your business website.</p>
-  <ul class="list-disc list-inside">
-    <li>SSL/TLS encryption for all website communications</li>
-    <li>Regular software updates and patch management</li>
-    <li>Multi-factor authentication for all accounts</li>
-    <li>Strong password policies and password managers</li>
+    <li>Always use HTTPS instead of HTTP to ensure all data transmission is encrypted</li>
+    <li>Implement HSTS (HTTP Strict Transport Security) to force browsers to only connect via HTTPS</li>
+    <li>Regularly update your SSL certificates before they expire to avoid security warnings</li>
   </ul>
 
   <blockquote>
-    💡 Pro Tip: Security is not a one-time setup but an ongoing process requiring constant vigilance and updates.
+    An SSL certificate is like a digital passport for your website—it verifies your identity and ensures safe passage for your visitors' data.
   </blockquote>
 
-  <h2>Advanced Protection Strategies</h2>
-  <p>For businesses handling sensitive data or operating in regulated industries, advanced security measures provide additional layers of protection against sophisticated threats.</p>
+  <h2>Regular Updates: Staying Ahead of Vulnerabilities</h2>
+  <p>Cyber threats evolve rapidly, and keeping your website updated is crucial for maintaining security. This includes your CMS, plugins, themes, and server software.</p>
   <ul class="list-disc list-inside">
-    <li>Web Application Firewalls (WAF) to filter malicious traffic</li>
-    <li>Regular security audits and penetration testing</li>
-    <li>Zero-trust security architecture implementation</li>
-    <li>Endpoint detection and response systems</li>
+    <li>Set up automated updates for critical security patches whenever possible</li>
+    <li>Regularly audit all plugins and remove unused ones that could pose security risks</li>
+    <li>Create backups before implementing updates to ensure you can restore your site if needed</li>
   </ul>
 
-  <blockquote>
-    🔒 Best Practice: Implement a defense-in-depth strategy with multiple overlapping security controls.
-  </blockquote>
-
-  <h2>User Education and Training</h2>
-  <p>Human error remains the weakest link in cybersecurity. Regular training and awareness programs can significantly reduce the risk of successful social engineering attacks and other threats.</p>
+  <h2>User Authentication: Protecting Access Points</h2>
+  <p>Weak authentication is one of the most common entry points for cyberattacks. Implementing strong user authentication measures is essential for protecting sensitive areas of your website.</p>
   <ul class="list-disc list-inside">
-    <li>Phishing simulation exercises for employees</li>
-    <li>Security awareness training programs</li>
-    <li>Incident response plan development and testing</li>
-    <li>Clear policies for data handling and device usage</li>
+    <li>Enforce strong password policies with complexity requirements and regular changes</li>
+    <li>Implement two-factor authentication (2FA) for all administrative accounts</li>
+    <li>Use role-based access controls to limit user permissions to only what's necessary</li>
   </ul>
 
-  <blockquote>
-    🎯 Key Insight: An educated workforce is your first and most effective line of defense against cyber threats.
-  </blockquote>
-
-  <h2>Monitoring and Incident Response</h2>
-  <p>Even with the best preventive measures, breaches can still occur. Having robust monitoring systems and a well-defined incident response plan can minimize damage and recovery time.</p>
+  <h2>Advanced Security Measures for 2025</h2>
+  <p>As cyber threats become more sophisticated, businesses need to adopt advanced security measures to stay protected.</p>
   <ul class="list-disc list-inside">
-    <li>24/7 security monitoring and alert systems</li>
-    <li>Automated backup and disaster recovery solutions</li>
-    <li>Incident response team and communication protocols</li>
-    <li>Post-incident analysis and improvement processes</li>
+    <li>Deploy a Web Application Firewall (WAF) to filter and block malicious traffic</li>
+    <li>Implement rate limiting to prevent brute force attacks and DDoS attempts</li>
+    <li>Regularly conduct security audits and penetration testing to identify vulnerabilities</li>
   </ul>
 
-  <blockquote>
-    ⚡ Emergency Preparedness: The difference between a minor incident and a business-ending disaster is often how quickly you respond.
-  </blockquote>
-
-  <h2>Compliance and Legal Considerations</h2>
-  <p>Depending on your industry and location, various regulations may apply to your website security practices. Non-compliance can result in significant fines and legal consequences.</p>
+  <h2>Preparing for Security Incidents</h2>
+  <p>Even with the best precautions, security incidents can happen. Having a response plan is crucial for minimizing damage and recovery time.</p>
   <ul class="list-disc list-inside">
-    <li>GDPR requirements for businesses operating in the EU</li>
-    <li>PCI DSS compliance for e-commerce websites</li>
-    <li>HIPAA regulations for healthcare-related websites</li>
-    <li>State-level privacy laws like CCPA in California</li>
-  </ul>
-
-  <blockquote>
-    📋 Compliance Tip: Regular compliance audits help ensure you meet all applicable security standards and regulations.
-  </blockquote>
-
-  <h2>Future-Proofing Your Security</h2>
-  <p>As technology evolves, so do security threats. Staying ahead requires continuous adaptation and investment in emerging security technologies and practices.</p>
-  <ul class="list-disc list-inside">
-    <li>AI-powered threat detection and response systems</li>
-    <li>Quantum-resistant encryption preparation</li>
-    <li>Zero-trust network architecture adoption</li>
-    <li>Continuous security monitoring and improvement</li>
-  </ul>
-
-  <h2>Conclusion: Security as a Business Enabler</h2>
-  <p>Cybersecurity should be viewed not just as a defensive measure but as a business enabler that builds customer trust and competitive advantage. In 2025, businesses that prioritize security will be better positioned to capitalize on digital opportunities while protecting their most valuable assets.</p>
-  <ul class="list-disc list-inside">
-    <li>Security investments protect your business reputation and customer trust</li>
-    <li>Proactive security measures are more cost-effective than reactive responses</li>
-    <li>Strong security posture can be a competitive differentiator</li>
-    <li>Regulatory compliance helps avoid costly fines and legal issues</li>
+    <li>Establish a clear incident response procedure with defined roles and responsibilities</li>
+    <li>Maintain regular backups stored in secure, separate locations</li>
+    <li>Monitor your website continuously for suspicious activity or unauthorized changes</li>
   </ul>
   `,
-  excerpt: "In 2025, cybersecurity threats are more sophisticated than ever. Discover essential best practices for protecting your business website, from SSL implementation to advanced threat detection and compliance requirements.",
-  coverImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  tags: "Cybersecurity,Web Security,Data Protection,SSL,Compliance,Threat Detection,Business Security",
-  technology: ["SSL/TLS", "WAF", "Multi-factor Authentication", "Encryption", "Security Audits"],
+  excerpt:
+    "Essential cybersecurity strategies to protect your business website from threats, including SSL implementation, regular updates, and user authentication.",
+  coverImage:
+    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  tags: "Cybersecurity,SSL,Authentication,Website Security,Web Development 2025,Data Protection,Online Safety",
+  technology: ["HTTPS", "Security", "Best Practices", "Web Development", "Data Protection"],
   category: "Security",
-  publishedAt: "2025-01-30T00:00:00Z",
-  metaTitle: "Cybersecurity Best Practices for Business Websites in 2025 | DMiraki",
-  metaDescription: "Discover essential cybersecurity best practices for protecting your business website in 2025, including SSL implementation, threat detection, and compliance requirements.",
+  publishedAt: "2025-01-30T12:00:00Z",
+  metaTitle: "Cybersecurity Best Practices for Business Websites in 2025 | DMiraki Blog",
+  metaDescription:
+    "Essential cybersecurity strategies to protect your business website from threats, including SSL implementation, regular updates, and user authentication.",
   author: {
     name: "DMiraki Team",
-    bio: "Experts in web development and digital security",
+    bio: "Digital security experts and web developers helping businesses stay protected online.",
   },
-  readingTime: "9 min read",
+  readingTime: "7 min read",
 };
 
 // --- Metadata ---
 export async function generateMetadata(): Promise<Metadata> {
   const blog = blog5;
-  const canonical = `https://dmiraki.com/blogs/cybersecurity-best-practices-for-business-websites`;
+  const canonical = `https://dmiraki.com/blogs/cybersecurity-best-practices-for-business-websites-in-2025`;
   
   // Primary and secondary SEO keywords
   const seoKeywords = [
-    "cybersecurity best practices 2025",
-    "website security for businesses",
-    "business website cybersecurity",
-    "web security best practices",
-    "protect business website from hackers",
-    "cybersecurity for small businesses",
-    "website data protection",
-    "secure website design 2025",
-    "business website protection",
-    "website security checklist",
-    "how to secure a business website in 2025",
-    "top cybersecurity tips for business websites",
-    "common website security threats and solutions",
-    "website malware protection strategies",
-    "SSL and HTTPS for business security",
-    "cybersecurity trends for small businesses",
-    "importance of regular website security audits",
-    "multi-factor authentication for websites",
-    "protecting customer data online",
-    "preventing website data breaches",
-    "phishing and ransomware protection",
+    "cybersecurity best practices",
+    "business website security",
+    "SSL implementation guide",
+    "website security 2025",
+    "protect business website",
+    "web security strategies",
+    "data protection for websites",
+    "secure website development",
+    "website vulnerability prevention",
+    "cyber threat protection",
+    "HTTPS security benefits",
+    "user authentication security",
+    "web application firewall",
+    "security audit for websites",
+    "website backup strategies",
+    "malware protection for websites",
     "DDoS attack prevention",
-    "firewall and encryption best practices",
-    "secure content management systems (CMS)",
-    "website vulnerability scanning",
-    "cybersecurity compliance and regulations",
-    "website backup and recovery plan",
-    "endpoint security for web servers",
-    "cloud-based website security",
-    "AI in cybersecurity for websites"
+    "password security best practices",
+    "two-factor authentication",
+    "security incident response",
+    "website security monitoring",
+    "penetration testing for websites",
+    "security compliance for businesses",
+    "risk assessment for websites",
+    "cyber insurance for websites"
   ];
   
   return {
     title: blog.metaTitle,
     description: blog.metaDescription,
     keywords: [
-      "cybersecurity",
-      "web security",
-      "data protection",
-      "SSL",
-      "business security",
-      "threat detection",
+      "cybersecurity 2025",
+      "website security",
+      "business protection",
       "DMiraki",
       ...blog.technology,
       ...blog.tags.split(","),
       ...seoKeywords
     ],
+    authors: [{ name: blog.author.name }],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      }
+    },
     alternates: { canonical },
     openGraph: {
       title: blog.metaTitle,
@@ -175,14 +134,24 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "article",
       url: canonical,
       siteName: "DMiraki",
-      images: [{ url: blog.coverImage }],
+      images: [
+        {
+          url: blog.coverImage,
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        }
+      ],
+      publishedTime: blog.publishedAt,
+      authors: [blog.author.name],
+      tags: blog.tags.split(","),
     },
     twitter: {
       card: "summary_large_image",
       title: blog.metaTitle,
       description: blog.metaDescription,
       images: [blog.coverImage],
-      creator: "@dmiraki",
+      site: "@dmiraki",
     },
   };
 }
@@ -195,22 +164,54 @@ const formatDate = (dateString: string) =>
     year: "numeric",
   });
 
+// --- Blog Page ---
 export default function Blog5() {
   const tableOfContents = [
-    { title: "The Growing Threat Landscape", id: "the-growing-threat-landscape" },
-    { title: "Essential Security Measures", id: "essential-security-measures" },
-    { title: "Advanced Protection Strategies", id: "advanced-protection-strategies" },
-    { title: "User Education and Training", id: "user-education-training" },
-    { title: "Monitoring and Incident Response", id: "monitoring-incident-response" },
-    { title: "Compliance and Legal Considerations", id: "compliance-legal-considerations" },
-    { title: "Future-Proofing Your Security", id: "future-proofing-security" },
-    { title: "Conclusion: Security as a Business Enabler", id: "conclusion-security-business-enabler" },
+    { title: "SSL Implementation: Security Foundation", id: "ssl-implementation-the-foundation-of-web-security" },
+    { title: "Regular Updates: Staying Ahead", id: "regular-updates-staying-ahead-of-vulnerabilities" },
+    { title: "User Authentication: Protecting Access", id: "user-authentication-protecting-access-points" },
+    { title: "Advanced Security Measures", id: "advanced-security-measures-for-2025" },
+    { title: "Preparing for Security Incidents", id: "preparing-for-security-incidents" },
   ];
 
   return (
-    <div className="min-h-screen bg-black text-gray-200">
+    <>
+      {/* JSON-LD Structured Data for better SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://dmiraki.com/blogs/cybersecurity-best-practices-for-business-websites-in-2025"
+            },
+            "headline": blog5.title,
+            "description": blog5.excerpt,
+            "image": blog5.coverImage,
+            "author": {
+              "@type": "Organization",
+              "name": blog5.author.name,
+              "url": "https://dmiraki.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "DMiraki",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://dmiraki.com/logo.png"
+              }
+            },
+            "datePublished": blog5.publishedAt,
+            "dateModified": blog5.publishedAt,
+            "articleSection": blog5.category,
+            "keywords": blog5.tags,
+            "wordCount": "850"
+          })
+        }}
+      />
       
-
       {/* Main */}
       <main className="container mx-auto px-4 py-12 md:py-16 max-w-7xl">
         {/* Breadcrumb */}
@@ -312,8 +313,6 @@ export default function Blog5() {
           </aside>
         </div>
       </main>
-
-     
-    </div>
+    </>
   );
 }

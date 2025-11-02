@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import BrandingAndDesigningClient from "./branding-client";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Branding & Identity Design Services | DMiraki";
@@ -9,6 +10,35 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
+    keywords: [
+      "branding services",
+      "identity design",
+      "brand strategy",
+      "visual identity",
+      "logo design",
+      "brand guidelines",
+      "corporate identity",
+      "brand development",
+      "brand positioning",
+      "brand messaging",
+      "design agency",
+      "creative branding",
+      "brand experience",
+      "brand storytelling",
+      "brand architecture"
+    ],
+    authors: [{ name: "DMiraki Team" }],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      }
+    },
     alternates: {
       canonical: url,
     },
@@ -18,6 +48,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url,
       type: "website",
       siteName: "DMiraki",
+      locale: "en_US",
       images: [
         {
           url: image,
@@ -32,10 +63,11 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       images: [image],
+      site: "@dmiraki",
     },
   };
 }
 
-export default function Head() {
-  return null;
+export default function BrandingAndDesigning() {
+  return <BrandingAndDesigningClient />;
 }

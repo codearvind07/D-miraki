@@ -34,26 +34,61 @@ export const metadata: Metadata = {
     "PPC",
     "global digital marketing",
     "international SEO",
-    "multilingual website"
+    "multilingual website",
+    "web development",
+    "mobile app development",
+    "Next.js development",
+    "React development",
+    "digital strategy",
+    "content marketing"
   ],
   authors: [{ name: "DMiraki" }],
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    }
+  },
   openGraph: {
     title: "DMiraki | Elevate Your Brand with Digital Excellence",
     description:
       "From stunning websites to high-converting marketing strategies, DMiraki is your all-in-one solution for digital success.",
     url: "https://dmiraki.com",
-    images: [{ url: "https://dmiraki.com/assets/og-image.jpg" }],
+    images: [
+      { 
+        url: "https://dmiraki.com/assets/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "DMiraki - Digital Marketing & IT Solutions"
+      }
+    ],
     type: "website",
+    siteName: "DMiraki",
   },
   twitter: {
     card: "summary_large_image",
     title: "DMiraki | Elevate Your Brand with Digital Excellence",
     description:
       "Your go-to digital marketing agency for high-performance websites, branding, and IT solutions.",
-    images: ["https://dmiraki.com/assets/twitter-image.jpg"],
+    images: [
+      {
+        url: "https://dmiraki.com/assets/twitter-image.jpg",
+        width: 1200,
+        height: 600,
+        alt: "DMiraki - Digital Marketing & IT Solutions"
+      }
+    ],
+    site: "@dmiraki",
   },
   metadataBase: new URL("https://dmiraki.com"),
+  alternates: {
+    canonical: "https://dmiraki.com",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -79,6 +114,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="QBA0TcAjYFt3-m-Q2h7S9FkphwegzU3wLJpYS7udJ7w" />
+        
         {/* Schema.org JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -95,6 +133,18 @@ export default function RootLayout({
                 "https://www.instagram.com/dmirakihq",
                 "https://www.linkedin.com/company/dmiraki",
               ],
+              foundingDate: "2024",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Global",
+                addressCountry: "Worldwide"
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+1-XXX-XXX-XXXX",
+                contactType: "Customer Service",
+                email: "contact@dmiraki.com"
+              }
             }),
           }}
         />

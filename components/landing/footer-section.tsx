@@ -28,11 +28,7 @@ export const FooterSection = () => {
               Instagram
             </a>
           </div>
-          <div>
-            <a rel="noreferrer noopener" href="#" className="opacity-60 hover:opacity-100">
-              Twitter
-            </a>
-          </div>
+          
         </div>
 
         <div className="flex flex-col gap-2">
