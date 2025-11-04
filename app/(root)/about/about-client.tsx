@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import pilot from "../../../assets/pilot.png";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MedalIcon, MapIcon, PlaneIcon, GiftIcon } from "@/components/Icons";
@@ -14,7 +15,7 @@ import { useEffect, useRef } from "react";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 
 interface FeatureProps {
-  icon: JSX.Element;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }

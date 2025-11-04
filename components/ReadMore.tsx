@@ -1,4 +1,5 @@
 "use client"
+import * as React from "react";
 import { MagicCard } from "./ui/magic-card";
 import { useTheme } from "./theme-provider";
 import { CardDescription, CardHeader, CardTitle } from "./ui/card";
@@ -7,7 +8,7 @@ import Image, { StaticImageData } from "next/image";
 interface ServiceProps {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 interface ReadMoreProps {

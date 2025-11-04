@@ -1,5 +1,4 @@
-
-
+import * as React from "react";
 import cubeLeg from "../../assets/cube-leg.png";
 import { MagicCard } from "../ui/magic-card";
 import { ChartIcon, MagnifierIcon, WalletIcon } from "../Icons";
@@ -10,7 +9,7 @@ import Image from "next/image";
 interface ServiceProps {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 const serviceList: ServiceProps[] = [
