@@ -223,11 +223,17 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const Blogs = () => {
+// Add revalidation for ISR
+export const revalidate = 3600; // Revalidate at most once per hour
+
+export default function Blogs() {
   return (
     <>
+      {/* Canonical URL */}
+      <link rel="canonical" href="https://dmiraki.com/blogs/" />
+      
       {/* Breadcrumbs for better SEO */}
-      <nav className="container mx-auto px-4 py-4 text-sm text-gray-600" aria-label="Breadcrumb">
+      <nav className="container mx-auto px-4 py-4 text-sm text-gray-600 dark:text-gray-400" aria-label="Breadcrumb">
         <ol className="flex space-x-2">
           <li><Link href="/" className="hover:underline">Home</Link></li>
           <li className="before:content-['/'] before:mx-2">Blogs</li>
@@ -385,5 +391,3 @@ const Blogs = () => {
     </>
   );
 };
-
-export default Blogs;

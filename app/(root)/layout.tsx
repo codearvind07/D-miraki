@@ -1,4 +1,3 @@
-"use client"
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
@@ -6,48 +5,27 @@ import { Navbar } from '@/components/landing/navbar';
 import { FooterSection } from '@/components/landing/footer-section';
 import { Contact } from '@/components/landing/Contact';
 import { FAQ } from '@/components/landing/FAQ';
-import { useEffect, useState } from 'react';
-import Loader from '@/components/Loader';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Digital Miraki',
+  description:
+    'Digital Miraki is a digital marketing agency that specializes in helping businesses grow their online presence. We offer a wide range of services, including SEO, content marketing, social media marketing, and more.',
+};
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-    const [isLoading, setIsLoading] = useState(true);
-    const [fadeIn, setFadeIn] = useState(false);
-  
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-        setTimeout(() => setFadeIn(true), 100); // Slight delay for smooth transition
-      }, 2000); // Loader duration
-      return () => clearTimeout(timer);
-    }, []);
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link 
-          rel="icon" 
-          href="/favicon.ico" 
-          sizes="any" 
-        />
-      </head>
-      <body className={cn('min-h-screen w-full font-sans antialiased bg-background')}>
-         {isLoading ? (
-                <Loader />
-              ) : (
-                <ThemeProvider>
-                    <Navbar />
-                    {children}
-                    <Contact />
-                    <FAQ />
-                    <FooterSection />
-          
-                    <Toaster />
-                </ThemeProvider>
-              )}
-      </body>
-    </html>
+    <ThemeProvider>
+      <Navbar />
+      {children}
+      <Contact />
+      <FAQ />
+      <FooterSection />
+      <Toaster />
+    </ThemeProvider>
   );
 }

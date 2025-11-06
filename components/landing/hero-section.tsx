@@ -1,6 +1,9 @@
+"use client";
+
 import { NumberTicker } from "../magicui/number-ticker";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
+
 
 export const HeroSection = () => {
   return (

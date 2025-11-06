@@ -131,12 +131,12 @@ export default function ClientBlogContent({ blog }: { blog: any }) {
       <section className="mt-16">
         <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Related Articles</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link href="/blogs/blog2" className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-colors">
+          <Link href="/blogs/blog2/" className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-colors">
             <h3 className="text-xl font-semibold mb-2">Next.js 15: The Future of React Development is Here</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">Explore the revolutionary features of Next.js 15 including Turbopack, enhanced App Router, and built-in performance monitoring tools.</p>
             <span className="text-blue-600 dark:text-blue-400 hover:underline">Read More →</span>
           </Link>
-          <Link href="/blogs/blog3" className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-colors">
+          <Link href="/blogs/blog3/" className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition-colors">
             <h3 className="text-xl font-semibold mb-2">The ROI of Professional Web Design: Numbers That Matter</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">Learn how professional web design delivers measurable ROI through increased conversions, reduced acquisition costs, and long-term value creation.</p>
             <span className="text-blue-600 dark:text-blue-400 hover:underline">Read More →</span>

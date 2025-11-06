@@ -59,6 +59,7 @@ const blog1 = {
   technology: ["Next.js", "Tailwind CSS", "SEO", "UX Design", "Digital Growth"],
   category: "Business Strategy",
   publishedAt: "2025-01-15T14:30:00Z",
+  updatedAt: "2025-11-06T10:00:00Z", // Add last updated date
   metaTitle: "Why Every Business Needs a Professional Website in 2025 | DMiraki Blog",
   metaDescription:
     "In 2025, a professional website isn't optional it's essential. Learn how a modern, responsive website helps build credibility, reach customers 24/7, and drive business growth.",
@@ -72,7 +73,7 @@ const blog1 = {
 // --- Metadata ---
 export async function generateMetadata(): Promise<Metadata> {
   const blog = blog1;
-  const canonical = `https://dmiraki.com/blogs/why-every-business-needs-a-professional-website-in-2025`;
+  const canonical = `https://dmiraki.com/blogs/blog1/`;
   
   // Primary and secondary SEO keywords
   const seoKeywords = [
@@ -167,6 +168,8 @@ const formatDate = (dateString: string) =>
   });
 
 // --- Blog Page ---
+export const revalidate = 3600; // Revalidate at most once per hour
+
 export default function Blog1() {
   const tableOfContents = [
     { title: "Digital Handshake: First Impressions", id: "first-impressions-your-digital-handshake" },
@@ -178,6 +181,12 @@ export default function Blog1() {
 
   return (
     <>
+      {/* Preload critical resources */}
+      <link rel="preload" href={blog1.coverImage} as="image" />
+      
+      {/* Preconnect to external domains */}
+      <link rel="preconnect" href="https://images.unsplash.com" />
+      
       {/* JSON-LD Structured Data for better SEO */}
       <script
         type="application/ld+json"
@@ -187,7 +196,7 @@ export default function Blog1() {
             "@type": "BlogPosting",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://dmiraki.com/blogs/why-every-business-needs-a-professional-website-in-2025"
+              "@id": "https://dmiraki.com/blogs/blog1/"
             },
             "headline": blog1.title,
             "description": blog1.excerpt,
@@ -260,11 +269,26 @@ export default function Blog1() {
                   <Clock className="w-4 h-4 text-gray-500" />
                   <span>{blog1.readingTime}</span>
                 </span>
+                {blog1.updatedAt && (
+                  <>
+                    <span>•</span>
+                    <span className="flex items-center space-x-1">
+                      <span className="text-gray-500">Updated:</span>
+                      <time dateTime={blog1.updatedAt}>{formatDate(blog1.updatedAt)}</time>
+                    </span>
+                  </>
+                )}
               </div>
             </div>
 
             <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20">
-              <img src={blog1.coverImage} alt={blog1.title} className="w-full h-64 md:h-[450px] object-cover" loading="eager" />
+              <img 
+                src={blog1.coverImage} 
+                alt={blog1.title} 
+                className="w-full h-64 md:h-[450px] object-cover" 
+                loading="eager"
+                fetchPriority="high"
+              />
             </div>
           </article>
 
@@ -360,12 +384,12 @@ export default function Blog1() {
           <section className="max-w-4xl mx-auto mt-16">
             <h2 className="text-3xl font-bold mb-6 text-white">Related Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Link href="/blogs/blog2" className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-blue-500 transition-colors">
+              <Link href="/blogs/blog2/" className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-blue-500 transition-colors">
                 <h3 className="text-xl font-semibold mb-2 text-white">Next.js 15: The Future of React Development is Here</h3>
                 <p className="text-gray-400 mb-4">Explore the revolutionary features of Next.js 15 including Turbopack, enhanced App Router, and built-in performance monitoring tools.</p>
                 <span className="text-blue-400 hover:underline">Read More →</span>
               </Link>
-              <Link href="/blogs/blog3" className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-blue-500 transition-colors">
+              <Link href="/blogs/blog3/" className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-blue-500 transition-colors">
                 <h3 className="text-xl font-semibold mb-2 text-white">The ROI of Professional Web Design: Numbers That Matter</h3>
                 <p className="text-gray-400 mb-4">Learn how professional web design delivers measurable ROI through increased conversions, reduced acquisition costs, and long-term value creation.</p>
                 <span className="text-blue-400 hover:underline">Read More →</span>

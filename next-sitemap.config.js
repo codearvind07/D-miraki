@@ -23,8 +23,25 @@ module.exports = {
   transform: async (config, path) => {
     let priority = 0.7;
     let changefreq = 'weekly';
-    if (path === '/') { priority = 1.0; changefreq = 'daily'; }
-    else if (path.startsWith('/blogs')) { priority = 0.8; changefreq = 'daily'; }
+    
+    // Handle the root blog path
+    if (path === '/blogs/') {
+      return {
+        loc: '/blogs',
+        changefreq: 'daily',
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      };
+    }
+    
+    if (path === '/') { 
+      priority = 1.0; 
+      changefreq = 'daily'; 
+    }
+    else if (path.startsWith('/blogs')) { 
+      priority = 0.8; 
+      changefreq = 'daily'; 
+    }
     // Prioritize key service pages
     else if (path.includes('social-media-marketing-and-management') || 
              path.includes('profitable-performance-marketing') || 
@@ -36,7 +53,10 @@ module.exports = {
       priority = 0.9; 
       changefreq = 'weekly'; 
     }
-    else if (path.startsWith('/brand-and-reach') || path.startsWith('/code-and-build')) { priority = 0.8; changefreq = 'weekly'; }
+    else if (path.startsWith('/brand-and-reach') || path.startsWith('/code-and-build')) { 
+      priority = 0.8; 
+      changefreq = 'weekly'; 
+    }
 
     return {
       loc: path,

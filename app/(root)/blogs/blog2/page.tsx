@@ -114,7 +114,7 @@ const blog2 = {
 // --- Metadata ---
 export async function generateMetadata(): Promise<Metadata> {
   const blog = blog2;
-  const canonical = `https://dmiraki.com/blogs/nextjs-15-the-future-of-react-development`;
+  const canonical = `https://dmiraki.com/blogs/blog2/`;
   
   // Primary and secondary SEO keywords
   const seoKeywords = [
@@ -190,6 +190,8 @@ const formatDate = (dateString: string) =>
     month: "long",
     year: "numeric",
   });
+
+export const revalidate = 3600; // Revalidate at most once per hour
 
 export default function Blog2() {
   const tableOfContents = [

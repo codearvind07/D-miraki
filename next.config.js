@@ -6,6 +6,18 @@ const nextConfig = {
 
   images: {
     unoptimized: true, // Good for self-hosted or non-Vercel deployment
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dmiraki.com',
+        port: '',
+      },
+    ],
   },
 
   reactStrictMode: true, // Recommended for catching issues early

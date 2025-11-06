@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 
 import { ChartIcon, WalletIcon, MagnifierIcon } from "@/components/Icons";
 import roboto from "../../../../assets/roboto.png";
+import { generateStructuredData, generateFAQData } from "./page-server";
 
 // SEO services data
 const seoServices = [
@@ -135,8 +136,35 @@ export default function SearchEngineOptimizationClient() {
     if (el && !sectionRefs.current.includes(el)) sectionRefs.current.push(el);
   };
 
+  // Get structured data
+  const structuredData = generateStructuredData();
+  const faqData = generateFAQData();
+
+  // Generate FAQPage structured data
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData
+  };
+
   return (
     <>
+      {/* Service Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      
+      {/* FAQ Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqStructuredData),
+        }}
+      />
+      
       {/* Animated background blobs */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -333,6 +361,49 @@ export default function SearchEngineOptimizationClient() {
               </Link>
               <Link href="/blogs" className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 text-gray-800 dark:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
                 View Case Studies
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Articles Section */}
+        <section className="py-16 px-4 lg:px-8 bg-gradient-to-br from-blue-50/80 via-white to-purple-50/80 dark:from-gray-900 dark:via-gray-950 dark:to-blue-900/40">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Related <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Resources</span>
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Explore our latest insights on SEO and digital marketing strategies.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Link href="/blogs/blog1" className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="h-48 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">Why Every Business Needs a Professional Website in 2025</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">Discover why having a professional website is crucial for business success in 2025.</p>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">Read Article →</span>
+                </div>
+              </Link>
+
+              <Link href="/blogs/blog3" className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="h-48 bg-gradient-to-r from-green-400 to-blue-500"></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">The ROI of Professional Web Design: Numbers That Matter</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">Learn how professional web design delivers measurable ROI through increased conversions.</p>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">Read Article →</span>
+                </div>
+              </Link>
+
+              <Link href="/blogs/blog13" className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-500"></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">Website Performance Optimization: Speed Strategies That Drive Business Results</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">Learn essential website performance optimization strategies to improve speed and user experience.</p>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">Read Article →</span>
+                </div>
               </Link>
             </div>
           </div>

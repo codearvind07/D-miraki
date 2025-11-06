@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import {
   NavigationMenu,
@@ -17,8 +17,7 @@ import {
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Menu } from "lucide-react";
 
-import { useRouter } from "next/navigation";
-import { Button, buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 import { ModeToggle } from "../mode-toggle";
 import Link from "next/link";
 
@@ -48,21 +47,6 @@ const routeList: RouteProps[] = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const navigate = useRouter(); // Hook for programmatic navigation
-
-  const handleNavigation = (path: string) => {
-    if (path.startsWith("#")) {
-      // For anchor links, scroll to the element
-      const element = document.querySelector(path);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    } else {
-      // For other routes, navigate
-      navigate.push(path);
-    }
-    setIsOpen(false); // Close the sheet if open
-  };
   
   return (
     <>
@@ -71,7 +55,6 @@ export const Navbar = () => {
           <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
             <NavigationMenuItem className="font-bold flex">
               <Link
-                rel="noreferrer noopener"
                 href="/"
                 className="ml-2 font-bold text-xl flex cursor-pointer font-recoleta"
               >
@@ -101,31 +84,26 @@ export const Navbar = () => {
                   </SheetHeader>
                   <nav className="flex flex-col justify-center items-center gap-2 mt-4">
                     {routeList.map(({ href, label }: RouteProps) => (
-                      <button
-                     
+                      <Link
                         key={label}
-                        onClick={() => handleNavigation(href)}
+                        href={href}
+                        onClick={() => setIsOpen(false)}
                         className={buttonVariants({ variant: "ghost" })}
                       >
                         {label}
-                      </button>
+                      </Link>
                     ))}
-                    <p
-                     style={{ cursor: "pointer" }}
-                      onClick={() =>
-                        navigate.push("/contact-us")
-                      }
+                    <Link
+                      href="/contact-us"
+                      onClick={() => setIsOpen(false)}
                       className={`w-[110px] border ${buttonVariants({
                         variant: "ghost",
                       })}`}
                     >
                       <ArrowTopRightIcon className="mr-2 w-5 h-5" />
                       Get in Touch
-                    </p>
-
-                  
+                    </Link>
                   </nav>
-               
                 </SheetContent>
               </Sheet>
             </span>
@@ -133,28 +111,26 @@ export const Navbar = () => {
             {/* desktop */}
             <nav className="hidden md:flex gap-2">
               {routeList.map(({ href, label }: RouteProps) => (
-                <button
+                <Link
                   key={label}
-                  onClick={() => handleNavigation(href)}
+                  href={href}
                   className={`text-[17px] ${buttonVariants({
                     variant: "link",
                   })}`}
                 >
                   {label}
-                </button>
+                </Link>
               ))}
             </nav>
 
             <div className="hidden md:flex gap-2">
-              <p
-                onClick={() =>
-                      navigate.push("/contact-us")
-                    }
+              <Link
+                href="/contact-us"
                 className={`border ${buttonVariants({ variant: "ghost" })} cursor-pointer`}
               >
                 <ArrowTopRightIcon className="mr-2 w-5 h-5" />
                 Get in Touch
-              </p>
+              </Link>
 
               <ModeToggle />
             </div>

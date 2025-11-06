@@ -69,6 +69,9 @@ export default function AboutClient() {
 
   return (
     <>
+      {/* Canonical URL */}
+      <link rel="canonical" href="https://dmiraki.com/about/" />
+      
       {/* JSON-LD structured data */}
       <script
         type="application/ld+json"

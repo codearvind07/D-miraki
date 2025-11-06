@@ -10,36 +10,43 @@ This document outlines the comprehensive SEO strategy for DMiraki's website, inc
 - **Broad Keywords**: social media marketing, social media management, social media agency
 - **Specific Keywords**: Facebook marketing, Instagram marketing, LinkedIn marketing, TikTok for business, social media advertising
 - **Long-Tail Keywords**: social media management for small business, social media marketing to increase sales, social media community building, social media conversion strategy, get customers from social media
+- **Location-Based Keywords**: social media marketing agency near me, social media management services [city name]
 
 ### 2.2 Profitable Performance Marketing
 - **Broad Keywords**: performance marketing, PPC management, digital advertising
 - **Specific Keywords**: Google Ads management, Facebook Ads management, paid social media, PPC agency, ROI marketing
 - **Long-Tail Keywords**: maximize advertising ROI, data-driven marketing campaigns, scalable PPC campaigns, lead generation advertising, performance-based marketing agency
+- **Platform-Specific Keywords**: Google Ads agency, Facebook advertising services, LinkedIn ad management
 
 ### 2.3 Content Creation & Strategy
 - **Broad Keywords**: content marketing, content strategy, content creation
 - **Specific Keywords**: B2B content marketing, blog writing service, video content strategy, brand storytelling
 - **Long-Tail Keywords**: content marketing for lead generation, B2B content strategy, establish thought leadership content, content that drives engagement, content that converts
+- **Content-Type Keywords**: blog post writing service, video content creation, infographic design, whitepaper writing
 
 ### 2.4 Search Engine Optimization (SEO)
 - **Broad Keywords**: SEO services, search engine optimization, SEO company
 - **Specific Keywords**: local SEO services, technical SEO, ecommerce SEO, keyword research, link building
 - **Long-Tail Keywords**: SEO for small business, get on Google first page, organic lead generation, long-term SEO strategy, SEO for website traffic
+- **Service-Specific Keywords**: SEO audit services, SEO consulting, enterprise SEO services
 
 ### 2.5 Web Design & Development
 - **Broad Keywords**: web design, website development, web design agency
 - **Specific Keywords**: custom web development, WordPress development, responsive web design, ecommerce website development
 - **Long-Tail Keywords**: high-converting website design, custom website for small business, redesign website for leads, website optimized for conversions, sales-focused web design
+- **Technology Keywords**: Next.js development, React website development, Tailwind CSS design
 
 ### 2.6 UI & UX Design
 - **Broad Keywords**: UI design, UX design, user experience design
 - **Specific Keywords**: website usability, interface design, user journey mapping, UX research, prototyping
 - **Long-Tail Keywords**: improve website conversion rate with UX, UX design for SaaS, reduce bounce rate with UI, user-centered design agency, intuitive website design
+- **Specialized Keywords**: mobile UI design, accessibility design, user testing services
 
 ### 2.7 IoT-Based Software
 - **Broad Keywords**: IoT development, IoT solutions, IoT software
 - **Specific Keywords**: enterprise IoT, IoT platform, smart device software, IoT data analytics, connected solutions
 - **Long-Tail Keywords**: custom IoT development, IoT for operational efficiency, IoT data insights, reduce costs with IoT, IoT for manufacturing
+- **Industry-Specific Keywords**: IoT for healthcare, smart home IoT solutions, industrial IoT applications
 
 ## 3. Implementation Strategy
 
@@ -114,3 +121,53 @@ This document outlines the comprehensive SEO strategy for DMiraki's website, inc
 - Increased organic traffic to service pages
 - Higher conversion rates from organic search
 - Enhanced domain authority and trust signals
+
+## 8. Content Cluster Strategy
+
+### 8.1 Core Topic Clusters
+1. **Digital Marketing Services**
+   - Primary: Search Engine Optimization
+   - Cluster: Social Media Marketing, Content Creation, Performance Marketing
+
+2. **Web Development & Design**
+   - Primary: Web Design & Development
+   - Cluster: UI/UX Design, Custom Software Development, E-commerce Solutions
+
+3. **Business Growth & Strategy**
+   - Primary: Digital Transformation
+   - Cluster: Brand Building, Lead Generation, Customer Retention
+
+### 8.2 Content Calendar
+- Publish 2-3 blog posts per week targeting different stages of the buyer's journey
+- Update existing content quarterly to maintain relevance
+- Create seasonal content aligned with industry trends and events
+
+## 9. Link Building Strategy
+
+### 9.1 Internal Linking
+- Create topic clusters with pillar pages and supporting content
+- Use contextual links with descriptive anchor text
+- Link from high-authority pages to newer content
+
+### 9.2 External Link Building
+- Guest posting on industry publications
+- Creating shareable resources (infographics, guides, tools)
+- Building relationships with industry influencers
+- Participating in relevant online communities and forums
+
+## 10. Technical SEO Checklist
+
+### 10.1 Core Web Vitals
+- Optimize Largest Contentful Paint (LCP)
+- Reduce First Input Delay (FID)
+- Minimize Cumulative Layout Shift (CLS)
+
+### 10.2 Site Structure
+- Maintain clean URL structure
+- Implement proper canonical tags
+- Ensure mobile-first indexing compatibility
+
+### 10.3 Indexing
+- Submit updated sitemaps regularly
+- Monitor crawl errors in Google Search Console
+- Implement proper robots.txt configuration

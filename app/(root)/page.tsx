@@ -65,30 +65,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Home() {
-  return (
-    <>
-      {/* JSON-LD structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "DMiraki",
-            "url": "https://dmiraki.com",
-            "description": "DMiraki is your trusted digital partner for SEO, branding, web design, marketing, and IT solutions. Transform your vision into impact.",
-            "publisher": {
-              "@type": "Organization",
-              "name": "DMiraki",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://dmiraki.com/assets/icon.png"
-              }
-            }
-          })
-        }}
-      />
-      <HomeClient />
-    </>
-  );
+  return <HomeClient />;
 }

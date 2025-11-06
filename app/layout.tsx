@@ -95,6 +95,15 @@ export const metadata: Metadata = {
       { url: "https://dmiraki.com/favicon.png", type: "image/png" },
     ],
   },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-title': 'DMiraki',
+    'application-name': 'DMiraki',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'format-detection': 'telephone=no',
+    ' HandheldFriendly': 'true',
+    'mobileOptimized': 'width',
+  },
 };
 
 export const viewport = {
@@ -103,6 +112,8 @@ export const viewport = {
   maximumScale: 5,
   viewportFit: 'cover' as const,
   themeColor: '#ffffff',
+  // Mobile-specific optimizations
+  userScalable: 'yes',
 };
 
 export default function RootLayout({
@@ -114,40 +125,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preload critical fonts */}
+        <link rel="preload" href="/fonts/Recoleta-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Recoleta-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Recoleta-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <link rel="preconnect" href="https://static.hotjar.com" />
+        
+        {/* DNS prefetch for additional domains */}
+        <link rel="dns-prefetch" href="https://embed.tawk.to" />
+        
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content="QBA0TcAjYFt3-m-Q2h7S9FkphwegzU3wLJpYS7udJ7w" />
         
-        {/* Schema.org JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "DMiraki",
-              url: "https://dmiraki.com",
-              logo: "https://dmiraki.com/assets/icon.png",
-              description:
-                "DMiraki is a full-service digital marketing and IT solutions agency helping businesses grow with tailored digital strategies.",
-              sameAs: [
-                "https://www.instagram.com/dmirakihq",
-                "https://www.linkedin.com/company/dmiraki",
-              ],
-              foundingDate: "2024",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Global",
-                addressCountry: "Worldwide"
-              },
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+1-XXX-XXX-XXXX",
-                contactType: "Customer Service",
-                email: "contact@dmiraki.com"
-              }
-            }),
-          }}
-        />
          {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-E3P558P7L4"
@@ -183,25 +177,6 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','${GTM_ID}');
           `,
         }} />
-        <link rel="preload" href="/fonts/Recoleta-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/Recoleta-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/Recoleta-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-      </head>
-      <body
-        className={cn("min-h-screen w-full font-sans antialiased overflow-x-hidden", inter.variable)}
-      >
-        <ThemeProvider>
-          <ClientQueryProvider>{children}</ClientQueryProvider>
-          <Toaster />
-          <ToastContainer />
-           <Analytics />
-           <SpeedInsights />
-        </ThemeProvider>
-
-       
-
-       
-
         {/* Tawk.to Live Chat */}
         <Script id="tawkto-script" strategy="afterInteractive">
           {`
@@ -230,6 +205,22 @@ export default function RootLayout({
           fbq('track', 'PageView');
         `}
       </Script>
+      </head>
+      <body
+        className={cn("min-h-screen w-full font-sans antialiased overflow-x-hidden", inter.variable)}
+      >
+        <ThemeProvider>
+          <ClientQueryProvider>{children}</ClientQueryProvider>
+          <Toaster />
+          <ToastContainer />
+           <Analytics />
+           <SpeedInsights />
+        </ThemeProvider>
+
+       
+
+       
+
         
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSK6FWS8"
 height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe></noscript>

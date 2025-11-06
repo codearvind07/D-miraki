@@ -64,6 +64,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Page() {
   return (
     <>
+      {/* Canonical URL */}
+      <link rel="canonical" href="https://dmiraki.com/contact-us/" />
+      
       {/* JSON-LD structured data */}
       <script
         type="application/ld+json"

@@ -120,7 +120,7 @@ const blog3 = {
 // --- Metadata ---
 export async function generateMetadata(): Promise<Metadata> {
   const blog = blog3;
-  const canonical = `https://dmiraki.com/blogs/the-roi-of-professional-web-design`;
+  const canonical = `https://dmiraki.com/blogs/blog3/`;
   
   // Primary and secondary SEO keywords
   const seoKeywords = [
@@ -197,6 +197,8 @@ const formatDate = (dateString: string) =>
     month: "long",
     year: "numeric",
   });
+
+export const revalidate = 3600; // Revalidate at most per hour
 
 export default function Blog3() {
   const tableOfContents = [
