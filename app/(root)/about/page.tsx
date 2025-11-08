@@ -57,6 +57,12 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical: siteUrl,
+      languages: {
+        'en-US': siteUrl,
+        // Add other language versions here when available
+        // 'es-ES': 'https://dmiraki.com/es/about',
+        // 'fr-FR': 'https://dmiraki.com/fr/about',
+      }
     },
     openGraph: {
       title: pageTitle,
@@ -82,6 +88,7 @@ export async function generateMetadata(): Promise<Metadata> {
       site: '@dmiraki',
     },
   };
+
 }
 
 export default function About() {

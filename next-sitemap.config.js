@@ -16,29 +16,24 @@ module.exports = {
       { userAgent: '*', allow: '/' },
       { userAgent: '*', disallow: ['/dashboard', '/dashboard/**', '/api/*', '/register'] },
     ],
-    additionalSitemaps: [
-      'https://dmiraki.com/sitemap-0.xml',
-    ],
+    // Ensure no duplicate sitemap references
   },
   transform: async (config, path) => {
+    const lastSegment = path.split('/').pop();
+    const isFile = lastSegment.includes('.');
+
+    if (path !== '/' && !isFile && !path.endsWith('/')) {
+      path = path + '/';
+    }
+    
     let priority = 0.7;
     let changefreq = 'weekly';
-    
-    // Handle the root blog path
-    if (path === '/blogs/') {
-      return {
-        loc: '/blogs',
-        changefreq: 'daily',
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
-      };
-    }
     
     if (path === '/') { 
       priority = 1.0; 
       changefreq = 'daily'; 
     }
-    else if (path.startsWith('/blogs')) { 
+    else if (path.startsWith('/blogs/')) { 
       priority = 0.8; 
       changefreq = 'daily'; 
     }
@@ -53,7 +48,7 @@ module.exports = {
       priority = 0.9; 
       changefreq = 'weekly'; 
     }
-    else if (path.startsWith('/brand-and-reach') || path.startsWith('/code-and-build')) { 
+    else if (path.startsWith('/brand-and-reach/') || path.startsWith('/code-and-build/')) { 
       priority = 0.8; 
       changefreq = 'weekly'; 
     }

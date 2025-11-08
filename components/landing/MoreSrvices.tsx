@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 export default function MoreSrvices() {
   const services = [
@@ -65,10 +66,14 @@ export default function MoreSrvices() {
             <div className={`flex flex-col lg:flex-row ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[400px]`}>
               {/* Image Section */}
               <div className="lg:w-2/5 relative overflow-hidden">
-                <img 
+                <Image 
                   src={service.image}
                   alt={service.title}
                   className="w-full h-64 lg:h-full object-cover transition-transform duration-700 hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={false}
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
               </div>

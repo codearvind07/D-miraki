@@ -46,6 +46,12 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical: url,
+      languages: {
+        'en-US': url,
+        // Add other language versions here when available
+        // 'es-ES': 'https://dmiraki.com/es/brand-and-reach/search-engine-optimization',
+        // 'fr-FR': 'https://dmiraki.com/fr/brand-and-reach/search-engine-optimization',
+      }
     },
     openGraph: {
       title: title,
@@ -71,6 +77,7 @@ export async function generateMetadata(): Promise<Metadata> {
       site: '@dmiraki',
     },
   };
+
 }
 
 // Add structured data for SEO services

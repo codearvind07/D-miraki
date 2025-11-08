@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Clock, Calendar, ChevronLeft, Feather, Send, LayoutList } from "lucide-react";
 
 // --- Optimized & Refined Blog Content ---
@@ -130,7 +131,15 @@ export async function generateMetadata(): Promise<Metadata> {
         'max-snippet': -1,
       }
     },
-    alternates: { canonical },
+    alternates: { 
+      canonical,
+      languages: {
+        'en-US': canonical,
+        // Add other language versions here when available
+        // 'es-ES': `https://dmiraki.com/es/blogs/blog1/`,
+        // 'fr-FR': `https://dmiraki.com/fr/blogs/blog1/`,
+      }
+    },
     openGraph: {
       title: blog.metaTitle,
       description: blog.metaDescription,
@@ -281,13 +290,15 @@ export default function Blog1() {
               </div>
             </div>
 
-            <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20">
-              <img 
+            <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20 relative h-64 md:h-[450px]">
+              <Image 
                 src={blog1.coverImage} 
                 alt={blog1.title} 
-                className="w-full h-64 md:h-[450px] object-cover" 
+                className="object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={true}
                 loading="eager"
-                fetchPriority="high"
               />
             </div>
           </article>

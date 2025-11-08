@@ -11,7 +11,14 @@ import Script from "next/script";
 import { ToastContainer } from "react-toastify";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from "@vercel/speed-insights/next"
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+// Use fallback font loading
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-sans",
+  display: 'swap',
+  fallback: ['system-ui', 'arial']
+});
 
 // Updated metadata without i18n-specific properties
 export const metadata: Metadata = {
@@ -88,6 +95,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://dmiraki.com"),
   alternates: {
     canonical: "https://dmiraki.com",
+    // Fix hreflang implementation by using correct format
+    languages: {
+      'en-US': 'https://dmiraki.com',
+      // Add other language versions here when available
+      // 'es-ES': 'https://dmiraki.com/es',
+      // 'fr-FR': 'https://dmiraki.com/fr',
+    }
   },
   icons: {
     icon: [
@@ -101,7 +115,7 @@ export const metadata: Metadata = {
     'application-name': 'DMiraki',
     'apple-mobile-web-app-status-bar-style': 'default',
     'format-detection': 'telephone=no',
-    ' HandheldFriendly': 'true',
+    'HandheldFriendly': 'true',
     'mobileOptimized': 'width',
   },
 };

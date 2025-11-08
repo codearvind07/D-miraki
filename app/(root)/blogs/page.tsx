@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from 'next/image';
 import { Metadata } from 'next';
+import Script from "next/script";
 
 // Static blog data with more relevant images
 interface BlogPost {
@@ -139,7 +141,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const pageTitle = 'Latest Blogs & Insights | Web Development Trends 2025';
   const pageDescription = 'Explore expert insights on Next.js, AI integration, responsive design, and web performance — stay updated with the latest web development trends.';
   const pageImage = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80';
-  const canonicalUrl = `${siteUrl}/blogs`;
+  const canonicalUrl = `${siteUrl}/blogs/`;
   
   // Combine all blog keywords for the main blogs page
   const allKeywords = blogs.flatMap(blog => blog.keywords.split(', ')).join(', ');
@@ -196,6 +198,12 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical: canonicalUrl,
+      languages: {
+        'en-US': canonicalUrl,
+        // Add other language versions here when available
+        // 'es-ES': 'https://dmiraki.com/es/blogs/',
+        // 'fr-FR': 'https://dmiraki.com/fr/blogs/',
+      }
     },
     openGraph: {
       title: pageTitle,
@@ -265,10 +273,13 @@ export default function Blogs() {
             >
               <div className="h-48 bg-gradient-to-br from-pink-400 to-yellow-500 relative">
                 {post.coverImage ? (
-                  <img
+                  <Image
                     src={post.coverImage}
                     alt={`${post.title} - blog cover image`}
-                    className="w-full h-48 object-cover"
+                    className="object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={false}
                     loading="lazy"
                   />
                 ) : (
@@ -357,15 +368,16 @@ export default function Blogs() {
       </section>
       
       {/* JSON-LD for rich results */}
-      <script
+      <Script
         type="application/ld+json"
+        id="blog-json-ld"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Blog",
             "name": "DMiraki Blog",
             "description": "Expert insights on web development trends, Next.js, AI integration, and responsive design for 2025.",
-            "url": "https://dmiraki.com/blogs",
+            "url": "https://dmiraki.com/blogs/",
             "publisher": {
               "@type": "Organization",
               "name": "DMiraki",

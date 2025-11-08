@@ -37,6 +37,13 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical: siteUrl,
+      // Fix hreflang implementation by using correct format
+      languages: {
+        'en-US': siteUrl,
+        // Add other language versions here when available
+        // 'es-ES': 'https://dmiraki.com/es',
+        // 'fr-FR': 'https://dmiraki.com/fr',
+      }
     },
     openGraph: {
       title: pageTitle,
@@ -62,6 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
       site: '@dmiraki',
     },
   };
+
 }
 
 export default function Home() {

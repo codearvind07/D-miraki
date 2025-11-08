@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Clock, Calendar, ChevronLeft, Feather, Send, LayoutList } from "lucide-react";
 
 // --- Optimized & Refined Blog Content ---
@@ -267,8 +268,8 @@ export default function Blog10() {
             </div>
           </div>
 
-          <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20">
-            <img src={blog10.coverImage} alt={blog10.title} className="w-full h-64 md:h-[450px] object-cover" />
+          <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20 relative h-64 md:h-[450px]">
+            <Image src={blog10.coverImage} alt={blog10.title} className="object-cover" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority={true} loading="eager" />
           </div>
         </article>
 

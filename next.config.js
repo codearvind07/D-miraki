@@ -22,8 +22,8 @@ const nextConfig = {
 
   reactStrictMode: true, // Recommended for catching issues early
   
-  // Add basePath configuration for static export
-  basePath: '',
+  // Remove basePath configuration for static export
+  // basePath: '',
   
   // Ensure proper asset handling for static export
   assetPrefix: '',
